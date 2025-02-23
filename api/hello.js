@@ -1,6 +1,5 @@
 // api/hello.js
-app.get('/api/hello', (req, res) => {
-    res.json({
-        message: "Hello from the Node.js API!"  // This message will be shown in the HTML
-    });
-});
+module.exports = (req, res) => {
+  // Sending a JSON response with a message
+  res.status(200).json({ message: 'Hello from the Node.js API!' });
+};
