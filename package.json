@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "hello.js",
   "scripts": {
+    "start": "node hello.js",  // Starts the server (for production)
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,7 +13,8 @@
   "dependencies": {
     "express": "^4.21.2",
     "sqlite3": "^5.1.7"
+  },
+  "engines": {
+    "node": "16.x"  // Ensure Vercel uses Node.js 16.x in production
   }
 }
-
-
