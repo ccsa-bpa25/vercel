@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test API</title>
+</head>
+<body>
+
+  <h1>Test the API</h1>
+  <button id="fetchData">Fetch Data</button>
+  <p id="result"></p>
+
+  <script>
+    // Wait for the page to fully load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the button and the result paragraph
+      const button = document.getElementById('fetchData');
+      const result = document.getElementById('result');
+
+      // Set up the fetch request when the button is clicked
+      button.addEventListener('click', function() {
+        fetch('/api/hello')
+          .then(response => response.json())  // Parse the JSON response
+          .then(data => {
+            // Display the message from the API
+            result.innerHTML = 'API Response: ' + data.message;
+          })
+          .catch(error => {
+            // If there's an error, show it on the page
+            result.innerHTML = 'Error: ' + error;
+          });
+      });
+    });
+  </script>
+
+</body>
+</html>
