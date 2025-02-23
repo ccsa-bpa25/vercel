@@ -4,7 +4,7 @@
   "main": "index.js",
   "dependencies": {
     "sqlite3": "^5.1.7",
-    "bcryptjs": "^2.4.3",  // Correct version of bcryptjs
+    "bcryptjs": "^2.4.3",
     "express": "^4.18.2"
   },
   "devDependencies": {},
