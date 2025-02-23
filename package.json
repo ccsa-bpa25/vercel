@@ -1,20 +1,20 @@
 {
   "name": "gitvercel",
   "version": "1.0.0",
-  "main": "hello.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node hello.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vercel dev", // Local development for Vercel (optional)
+    "build": "vercel build", // Build for Vercel (optional)
+    "start": "vercel start" // Start the deployment (optional)
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "express": "^4.21.2",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",  // SQLite3 database for storing user data
+    "bcrypt": "^5.0.1",    // bcrypt for password hashing
+    "express": "^4.21.2"   // Optional: Express can be used for local development or more custom logic
   },
+  "devDependencies": {},
   "engines": {
-    "node": "22.x"
-  }
+    "node": "16.x"  // Vercel's recommended Node.js version for deployments
+  },
+  "description": "Vercel app with multiple APIs (hello.js, goodbye.js) and signup API using SQLite3 and bcrypt"
 }
