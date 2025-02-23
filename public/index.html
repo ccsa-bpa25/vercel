@@ -3,79 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup</title>
+  <title>Signup and Login</title>
 </head>
 <body>
-  <h1>Signup</h1>
-
-  <!-- Signup Form -->
+  <h2>Signup</h2>
   <form id="signupForm">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required><br><br>
+    <label for="signupUsername">Username:</label>
+    <input type="text" id="signupUsername" name="username" required><br><br>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
+    <label for="signupPassword">Password:</label>
+    <input type="password" id="signupPassword" name="password" required><br><br>
 
     <button type="submit">Sign Up</button>
   </form>
 
-  <p id="message"></p>
+  <h2>Login</h2>
+  <form id="loginForm">
+    <label for="loginUsername">Username:</label>
+    <input type="text" id="loginUsername" name="username" required><br><br>
+
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" name="password" required><br><br>
+
+    <button type="submit">Log In</button>
+  </form>
+
+  <div id="message"></div>
 
   <script>
     // Handle signup form submission
-    document.getElementById('signupForm').addEventListener('submit', async function(event) {
-      event.preventDefault();  // Prevent the default form submission
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
 
-      // Get user input
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+      const username = document.getElementById('signupUsername').value;
+      const password = document.getElementById('signupPassword').value;
 
-      // Check if username and password are not empty
-      if (!username || !password) {
-        document.getElementById('message').textContent = 'Please fill in both fields.';
-        document.getElementById('message').style.color = 'red';
-        return;
-      }
+      const signupData = {
+        username: username,
+        password: password
+      };
 
-      try {
-        // Send signup data to the backend
-        const response = await fetch('/api/signup', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ username, password }),
-        });
-
-        // Get the response as text to check for JSON errors
-        const text = await response.text();
-        let result = null;
-        
-        try {
-          // Try parsing the response as JSON
-          result = JSON.parse(text);
-        } catch (error) {
-          // If it's not valid JSON, display the raw response
-          console.error('Response is not valid JSON:', text);
-          throw new Error('Server response is not valid JSON.');
-        }
-
-        // Handle different response statuses
-        if (response.ok) {
-          // Display success message
-          document.getElementById('message').textContent = result.message;
-          document.getElementById('message').style.color = 'green';
+      fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signupData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message) {
+          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
         } else {
-          // Display error message
-          document.getElementById('message').textContent = result.error || 'Signup failed!';
-          document.getElementById('message').style.color = 'red';
+          document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
         }
+      })
+      .catch(error => {
+        document.getElementById('message').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+      });
+    });
 
-      } catch (error) {
-        // Catch any unexpected errors (like network issues)
-        document.getElementById('message').textContent = 'Error: ' + error.message;
-        document.getElementById('message').style.color = 'red';
-      }
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const loginData = {
+        username: username,
+        password: password
+      };
+
+      fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message) {
+          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
+        } else {
+          document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
+        }
+      })
+      .catch(error => {
+        document.getElementById('message').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+      });
     });
   </script>
 </body>
