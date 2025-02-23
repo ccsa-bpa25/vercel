@@ -24,17 +24,21 @@
   <script>
     // Handle signup form submission
     document.getElementById('signupForm').addEventListener('submit', async function(event) {
-      event.preventDefault();
+      event.preventDefault();  // Prevent the default form submission
 
+      // Get user input
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
+      // Check if username and password are not empty
       if (!username || !password) {
         document.getElementById('message').textContent = 'Please fill in both fields.';
+        document.getElementById('message').style.color = 'red';
         return;
       }
 
       try {
+        // Send signup data to the backend
         const response = await fetch('/api/signup', {
           method: 'POST',
           headers: {
@@ -43,16 +47,32 @@
           body: JSON.stringify({ username, password }),
         });
 
-        const result = await response.json();
+        // Get the response as text to check for JSON errors
+        const text = await response.text();
+        let result = null;
+        
+        try {
+          // Try parsing the response as JSON
+          result = JSON.parse(text);
+        } catch (error) {
+          // If it's not valid JSON, display the raw response
+          console.error('Response is not valid JSON:', text);
+          throw new Error('Server response is not valid JSON.');
+        }
 
+        // Handle different response statuses
         if (response.ok) {
+          // Display success message
           document.getElementById('message').textContent = result.message;
           document.getElementById('message').style.color = 'green';
         } else {
+          // Display error message
           document.getElementById('message').textContent = result.error || 'Signup failed!';
           document.getElementById('message').style.color = 'red';
         }
+
       } catch (error) {
+        // Catch any unexpected errors (like network issues)
         document.getElementById('message').textContent = 'Error: ' + error.message;
         document.getElementById('message').style.color = 'red';
       }
