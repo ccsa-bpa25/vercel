@@ -3,49 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup & Login</title>
+  <title>Signup</title>
 </head>
 <body>
+  <h1>Signup</h1>
 
-  <h2>Signup</h2>
+  <!-- Signup Form -->
   <form id="signupForm">
-    <label for="signupUsername">Username:</label>
-    <input type="text" id="signupUsername" name="username" required>
-    <br><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
 
-    <label for="signupPassword">Password:</label>
-    <input type="password" id="signupPassword" name="password" required>
-    <br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
 
     <button type="submit">Sign Up</button>
   </form>
 
-  <h2>Login</h2>
-  <form id="loginForm">
-    <label for="loginUsername">Username:</label>
-    <input type="text" id="loginUsername" name="username" required>
-    <br><br>
-
-    <label for="loginPassword">Password:</label>
-    <input type="password" id="loginPassword" name="password" required>
-    <br><br>
-
-    <button type="submit">Log In</button>
-  </form>
-
-  <div id="message"></div>
+  <p id="message"></p>
 
   <script>
     // Handle signup form submission
     document.getElementById('signupForm').addEventListener('submit', async function(event) {
       event.preventDefault();
 
-      const username = document.getElementById('signupUsername').value;
-      const password = document.getElementById('signupPassword').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
       if (!username || !password) {
-        document.getElementById('message').textContent = 'Username and password are required for signup.';
-        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').textContent = 'Please fill in both fields.';
         return;
       }
 
@@ -58,50 +43,13 @@
           body: JSON.stringify({ username, password }),
         });
 
-        const data = await response.json();
+        const result = await response.json();
 
         if (response.ok) {
-          document.getElementById('message').textContent = 'User registered successfully!';
+          document.getElementById('message').textContent = result.message;
           document.getElementById('message').style.color = 'green';
         } else {
-          document.getElementById('message').textContent = data.error || 'Signup failed!';
-          document.getElementById('message').style.color = 'red';
-        }
-      } catch (error) {
-        document.getElementById('message').textContent = 'Error: ' + error.message;
-        document.getElementById('message').style.color = 'red';
-      }
-    });
-
-    // Handle login form submission
-    document.getElementById('loginForm').addEventListener('submit', async function(event) {
-      event.preventDefault();
-
-      const username = document.getElementById('loginUsername').value;
-      const password = document.getElementById('loginPassword').value;
-
-      if (!username || !password) {
-        document.getElementById('message').textContent = 'Username and password are required for login.';
-        document.getElementById('message').style.color = 'red';
-        return;
-      }
-
-      try {
-        const response = await fetch('/api/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ username, password }),
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-          document.getElementById('message').textContent = 'Login successful!';
-          document.getElementById('message').style.color = 'green';
-        } else {
-          document.getElementById('message').textContent = data.error || 'Login failed!';
+          document.getElementById('message').textContent = result.error || 'Signup failed!';
           document.getElementById('message').style.color = 'red';
         }
       } catch (error) {
@@ -110,6 +58,5 @@
       }
     });
   </script>
-
 </body>
 </html>
