@@ -1,6 +1,16 @@
 const sqlite3 = require('sqlite3').verbose();
 const bcryptjs = require('bcryptjs');
 
+// Initialize SQLite database (use /tmp for a writable temporary file in Vercel)
+const db = new sqlite3.Database('/tmp/signup.db', (err) => {
+  if (err) {
+    console.error('Error opening database:', err.message);
+    return;
+  } else {
+    console.log('Connected to SQLite database.');
+  }
+});
+
 module.exports = (req, res) => {
   if (req.method === 'POST') {
     const { username, password } = req.body;
