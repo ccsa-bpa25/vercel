@@ -1,36 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const bcryptjs = require('bcryptjs');
 
-// Initialize SQLite database (use /tmp for a writable temporary file in Vercel)
-const db = new sqlite3.Database('/tmp/signup.db', (err) => {
-  if (err) {
-    console.error('Error opening database:', err.message);
-    return;
-  } else {
-    console.log('Connected to SQLite database.');
-  }
-});
-
-// Initialize users table if it doesn't exist
-const initializeDatabase = () => {
-  const createTableQuery = `
-    CREATE TABLE IF NOT EXISTS users (
-      username TEXT UNIQUE NOT NULL,
-      password TEXT NOT NULL
-    )
-  `;
-  
-  db.run(createTableQuery, (err) => {
-    if (err) {
-      console.error('Error creating users table:', err.message);
-    } else {
-      console.log('Users table initialized successfully.');
-    }
-  });
-};
-
-initializeDatabase();
-
 module.exports = (req, res) => {
   if (req.method === 'POST') {
     const { username, password } = req.body;
