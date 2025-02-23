@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const db = new sqlite3.Database('./users.db', (err) => {
   if (err) {
     console.error('Error opening database:', err.message);
+    return;
   } else {
     console.log('Connected to SQLite database.');
   }
@@ -19,10 +20,11 @@ const initializeDatabase = () => {
       password TEXT NOT NULL
     )
   `;
-  
+
   db.run(createTableQuery, (err) => {
     if (err) {
       console.error('Error creating users table:', err.message);
+      return;
     } else {
       console.log('Users table initialized successfully.');
     }
@@ -35,45 +37,44 @@ module.exports = (req, res) => {
   if (req.method === 'POST') {
     const { username, password } = req.body;
 
-    // Check if username and password are provided
+    // Validate that username and password are provided
     if (!username || !password) {
-      return res.status(400).json({ error: 'Username and password are required for signup.' });
+      return res.status(400).json({ error: 'Username and password are required.' });
     }
 
     // Check if the user already exists in the database
     db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) => {
       if (err) {
-        console.error('Database error:', err.message);
-        return res.status(500).json({ error: 'Database error: ' + err.message });
+        console.error('Database error when checking user:', err.message);
+        return res.status(500).json({ error: 'Database error when checking user.' });
       }
 
       if (row) {
-        // If user already exists, send an error response
         return res.status(400).json({ error: 'Username already exists.' });
       }
 
-      // Hash the password before storing it in the database
+      // Hash the password
       bcrypt.hash(password, 10, (err, hashedPassword) => {
         if (err) {
           console.error('Error hashing password:', err.message);
-          return res.status(500).json({ error: 'Error hashing password: ' + err.message });
+          return res.status(500).json({ error: 'Error hashing password.' });
         }
 
-        // Insert the new user into the database
+        // Insert new user into the database
         const stmt = db.prepare('INSERT INTO users (username, password) VALUES (?, ?)');
         stmt.run(username, hashedPassword, function (err) {
           if (err) {
-            console.error('Error inserting user:', err.message);
-            return res.status(500).json({ error: 'Error inserting user into database: ' + err.message });
+            console.error('Error inserting user into database:', err.message);
+            return res.status(500).json({ error: 'Error inserting user into database.' });
           }
 
-          // Return success response in JSON format
+          // Send a success response
           return res.status(201).json({ message: 'User registered successfully!' });
         });
       });
     });
   } else {
-    // If method is not POST, return Method Not Allowed error
-    return res.status(405).json({ error: 'Method not allowed. Use POST.' });
+    // Method not allowed
+    return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
   }
 };
