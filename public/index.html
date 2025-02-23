@@ -3,41 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup</title>
+  <title>Signup & Login</title>
 </head>
 <body>
 
   <h2>Signup</h2>
   <form id="signupForm">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+    <label for="signupUsername">Username:</label>
+    <input type="text" id="signupUsername" name="username" required>
     <br><br>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+    <label for="signupPassword">Password:</label>
+    <input type="password" id="signupPassword" name="password" required>
     <br><br>
 
     <button type="submit">Sign Up</button>
   </form>
 
+  <h2>Login</h2>
+  <form id="loginForm">
+    <label for="loginUsername">Username:</label>
+    <input type="text" id="loginUsername" name="username" required>
+    <br><br>
+
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" name="password" required>
+    <br><br>
+
+    <button type="submit">Log In</button>
+  </form>
+
   <div id="message"></div>
 
   <script>
+    // Handle signup form submission
     document.getElementById('signupForm').addEventListener('submit', async function(event) {
       event.preventDefault();
 
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+      const username = document.getElementById('signupUsername').value;
+      const password = document.getElementById('signupPassword').value;
 
-      // Basic validation for empty fields
       if (!username || !password) {
-        document.getElementById('message').textContent = 'Username and Password are required.';
+        document.getElementById('message').textContent = 'Username and password are required for signup.';
         document.getElementById('message').style.color = 'red';
         return;
       }
 
       try {
-        // Sending data to the signup API
         const response = await fetch('/api/signup', {
           method: 'POST',
           headers: {
@@ -52,7 +64,44 @@
           document.getElementById('message').textContent = 'User registered successfully!';
           document.getElementById('message').style.color = 'green';
         } else {
-          document.getElementById('message').textContent = data.error || 'Something went wrong!';
+          document.getElementById('message').textContent = data.error || 'Signup failed!';
+          document.getElementById('message').style.color = 'red';
+        }
+      } catch (error) {
+        document.getElementById('message').textContent = 'Error: ' + error.message;
+        document.getElementById('message').style.color = 'red';
+      }
+    });
+
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      if (!username || !password) {
+        document.getElementById('message').textContent = 'Username and password are required for login.';
+        document.getElementById('message').style.color = 'red';
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          document.getElementById('message').textContent = 'Login successful!';
+          document.getElementById('message').style.color = 'green';
+        } else {
+          document.getElementById('message').textContent = data.error || 'Login failed!';
           document.getElementById('message').style.color = 'red';
         }
       } catch (error) {
