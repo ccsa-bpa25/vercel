@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": "16.x"
+    "node": "22.x"
   },
   "description": "Vercel app with multiple APIs (hello.js, goodbye.js) and signup API using SQLite3 and bcrypt"
 }
