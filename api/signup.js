@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcryptjs');
 
 // Open SQLite database (it will be created if it doesn't exist)
-const db = new sqlite3.Database('./users.db', (err) => {
+const db = new sqlite3.Database('/tmp/signup.db', (err) => {
   if (err) {
     console.error('Error opening database:', err.message);
     return;
@@ -15,7 +15,6 @@ const db = new sqlite3.Database('./users.db', (err) => {
 const initializeDatabase = () => {
   const createTableQuery = `
     CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
       username TEXT UNIQUE NOT NULL,
       password TEXT NOT NULL
     )
