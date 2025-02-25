@@ -2,16 +2,12 @@ const { Client } = require('pg');
 const bcrypt = require('bcryptjs');
 const fs = require('fs');
 
-// PostgreSQL database connection with SSL/TLS enabled
 const client = new Client({
-  connectionString: process.env.DATABASE_URL,  // Connection string stored in environment variables
+  connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false,  // Disable SSL certificate validation (use with caution)
-    // If you have specific certificates, you can add them here (for example):
-    // ca: fs.readFileSync('/path/to/server.crt').toString(),
-    // key: fs.readFileSync('/path/to/client.key').toString(),
-    // cert: fs.readFileSync('/path/to/client.crt').toString(),
-  },
+    rejectUnauthorized: false // Disable certificate validation (for testing, not recommended for production)
+    // You can provide specific certificates here if needed (ca, key, cert)
+  }
 });
 
 client.connect((err) => {
