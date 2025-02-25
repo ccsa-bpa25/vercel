@@ -1,18 +1,23 @@
-const sqlite3 = require('sqlite3').verbose();
+const { Client } = require('pg');
 const bcryptjs = require('bcryptjs');
 
-// Path for SQLite database (using /tmp for temporary storage on Vercel)
-const dbPath = '/tmp/signup.db';
-
-// Open SQLite database
-const db = new sqlite3.Database(dbPath, (err) => {
-  if (err) {
-    console.error('Error opening database:', err.message);
-    return;
-  }
+// PostgreSQL database connection using the DATABASE_URL environment variable
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,  // Disable SSL certificate validation (for testing purposes)
+  },
 });
 
-module.exports = (req, res) => {
+client.connect((err) => {
+  if (err) {
+    console.error('Error connecting to PostgreSQL database:', err.message);
+    return;
+  }
+  console.log('Connected to PostgreSQL database.');
+});
+
+module.exports = async (req, res) => {
   if (req.method === 'POST') {
     const { username, password } = req.body;
 
@@ -20,32 +25,29 @@ module.exports = (req, res) => {
       return res.status(400).json({ error: 'Username and password are required.' });
     }
 
-    // Check if the user exists
-    db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) => {
-      if (err) {
-        console.error('Error querying database:', err.message);
-        return res.status(500).json({ error: 'Database error.' });
-      }
+    try {
+      // Check if the user exists in the database
+      const result = await client.query('SELECT * FROM users WHERE username = $1', [username]);
 
-      if (!row) {
+      if (result.rows.length === 0) {
         return res.status(400).json({ error: 'Invalid username or password.' });
       }
 
       // Compare the password with the hashed password in the database
-      bcryptjs.compare(password, row.password, (err, isMatch) => {
-        if (err) {
-          console.error('Error comparing passwords:', err.message);
-          return res.status(500).json({ error: 'Error comparing passwords.' });
-        }
+      const user = result.rows[0];
+      const isMatch = await bcryptjs.compare(password, user.password);
 
-        if (!isMatch) {
-          return res.status(400).json({ error: 'Invalid username or password.' });
-        }
+      if (!isMatch) {
+        return res.status(400).json({ error: 'Invalid username or password.' });
+      }
 
-        // User is logged in successfully
-        return res.status(200).json({ message: 'Login successful!' });
-      });
-    });
+      // If password matches, return a success message
+      return res.status(200).json({ message: 'Login successful!' });
+
+    } catch (err) {
+      console.error('Database error:', err.message);
+      return res.status(500).json({ error: 'Database error.' });
+    }
   } else {
     return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
   }
