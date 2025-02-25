@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "sqlite3": "^5.1.7",
+    "pg": "^8.8.0",  // PostgreSQL client for Node.js
     "bcryptjs": "^2.4.3",
     "express": "^4.18.2"
   },
@@ -11,5 +11,5 @@
   "engines": {
     "node": "22.x"
   },
-  "description": "Vercel app with multiple APIs (hello.js, goodbye.js) and signup API using SQLite3 and bcryptjs"
+  "description": "Vercel app with multiple APIs (hello.js, goodbye.js) and signup API using PostgreSQL and bcryptjs"
 }
