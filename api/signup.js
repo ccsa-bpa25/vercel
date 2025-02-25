@@ -1,18 +1,22 @@
-const sqlite3 = require('sqlite3').verbose();
+const { Client } = require('pg');
 const bcrypt = require('bcryptjs');
 
-// Open SQLite database (it will be created if it doesn't exist)
-const db = new sqlite3.Database('/tmp/signup.db', (err) => {
+// PostgreSQL database connection
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+});
+
+client.connect((err) => {
   if (err) {
-    console.error('Error opening database:', err.message);
+    console.error('Error connecting to PostgreSQL database:', err.message);
     return;
   } else {
-    console.log('Connected to SQLite database.');
+    console.log('Connected to PostgreSQL database.');
   }
 });
 
 // Initialize the users table (if it doesn't exist)
-const initializeDatabase = () => {
+const initializeDatabase = async () => {
   const createTableQuery = `
     CREATE TABLE IF NOT EXISTS users (
       username TEXT UNIQUE NOT NULL,
@@ -20,19 +24,17 @@ const initializeDatabase = () => {
     )
   `;
 
-  db.run(createTableQuery, (err) => {
-    if (err) {
-      console.error('Error creating users table:', err.message);
-      return;
-    } else {
-      console.log('Users table initialized successfully.');
-    }
-  });
+  try {
+    await client.query(createTableQuery);
+    console.log('Users table initialized successfully.');
+  } catch (err) {
+    console.error('Error creating users table:', err.message);
+  }
 };
 
 initializeDatabase();
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   if (req.method === 'POST') {
     const { username, password } = req.body;
 
@@ -41,37 +43,27 @@ module.exports = (req, res) => {
       return res.status(400).json({ error: 'Username and password are required.' });
     }
 
-    // Check if the user already exists in the database
-    db.get('SELECT * FROM users WHERE username = ?', [username], (err, row) => {
-      if (err) {
-        console.error('Database error when checking user:', err.message);
-        return res.status(500).json({ error: 'Database error when checking user.' });
-      }
+    try {
+      // Check if the user already exists in the database
+      const result = await client.query('SELECT * FROM users WHERE username = $1', [username]);
 
-      if (row) {
+      if (result.rows.length > 0) {
         return res.status(400).json({ error: 'Username already exists.' });
       }
 
       // Hash the password
-      bcrypt.hash(password, 10, (err, hashedPassword) => {
-        if (err) {
-          console.error('Error hashing password:', err.message);
-          return res.status(500).json({ error: 'Error hashing password.' });
-        }
+      const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Insert new user into the database
-        const stmt = db.prepare('INSERT INTO users (username, password) VALUES (?, ?)');
-        stmt.run(username, hashedPassword, function (err) {
-          if (err) {
-            console.error('Error inserting user into database:', err.message);
-            return res.status(500).json({ error: 'Error inserting user into database.' });
-          }
+      // Insert new user into the database
+      const insertQuery = 'INSERT INTO users (username, password) VALUES ($1, $2)';
+      await client.query(insertQuery, [username, hashedPassword]);
 
-          // Send a success response
-          return res.status(201).json({ message: 'User registered successfully!' });
-        });
-      });
-    });
+      // Send a success response
+      return res.status(201).json({ message: 'User registered successfully!' });
+    } catch (err) {
+      console.error('Database error:', err.message);
+      return res.status(500).json({ error: 'Database error.' });
+    }
   } else {
     // Method not allowed
     return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
