@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "pg": "^8.8.0",
-    "bcryptjs": "^2.4.3",
-    "express": "^4.18.2"
+    "@supabase/supabase-js": "^2.0.0",   // Supabase client for auth and db
+    "pg": "^8.8.0",                      // PostgreSQL client (for database queries)
+    "express": "^4.18.2"                 // Express for local development (optional)
   },
   "devDependencies": {},
   "engines": {
-    "node": "22.x"
+    "node": "22.x"                       // Specify Node.js version for Vercel
   },
-  "description": "Vercel app with multiple APIs (hello.js, goodbye.js) and signup API using PostgreSQL and bcryptjs"
+  "scripts": {
+    "dev": "vercel dev",                 // Local development with Vercel CLI
+    "build": "vercel build",             // Build script for Vercel
+    "start": "vercel start"              // Start Vercel deployment locally
+  },
+  "description": "Vercel app with multiple APIs (hello.js, goodbye.js) and signup API using Supabase and PostgreSQL"
 }
