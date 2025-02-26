@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
     }
 
     try {
-      // Check if the user already exists in Supabase Auth
+      // Check if the username already exists in the PostgreSQL 'users' table
       const { data: existingUser, error: authError } = await supabase
         .from('users')
         .select('username')
@@ -28,17 +28,7 @@ module.exports = async (req, res) => {
         return res.status(400).json({ error: 'Username already exists.' });
       }
 
-      // Create user in Supabase Auth system
-      const { user, error: signupError } = await supabase.auth.signUp({
-        email: `ravired80@gmail.com`,
-        password: password,
-      });
-
-      if (signupError) {
-        return res.status(400).json({ error: signupError.message });
-      }
-
-      // Hash the password (for PostgreSQL storage if needed)
+      // Hash the password for PostgreSQL storage (if needed)
       const hashedPassword = await bcrypt.hash(password, 10);
 
       // Insert user data into the PostgreSQL database (additional table in Supabase)
@@ -52,7 +42,8 @@ module.exports = async (req, res) => {
         ]);
 
       if (dbError) {
-        return res.status(500).json({ error: 'Error inserting user into database.' });
+        console.error('Error inserting into database:', dbError);
+        return res.status(500).json({ error: 'Error inserting user into database.', details: dbError });
       }
 
       // Send a success response
