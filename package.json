@@ -11,10 +11,5 @@
   "engines": {
     "node": "22.x"
   },
-  "scripts": {
-    "dev": "vercel dev",
-    "build": "vercel build",
-    "start": "vercel start"
-  },
-  "description": "Vercel app with multiple APIs (hello.js, goodbye.js) and signup API using Supabase and PostgreSQL"
+  "description": "Vercel app with Supabase integration (PostgreSQL and Auth) and APIs for signup, login, etc."
 }
