@@ -1,42 +1,11 @@
-const { Client } = require('pg');
+const { createClient } = require('@supabase/supabase-js');
 const bcrypt = require('bcryptjs');
-const fs = require('fs');
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false // Disable certificate validation (for testing, not recommended for production)
-    // You can provide specific certificates here if needed (ca, key, cert)
-  }
-});
-
-client.connect((err) => {
-  if (err) {
-    console.error('Error connecting to PostgreSQL database:', err.message);
-    return;
-  } else {
-    console.log('Connected to PostgreSQL database with SSL.');
-  }
-});
-
-// Initialize the users table (if it doesn't exist)
-const initializeDatabase = async () => {
-  const createTableQuery = `
-    CREATE TABLE IF NOT EXISTS users (
-      username TEXT UNIQUE NOT NULL,
-      password TEXT NOT NULL
-    )
-  `;
-
-  try {
-    await client.query(createTableQuery);
-    console.log('Users table initialized successfully.');
-  } catch (err) {
-    console.error('Error creating users table:', err.message);
-  }
-};
-
-initializeDatabase();
+// Initialize Supabase client with environment variables
+const supabase = createClient(
+  process.env.SUPABASE_URL, 
+  process.env.SUPABASE_KEY
+);
 
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
@@ -48,25 +17,49 @@ module.exports = async (req, res) => {
     }
 
     try {
-      // Check if the user already exists in the database
-      const result = await client.query('SELECT * FROM users WHERE username = $1', [username]);
+      // Check if the user already exists in Supabase Auth
+      const { data: existingUser, error: authError } = await supabase
+        .from('users')
+        .select('username')
+        .eq('username', username)
+        .single();
 
-      if (result.rows.length > 0) {
+      if (existingUser) {
         return res.status(400).json({ error: 'Username already exists.' });
       }
 
-      // Hash the password
+      // Create user in Supabase Auth system
+      const { user, error: signupError } = await supabase.auth.signUp({
+        email: `ravired80@gmail.com`,
+        password: password,
+      });
+
+      if (signupError) {
+        return res.status(400).json({ error: signupError.message });
+      }
+
+      // Hash the password (for PostgreSQL storage if needed)
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      // Insert new user into the database
-      const insertQuery = 'INSERT INTO users (username, password) VALUES ($1, $2)';
-      await client.query(insertQuery, [username, hashedPassword]);
+      // Insert user data into the PostgreSQL database (additional table in Supabase)
+      const { data, error: dbError } = await supabase
+        .from('users')
+        .insert([
+          {
+            username: username,
+            password: hashedPassword,
+          },
+        ]);
+
+      if (dbError) {
+        return res.status(500).json({ error: 'Error inserting user into database.' });
+      }
 
       // Send a success response
-      return res.status(201).json({ message: 'User registered successfully!' });
+      return res.status(201).json({ message: 'User registered successfully!', user: data });
     } catch (err) {
-      console.error('Database error:', err.message);
-      return res.status(500).json({ error: 'Database error.' });
+      console.error('Error:', err.message);
+      return res.status(500).json({ error: 'Internal Server Error.' });
     }
   } else {
     // Method not allowed
