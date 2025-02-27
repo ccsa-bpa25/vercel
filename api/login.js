@@ -1,8 +1,12 @@
 const { createClient } = require('@supabase/supabase-js');
 const bcryptjs = require('bcryptjs');
 
-// Initialize Supabase client using environment variables
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
+// Initialize Supabase client with environment variables
+const supabase = createClient(
+  process.env.SUPABASE_URL, 
+  process.env.SUPABASE_KEY
+);
+
 
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
