@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./javascript/calendar-event.js"></script>
+    <style>
+      .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: scrollReveal 1.5s forwards;
+        }
+
+        @keyframes scrollReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+          #torch-awards {
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+         h1, h3 {
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
+      #calendar-container {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .calendar {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .month {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .month-header {
+        margin-bottom: 5px;
+        padding: 5px 0;
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+
+      .days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        margin-top: 5px;
+        height: calc(100% - 50px);
+      }
+
+      .day {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .special-day {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .day:hover {
+        background-color: #007bff;
+        color: white;
+      }
+
+      
+      .special-day {
+        background-color: #9370db;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 5px;
+      }
+</style>
+      <style>
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: scrollReveal 1.5s forwards;
+        }
+
+        @keyframes scrollReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+          #torch-awards {
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+         h1, h3 {
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
+    nav ul li:hover {
+    background-color: #D1B89E; 
+}
+nav ul li.active {
+    background-color: #D1B89E; 
+}
+    nav .nav-inner {
+            display: flex;
+            justify-content: space-between;  
+            align-items: center;
+            padding: 10px 30px;
+            width: 100%;
+        }
+
+       
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            padding: 10;
+            margin: 0;
+            justify-content: space-between; 
+            width: 100%;
+        }
+
+        nav ul li {
+            flex-shrink: 0;
+        }
+        nav ul li:hover {
+    background-color: #D1B89E; 
+}
+nav a:hover {
+    background-color: #D1B89E; 
+    color: black; 
+}
+       
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 20px 20px; 
+            font-size: 14px; 
+            white-space: nowrap;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+       
+        nav a:hover {
+            background-color: #D1B89E; 
+            color: black;
+        }
+
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            flex-direction: column;
+        }
+
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+       
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        
+        .dropdown-content a:hover {
+            background-color: #D1B89E;
+            color: black;
+        }
+
+        .arrow {
+            font-size: 12px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+        }
+
+        .hamburger-menu div {
+            height: 4px;
+            background-color: black;
+            border-radius: 2px;
+        }
+        header {
+  background-color: #d8bfd8; 
+  color: white;
+  padding: 20px;
+  nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+           
+        #eventsLink {
+    color: black; 
+    text-decoration: none; 
+}
+        @media (max-width: 768px) {
+            .nav-inner {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+           
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #fff;
+            }
+
+            nav ul li a {
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+            }
+
+           
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .nav-inner.active ul {
+                display: flex;
+            }
+
+            
+            nav ul li a {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+    </style>
+      </style>
+      <style>
+      #modal {
+        display: none;
+        position: fixed;        
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.5);        
+      }
+
+      #modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        top: 20%;
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 8px;
+        box-shadow: rgba(0,0,0,0.2);
+        width: 50%;
+        height: 250px;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      #modal-close {
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        float: right;
+      }
+
+      #modal-close:hover,
+      #modal-close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .special-day {
+        background-color: #9370db;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    
+  
+    nav ul li:hover {
+    background-color: #D1B89E; 
+}
+nav ul li.active {
+    background-color: #D1B89E; 
+}
+    nav .nav-inner {
+            display: flex;
+            justify-content: space-between;  
+            align-items: center;
+            padding: 10px 30px;
+            width: 100%;
+        }
+
+       
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            padding: 10;
+            margin: 0;
+            justify-content: space-between; 
+            width: 100%;
+        }
+
+        nav ul li {
+            flex-shrink: 0;
+        }
+        nav ul li:hover {
+    background-color: #D1B89E; 
+}
+nav a:hover {
+    background-color: #D1B89E; 
+    color: black; 
+}
+       
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 20px 20px; 
+            font-size: 14px; 
+            white-space: nowrap;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+       
+        nav a:hover {
+            background-color: #D1B89E; 
+            color: black;
+        }
+
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            flex-direction: column;
+        }
+
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+       
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        
+        .dropdown-content a:hover {
+            background-color: #D1B89E;
+            color: black;
+        }
+
+        .arrow {
+            font-size: 12px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+        }
+
+        .hamburger-menu div {
+            height: 4px;
+            background-color: black;
+            border-radius: 2px;
+        }
+        
+           
+        #eventsLink {
+    color: black; 
+    text-decoration: none; 
+}
+        @media (max-width: 768px) {
+            .nav-inner {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+           
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #fff;
+            }
+
+            nav ul li a {
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+            }
+
+           
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .nav-inner.active ul {
+                display: flex;
+            }
+
+            
+            nav ul li a {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+    </style>
+    <!-- Function for mpdal popup-->
+  <script>
+    // showing the modal function
+    function showModal(message) {
+      document.getElementById('modal').style.display='block' ;
+      document.getElementById('modal-message').innerHTML = message;
+
+    }
+    // hide the modal function
+    function hideModal(){
+      document.getElementById('modal').style.display = 'none';
+    }
+  
+    
+  </script>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        
+        <ul>
+          <li><a href="index.html" style="color: black;">Home</a></li>
+          <li><a href="about-us.html" style="color: black;">About Us</a></li>
+            <li><a href="calendar.html" style="color: black;">Calendar</a></li>
+            <li class="dropdown">
+                <a href="#" id="eventsLink">Conferences <span class="arrow">&#9660;</span></a>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="flc.html">Fall Conference</a>
+                    <a href="slc.html">State Conference</a>
+                    <a href="nlc.html">National Conference</a>
+                </div>
+            </li>
+            <li><a href="picture-gallery.html" style="color: black;">Gallery</a></li>
+            <li><a href="leadership.html" style="color: black;">Leadership</a></li>
+            <li><a href="membership.html" style="color: black;">Member Spotlight</a></li>
+            <li><a href="torch-awards.html" style="color: black;">Torch Awards</a></li>
+ 
+        </ul>
+    </div>
+</nav>
+
+<script>
+   
+    const hamburgerMenu = document.getElementById("hamburgerMenu");
+    const navInner = document.querySelector(".nav-inner");
+
+    hamburgerMenu.addEventListener("click", function () {
+        navInner.classList.toggle("active");  
+    });
+
+   
+    const eventsLink = document.getElementById("eventsLink");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    eventsLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    
+    window.addEventListener("click", function (event) {
+        if (
+            !event.target.matches('#eventsLink') &&
+            !event.target.matches('.dropdown-content') &&
+            !event.target.matches('.dropdown-content a')
+        ) {
+            dropdownMenu.style.display = "none";
+        }
+    });
+</script>
+<body>
+<header>
+    <img />
+  
+</header>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="scroll-reveal" style="text-align: center;">2024 - 2025 BPA Calendar</h1>
+        <style>
+ h1:hover {
+  color: #ff00ff; 
+  text-shadow: 0 0 1px rgba(255, 0, 255, 0.8), 0 0 20px rgba(255, 0, 255, 0.6), 0 0 30px rgba(255, 0, 255, 0.4);
+}
+        </style>
+        <style> .scroll-reveal {
+          opacity: 0;
+          transform: translateY(50px);
+          animation: scrollReveal 1.5s forwards;
+      }
+
+      @keyframes scrollReveal {
+          0% {
+              opacity: 0;
+              transform: translateY(50px);
+          }
+          100% {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }</style>
+        <br />
+        
+        <div id="calendar-container">
+  <div class="calendar-controls">
+    <button id="prev-month" onclick="changeMonth(-1)">&#10094; Back</button>
+    <button id="next-month" onclick="changeMonth(1)">Next &#10095;</button>
+  </div>
+  <div id="calendar"></div>
+</div>
+
+<style>
+  #calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #a238ac;
+  }
+
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #6d1051;
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #6d1051;
+    transform: translateY(-2px);
+  }
+
+  #calendar {
+    margin: 10px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .month-header {
+    background-color: #6d1051;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px;
+  }
+
+  .day {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    margin: 2px;
+    font-size: 1.2rem;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    background-color: #ffffff;
+  }
+  .special-day {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    margin: 2px;
+    font-size: 1.2rem;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+  }
+
+  .empty {
+    background-color: #f0f0f0;
+  }
+
+  .day:hover {
+    background-color: #e9ecef;
+  }
+
+  @media (max-width: 400px) {
+    button {
+      font-size: 0.9rem;
+    }
+
+    .month-header {
+      font-size: 1.2rem;
+    }
+
+    .day {
+      font-size: 1rem;
+      height: 40px;
+      width: 40px;
+    }
+  }
+</style>
+
+<!-- modal snippet  -->
+
+<div id="modal" style="display: none;"> 
+  <div id="modal-content">
+    <span id="modal-close">&times;</span>
+    <p id="modal-message"> Event</p>
+  </div>
+</div>
+<script>
+  let currentYear;
+  let currentMonth;
+
+  function initializeCalendar() {
+    const today = new Date();
+    currentYear = today.getFullYear();
+    currentMonth = today.getMonth();
+
+    if (currentYear < 2024) {
+      currentYear = 2024;
+    } else if (currentYear > 2025) {
+      currentYear = 2025;
+    }
+
+    createCalendar(currentYear, currentMonth);
+  }
+
+  function createCalendar(year, month) {
+    const calendar = document.getElementById("calendar");
+    calendar.innerHTML = "";
+
+    const monthDiv = document.createElement("div");
+
+    const header = document.createElement("div");
+    header.classList.add("month-header");
+    header.innerText = `${getMonthName(month)} ${year}`;
+    monthDiv.appendChild(header);
+
+    const daysContainer = document.createElement("div");
+    daysContainer.classList.add("days");
+    //daysContainer.classList.add("days");
+    daysContainer.setAttribute("id", "calendar-days");
+
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    dayNames.forEach((day) => {
+      const dayElement = document.createElement("div");
+      dayElement.className = "day";
+     
+      dayElement.innerText = day;
+      daysContainer.appendChild(dayElement);
+    });
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+      const emptyDiv = document.createElement("div");
+      emptyDiv.className = "day empty";
+      daysContainer.appendChild(emptyDiv);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayDiv = document.createElement("div");
+      dayDiv.className = "day";
+      const divid = day.toString() + month.toString() + year.toString();
+      dayDiv.setAttribute("id", divid);
+      dayDiv.innerText = day;
+      daysContainer.appendChild(dayDiv);
+    }
+
+    monthDiv.appendChild(daysContainer);
+    calendar.appendChild(monthDiv);
+
+    document.getElementById("prev-month").disabled =
+      year === 2024 && month === 0;
+    document.getElementById("next-month").disabled =
+      year === 2025 && month === 11;
+console.log("before call");
+    calenderEvents(year, month);
+  }
+
+  function getMonthName(monthIndex) {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    return months[monthIndex];
+  }
+
+  function changeMonth(direction) {
+    currentMonth += direction;
+
+    if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    } else if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    }
+
+    if (currentYear < 2024) {
+      currentYear = 2024;
+      currentMonth = 0;
+    } else if (currentYear > 2025) {
+      currentYear = 2025;
+      currentMonth = 11;
+    }
+
+    createCalendar(currentYear, currentMonth);
+  }
+
+  initializeCalendar();
+  // close when x is clicked
+  document.getElementById('modal-close').addEventListener('click', hideModal);
+</script>
+
+
+
+</body>
+<br>
+<br>
+      <footer style="background-color: #f7f5ef; color: black; padding: 20px">
+        <div class="container">
+          <style>
+            a {
+              text-decoration: none;
+              color: black;
+            }
+            a:visited {
+              color: black;
+            }
+            a:hover {
+              color: navy;
+            }
+          </style>
+          <script src="script.js"></script>
+          <h4 style="text-align: center;">Resources</h4>
+          <br>
+          <br>
+          <title>Footer</title>
+<style>
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    text-align: left;
+  }
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-column a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+  }
+  .footer-column a:hover {
+    color: #007BFF;
+    text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-column {
+      align-items: center;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="footer">
+    <div class="footer-column">
+      <a href="https://www.instagram.com/ccsa_bpa/">Instagram</a>
+      <a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
+      <a href="about-us.html">About Us</a>
+    </div>
+    <div class="footer-column">
+       <a href="calendar.html">Calendar</a>
+       <a href="leadership.html">Leadership</a>
+       <a href="learn-more.html">Get Involved</a>
+
+    </div>
+    <div class="footer-column">
+      <a href="membership.html">Membership Spotlight</a>
+      <a href="picture-gallery.html">Picture Gallery</a>
+      <a href="torch-awards.html">Torch Awards</a>
+
+    </div>
+    <div class="footer-column">
+       
+      <a href="flc.html">FLC</a>
+      <a href="slc.html">SLC</a>
+      <a href="nlc.html">NLC</a>
+    </div>
+  </div>
+<br>
+<br>
+        </div>
+      </footer>
+    </body>
+  </main>
+</body>
+</html>
