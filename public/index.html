@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -254,6 +255,7 @@ nav a:hover {
             <li><a href="leadership.html" style="color: black;">Leadership</a></li>
             <li><a href="membership.html" style="color: black;">Member Spotlight</a></li>
             <li><a href="torch-awards.html" style="color: black;">Torch Awards</a></li>
+            <li><a href="login.html" style="color: black;">Login/Signup</a></li>
  
         </ul>
     </div>
@@ -311,7 +313,9 @@ nav a:hover {
         </section>
           <br>
           <br>
-                  <h1 style="font-family: serif; color: black; text-align: center;">Cab Calloway School of the Arts BPA Chapter</h1>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+                  <h1 style="font-family: rubik; color: black; text-align: center;">Cab Calloway School of the Arts BPA Chapter</h1>
                   <br>
                  <div class="spotlight-container">
   <!-- flc is img 1 -->
@@ -411,8 +415,7 @@ nav a:hover {
     <section id="about" class="about" data-aos="fade-up">
       <div class="abt-container">
           <h2>What is BPA?</h2>
-<p>Business Profesionals of America is a national organization that helps students develop crucial skills in business, leadership, and technology through competitions, conferences, and other networking oppurtunities. 
-    BPA offers a variety of events like web development, human resources, financial literacy, and many more! </p>      
+<p>Business Professionals of America is a national organization that helps students develop crucial skills in business, leadership, and technology through competitions, conferences, and other networking opportunities. BPA offers a variety of events like web development, human resources, financial literacy, and many more! </p>      
 </div>
 <a href="learn-more.html">
     <button class="get-involved-btn">Learn More</button>
@@ -448,11 +451,11 @@ nav a:hover {
       <div class="container">
           <div class="feature" data-aos="flip-left">
               <h3>Leadership</h3>
-              <p>BPA promotes leadership by offering students with oppurtunities in competitions, officer roles, and torch awards.</p>
+              <p>BPA promotes leadership by offering students opportunities in competitions, officer roles, and torch awards.</p>
           </div>
           <div class="feature" data-aos="flip-right">
               <h3>Communication</h3>
-              <p>Students develop their communication skills through teamwork, presentations, and networking oppurtunities.</p>
+              <p>Students develop their communication skills through teamwork, presentations, and networking opportunities</p>
           </div>
           <div class="feature" data-aos="zoom-in">
               <h3>Time Management</h3>
@@ -461,23 +464,7 @@ nav a:hover {
       </div>
   </section>
 
-  <section id="events" class="events" data-aos="fade-up">
-    <div class="container">
-      <h2>#BPAALLDAY</h2>
-      <div class="event-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>Follow CCSA BPA's Instagram and Tiktok</h3>
-        <br>
-        <p style ="font-size: 2rem;">Instagram: @ccsa_bpa</p>
-        <p style ="font-size: 2rem;">TikTok: @ccsabpa</p>
-        <div class="image-container">
-            <img src="IMG_4455.jpg" alt="Jinjin">
-            <img src="IMG-2326.jpg" alt="Gody">
-            <img src="IMG-2328.jpg" alt="Vanshika">
-          </div>
-      </div>
-    </div>
-  </section>
-  
+
   
 <style>
 .image-container {
@@ -649,7 +636,140 @@ body {
 
   
 </div>
+ <section class="social-media">
+  <div class="container">
+    <h2>Follow Us on Social Media!</h2>
+    <p>
+      Stay connected with us! Follow for exclusive updates and upcoming
+      events.
+    </p>
+    <div class="social-icons">
+      <a
+        href="https://www.tiktok.com/@ccsabpa"
+        target="_blank"
+        class="social-icon tiktok"
+      >
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+      <a
+        href="https://www.instagram.com/ccsabpa"
+        target="_blank"
+        class="social-icon instagram"
+      >
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+  </div>
+        
+</section>
 
+<style>
+  /* Main Section Styling */
+  .social-media {
+    background-color: #f9f9f9;
+    padding: 30px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .social-media .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Title Styling */
+  .social-media h2 {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  /* Paragraph Styling */
+  .social-media p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* Social Icons Layout */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  /* Social Icon Styling */
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #fff;
+    background-color: #333;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  /* Icon Margin */
+  .social-icon i {
+    margin-right: 10px;
+  }
+
+  /* Hover Effects for Social Icons */
+  .social-icon:hover {
+    background-color: #0073e6;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 115, 230, 0.3);
+  }
+
+  /* TikTok Icon Custom Styles (Changed to a brighter color) */
+  .social-icon.tiktok {
+    background-color: #69c7ff;  /* Updated background color for TikTok */
+  }
+
+  .social-icon.tiktok:hover {
+    background-color: #0073e6;  /* Darker hover color for TikTok */
+  }
+
+  /* Instagram Icon Custom Styles */
+  .social-icon.instagram {
+    background-color: #e4405f;
+  }
+
+  .social-icon.instagram:hover {
+    background-color: #c13584;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .social-media h2 {
+      font-size: 2.2rem;
+    }
+
+    .social-media p {
+      font-size: 1rem;
+    }
+
+    .social-icons {
+      gap: 15px;
+    }
+
+    .social-icon {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+    }
+  }
+</style>
+
+  
     <style>
 
 
@@ -710,17 +830,104 @@ border-top: 25px solid #ffffff;
 </style>
              
          
-            </div>
-          </section>
-          
-         
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+<div id="chatbotButton" class="chatbot-button">
+  <i class="fas fa-comment-dots"></i> <!-- Font Awesome chat icon -->
+</div>
+
+<div id="chatbotContainer" class="chatbot-container">
+  <iframe
+    src="https://www.chatbase.co/chatbot-iframe/d3r3C9H4kvPe2op5b5e56"
+    width="100%"
+    style="height: 100%"
+    frameborder="0"
+  ></iframe>
+  <button id="closeChatbot" class="close-chatbot">X</button>
+</div>
+
+<style>
+
+  .chatbot-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;  
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.3s ease; 
+  }
+
+  .chatbot-button:hover {
+    background-color: #0056b3;
+  }
+
+ 
+  .chatbot-container {
+    display: none; 
+    position: fixed;
+    bottom: 20px;  
+    right: 30px;
+    width: 350px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 8px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 9998;
+    transition: all 0.3s ease;
+  }
+
+ 
+  .close-chatbot {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4136;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .close-chatbot:hover {
+    background-color: #e60000;
+  }
+</style>
+
+<script>
+  const chatbotButton = document.getElementById("chatbotButton");
+  const chatbotContainer = document.getElementById("chatbotContainer");
+  const closeButton = document.getElementById("closeChatbot");
+
+  chatbotButton.addEventListener("click", function () {
+    chatbotButton.style.display = "none"; // Hide the chatbot button
+    chatbotContainer.style.display = "block"; // Show the chatbot container
+  });
+
+
+  closeButton.addEventListener("click", function () {
+    chatbotButton.style.display = "flex"; // Show the chatbot button again
+    chatbotContainer.style.display = "none"; // Hide the chatbot container
+  });
+</script>
+
         
-            <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>       
+        
+               
           <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
             <style>
               a {
@@ -775,8 +982,8 @@ border-top: 25px solid #ffffff;
 <body>
     <div class="footer">
         <div class="footer-column">
-          <a href="https://www.instagram.com/ccsa_bpa/">Instagram</a>
-          <a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
+          <a href="https://www.instagram.com/ccsa_bpa/" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@ccsabpa" target="_blank">TikTok</a>
           <a href="about-us.html">About Us</a>
         </div>
         <div class="footer-column">
@@ -800,7 +1007,9 @@ border-top: 25px solid #ffffff;
       </div>
 <br>
 <br>
-          </div>
+    </div>
+      
+   
         </footer>
       </body>
     </main>
