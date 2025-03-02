@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Member Spotlight</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main>
+      <style>
+        
+     h1 {
+color: rgb(255, 255, 255);
+text-align: center;
+}
+
+h1 span {
+display: inline-block;
+opacity: 1;
+transform: translateX(0);
+animation: enterFromLeft 1.5s ease-out;
+}
+
+h1 span:first-letter {
+color: rgb(255, 0, 0);
+}
+
+@keyframes enterFromLeft {
+  0% {opacity: 0; transform: translateX(-100vw);}
+ 33% {opacity: 1; transform: translateX(-100vw);}
+100% {transform: translateX(0);}
+}
+
+
+
+       nav ul li:hover {
+    background-color: #D1B89E; 
+}
+nav ul li.active {
+    background-color: #D1B89E; 
+}
+    nav .nav-inner {
+            display: flex;
+            justify-content: space-between;  
+            align-items: center;
+            padding: 10px 30px;
+            width: 100%;
+        }
+
+       
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            padding: 10;
+            margin: 0;
+            justify-content: space-between; 
+            width: 100%;
+        }
+
+        nav ul li {
+            flex-shrink: 0;
+        }
+        nav ul li:hover {
+    background-color: #D1B89E; 
+}
+nav a:hover {
+    background-color: #D1B89E; 
+    color: black; 
+}
+       
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 20px 20px; 
+            font-size: 14px; 
+            white-space: nowrap;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+       
+        nav a:hover {
+            background-color: #D1B89E; 
+            color: black;
+        }
+
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            flex-direction: column;
+        }
+
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+       
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        
+        .dropdown-content a:hover {
+            background-color: #D1B89E;
+            color: black;
+        }
+
+        .arrow {
+            font-size: 12px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+        }
+
+        .hamburger-menu div {
+            height: 4px;
+            background-color: black;
+            border-radius: 2px;
+        }
+        
+           
+        #eventsLink {
+    color: black; 
+    text-decoration: none; 
+}
+        @media (max-width: 768px) {
+            .nav-inner {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+           
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #fff;
+            }
+
+            nav ul li a {
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+            }
+
+           
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .nav-inner.active ul {
+                display: flex;
+            }
+
+            
+            nav ul li a {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+        header {
+  background-color: #d8bfd8; 
+  color: white;
+  padding: 20px;
+  nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+.scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: scrollReveal 1.5s forwards;
+        }
+
+        @keyframes scrollReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+          #torch-awards {
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+         h1, h3 {
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        
+        <ul>
+          <li><a href="index.html" style="color: black;">Home</a></li>
+          <li><a href="about-us.html" style="color: black;">About Us</a></li>
+            <li><a href="calendar.html" style="color: black;">Calendar</a></li>
+            <li class="dropdown">
+                <a href="#" id="eventsLink">Conferences <span class="arrow">&#9660;</span></a>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="flc.html">Fall Conference</a>
+                    <a href="slc.html">State Conference</a>
+                    <a href="nlc.html">National Conference</a>
+                </div>
+            </li>
+            <li><a href="picture-gallery.html" style="color: black;">Gallery</a></li>
+            <li><a href="leadership.html" style="color: black;">Leadership</a></li>
+            <li><a href="membership.html" style="color: black;">Member Spotlight</a></li>
+            <li><a href="torch-awards.html" style="color: black;">Torch Awards</a></li>
+          </ul>
+    </div>
+</nav>
+
+<script>
+   
+    const hamburgerMenu = document.getElementById("hamburgerMenu");
+    const navInner = document.querySelector(".nav-inner");
+
+    hamburgerMenu.addEventListener("click", function () {
+        navInner.classList.toggle("active");  
+    });
+
+   
+    const eventsLink = document.getElementById("eventsLink");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    eventsLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    
+    window.addEventListener("click", function (event) {
+        if (
+            !event.target.matches('#eventsLink') &&
+            !event.target.matches('.dropdown-content') &&
+            !event.target.matches('.dropdown-content a')
+        ) {
+            dropdownMenu.style.display = "none";
+        }
+    });
+</script>
+       
+      <body>
+        <header>
+          <div class="container">
+            <img />
+          </div>
+        </header>
+        <main style="text-align: center">
+          <section id="what-is-bpa">
+            <div class="container">
+              <br />
+              <br />
+              <h1 class="pop-up-title scroll-reveal">Membership Spotlight</h1>
+              <style>
+
+.pop-up-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+
+.pop-up-title:hover {
+  transform: scale(1.1) rotateX(5deg) rotateY(-5deg);
+  text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2), 0px 0px 10px #007bff;
+}
+
+
+.scroll-reveal {
+  opacity: 1;
+  transform: translateY(20px);
+  animation: scroll-zoom 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+
+@keyframes scroll-zoom {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+              </style>    
+               <br>
+               <br>
+               <br>
+               <div class="spotlight-container">
+                 <!-- ruben -->
+                 <div class="spotlight-slide active">
+                   <img src="IMG-2459.jpg" alt="Member 1" />
+                   <div class="quote-box">
+                     <p class="quote-text">"BPA has let me explore unique topics of interest that I otherwise can't study and
+                       explore."<br><strong> - Ruben Yoon </strong></p>
+                   </div>
+                 </div>
+             
+                 <!-- ishan -->
+                 <div class="spotlight-slide">
+                   <img src="IMG-2470.jpg" alt="Member 2" />
+             
+                   <div class="quote-container">
+                     <div class="quote-box">
+                       <p class="quote-text">
+                         "BPA has given me a sense of responsibility and helps me manage my time more easily." <br> <strong> -
+                           Paramasivan Punnaivanam </strong>
+                       </p>
+                     </div>
+                   </div>
+             
+                 </div>
+             
+                 <!-- gautham -->
+                 <div class="spotlight-slide">
+                   <img src="IMG-2471.jpg" alt="Member 3" />
+                   <div class="quote-box">
+                     <p class="quote-text">"BPA has helped me cultivate various skills" <br><strong> - Gautham Prashanth</strong></p>
+                   </div>
+                 </div>
+             
+                 <!-- samyu -->
+                 <div class="spotlight-slide">
+                   <img src="imgsamyu.jpg" alt="Member 4" />
+                   <div class="quote-box">
+                     <p class="quote-text">"Through BPA I've learned leadership and communication skills." <strong>- Samyaksh
+                         Jandhyala</strong></p>
+                   </div>
+                 </div>
+             
+                 <!-- riddik -->
+                 <div class="spotlight-slide">
+                   <img src="IMG-2472.jpg" alt="Member 5" />
+                   <div class="quote-container">
+                     <div class="quote-box">
+                       <p class="quote-text">
+                         "BPA has enhanced my middle school experience by helping me make new friends and learning new skills."
+                         <strong> - Riddik Neetipalli </strong>
+                       </p>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <style>
+                 
+             
+                 .quotes-wrapper {
+                   display: flex;
+                   justify-content: space-between;
+                   gap: -9px;
+                   flex-wrap: wrap;
+                   padding: 20px;
+                 }
+             
+                 .quote-container {
+                   display: flex;
+                   justify-content: center;
+                   align-items: center;
+                   position: relative;
+                 }
+             
+                 .quote-box {
+                   background-color: #ffffff;
+                   padding: 35px 40px;
+                   max-width: 300px;
+                   position: relative;
+                   font-family: 'Poppins', sans-serif;
+                   text-align: left;
+                   border-radius: 40px;
+                   color: #ffffff;
+                   box-shadow: 0 8px 45px rgba(0, 0, 0, 0.1), 0 0 15px rgba(0, 0, 0, 0.1);
+                 }
+             
+                 .quote-text {
+                   font-size: 0.9rem;
+                   font-style: italic;
+                   margin: 0;
+                   color: #333;
+                 }
+             
+                 .quote-box::before {
+                   content: '';
+                   position: absolute;
+                   bottom: -20px;
+                   left: 50%;
+                   transform: translateX(-50%);
+                   width: 0;
+                   height: 0;
+                   border-left: 20px solid transparent;
+                   border-right: 20px solid transparent;
+                   border-top: 25px solid #ffffff;
+                 }
+             
+                 
+                 .spotlight-container {
+                   width: 100%;
+                   height: 500px;
+                  
+                   overflow: hidden;
+                   position: relative;
+                   display: flex;
+                   justify-content: center;
+                   align-items: center;
+                 }
+             
+                 
+                 .spotlight-slide {
+                   width: 85%;
+                   height: 400px;
+                   display: flex;
+                   justify-content: center;  
+                   align-items: center;      
+                   gap: 100px;               
+                   opacity: 0;
+                   position: absolute;
+                   transition: opacity 1s ease;
+                 }
+             
+                
+                 .spotlight-slide img {
+                   width: 45%;
+                   
+                   height: 500px;
+                   object-fit: cover;
+                   border-radius: 10px;
+                 }
+             
+                 
+                 .spotlight-slide.active {
+                   opacity: 1;
+                 }
+             
+               </style>
+               <script>
+                 window.onload = function () {
+                   let currentIndex = 0;
+                   const slides = document.querySelectorAll(".spotlight-slide");
+             
+                   
+                   function showNextSlide() {
+                   
+                     slides[currentIndex].classList.remove("active");
+             
+                     currentIndex = (currentIndex + 1) % slides.length;
+             
+                     slides[currentIndex].classList.add("active");
+                   }
+             
+                   slides[currentIndex].classList.add("active");
+                   setInterval(showNextSlide, 2800);
+                 };
+               </script>     
+                <br>
+              <br>
+               <br>
+                <h1 style="text-align: center; color: #210e30; font-family: 'Arial', sans-serif; font-size: 36px; letter-spacing: 2px; margin: 0;">
+                  Interviews
+              </h1>
+            
+            <div class="video-container">
+             
+              <div class="video-box">
+                  <video controls>
+                      <source src="My Movie 8.mp4">
+                  </video>
+                  <p>Ojal Patel</p>
+              </div>
+              <div class="video-box">
+                  <video controls>
+                      <source src="My Movie 1.mp4">
+                  </video>
+                  <p>Srihith Chittepu</p>
+              </div>
+              <div class="video-box">
+                  <video controls>
+                      <source src="My Movie 4.mp4">
+                  </video>
+                  <p>Rishik Borkar</p>
+              </div>
+          </div>
+          <br>
+          <div class="video-container">
+              <div class="video-box">
+                  <video controls>
+                      <source src="My Movie 9.mp4">
+                  </video>
+                  <p>Ruben Yoon</p>
+              </div>
+              <div class="video-box">
+                  <video controls>
+                      <source src="My Movie 3.mp4">
+                  </video>
+                  <p>Chaitra Lakshminarayan</p>
+              </div>
+              <div class="video-box">
+                  <video controls>
+                      <source src="My Movie 2.mp4">
+                  </video>
+                  <p>Parmasivan Punnaivanam</p>
+              </div>
+          </div>
+          <br>
+          <div class="video-container">
+              <div class="video-box">
+                  <video controls>
+                      <source src="My Movie 5.mp4">
+                  </video>
+                  <p>Samyaksh Jandhyala</p>
+              </div>
+              <div class="video-box">
+                  <video controls>
+                      <source src="My Movie 7.mp4">
+                  </video>
+                  <p>Riddik Neetipalli</p>
+              </div>
+              <div class="video-box">
+                  <video controls>
+                      <source src="Clips24-12-18_05-21.mp4">
+                  </video>
+                  <p>Gautham Prashanth</p>
+              </div>
+          </div>
+          <style>
+             .video-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            padding: 0 10px;
+        }
+
+        .video-box {
+            text-align: center;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .video-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-box video {
+            border-radius: 10px;
+            width: 230px;
+            height: 240px;
+            margin-bottom: 15px;
+        }
+
+        .video-box p {
+            font-size: 16px;
+            color: #4B0082;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            .video-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-box {
+                margin: 10px;
+            }
+        }
+          </style>
+            
+          </section>
+            
+            </body>
+           
+         
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>      
+          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
+            <style>
+              a {
+                  text-decoration: none;
+                  color: black;
+              }
+
+              a:visited {
+                  color: black;
+              }
+
+              a:hover {
+                  color: navy;
+              }
+          </style>
+             <h4 style="text-align: center;">Resources</h4>
+             <br>
+             <br>
+             <title>Footer </title>
+   <style>
+     .footer {
+       display: flex;
+       justify-content: space-between;
+       padding: 20px;
+       text-align: left;
+     }
+     .footer-column {
+       display: flex;
+       flex-direction: column;
+       gap: 10px;
+     }
+     .footer-column a {
+       text-decoration: none;
+       color: #333;
+       font-size: 16px;
+     }
+     .footer-column a:hover {
+       color: #007BFF;
+       text-decoration: underline;
+     }
+     @media (max-width: 768px) {
+       .footer {
+         flex-direction: column;
+         align-items: center;
+       }
+       .footer-column {
+         align-items: center;
+       }
+     }
+   </style>
+ </head>
+ <body>
+  <div class="footer">
+    <div class="footer-column">
+      <a href="https://www.instagram.com/ccsa_bpa/">Instagram</a>
+      <a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
+      <a href="about-us.html">About Us</a>
+    </div>
+    <div class="footer-column">
+       <a href="calendar.html">Calendar</a>
+       <a href="leadership.html">Leadership</a>
+       <a href="learn-more.html">Get Involved</a>
+
+    </div>
+    <div class="footer-column">
+      <a href="membership.html">Membership Spotlight</a>
+      <a href="picture-gallery.html">Picture Gallery</a>
+      <a href="torch-awards.html">Torch Awards</a>
+
+    </div>
+    <div class="footer-column">
+       
+      <a href="flc.html">FLC</a>
+      <a href="slc.html">SLC</a>
+      <a href="nlc.html">NLC</a>
+    </div>
+  </div>
+ <br>
+ <br>
+           </div>
+         </footer>
+       </body>
+     </main>
+   </body>
+ </html>
