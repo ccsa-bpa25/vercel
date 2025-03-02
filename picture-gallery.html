@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Picture Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main>
+      <style>
+         .ripple {
+      position: fixed; 
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background: rgba(0, 150, 255, 0.5);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: ripple-animation 2s ease-out forwards;
+      pointer-events: none; 
+      z-index: 1; 
+    }
+
+    @keyframes ripple-animation {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(100);
+        opacity: 0;
+      }
+    }
+ 
+        
+
+          #torch-awards {
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+       
+         @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+         h1, h3 {
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
+      nav ul li:hover {
+    background-color: #D1B89E; 
+}
+nav ul li.active {
+    background-color: #D1B89E; 
+}
+    nav .nav-inner {
+            display: flex;
+            justify-content: space-between;  
+            align-items: center;
+            padding: 10px 30px;
+            width: 100%;
+        }
+
+       
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            padding: 10;
+            margin: 0;
+            justify-content: space-between; 
+            width: 100%;
+        }
+
+        nav ul li {
+            flex-shrink: 0;
+        }
+        nav ul li:hover {
+    background-color: #D1B89E; 
+}
+nav a:hover {
+    background-color: #D1B89E; 
+    color: black; 
+}
+       
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 20px 20px; 
+            font-size: 14px; 
+            white-space: nowrap;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+       
+        nav a:hover {
+            background-color: #D1B89E; 
+            color: black;
+        }
+
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            flex-direction: column;
+        }
+
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+       
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        
+        .dropdown-content a:hover {
+            background-color: #D1B89E;
+            color: black;
+        }
+
+        .arrow {
+            font-size: 12px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 25px;
+        }
+
+        .hamburger-menu div {
+            height: 4px;
+            background-color: black;
+            border-radius: 2px;
+        }
+        
+           
+        #eventsLink {
+    color: black; 
+    text-decoration: none; 
+}
+        @media (max-width: 768px) {
+            .nav-inner {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+           
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #fff;
+            }
+
+            nav ul li a {
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+            }
+
+           
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .nav-inner.active ul {
+                display: flex;
+            }
+
+            
+            nav ul li a {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+        .image-container {
+  display: flex; 
+  gap: 10px; 
+}
+
+.small-img {
+  width: 900%; 
+  height: auto; 
+}
+
+.flc-images img, .small-img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  will-change: transform; 
+  transform-origin: center center; 
+}
+
+
+
+header {
+  background-color: #d8bfd8; 
+  color: white;
+  padding: 20px;
+  nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.typing {
+    display: inline-block;
+    overflow: hidden; 
+    white-space: nowrap; 
+    border-right: 3px solid black; 
+    width: 0; 
+    animation: typing 7.5s steps(30) forwards, blink-caret 5.0s step-end forwards; 
+}
+
+
+@keyframes typing {
+    to {
+        width: 100%; 
+    }
+}
+
+@keyframes blink-caret {
+    50% {
+        border-color: transparent; 
+    }
+    100% {
+        border-color: transparent; 
+    }
+}
+
+
+
+.fade-in {
+    opacity: 0; 
+    animation: fadeIn 3s ease-in-out forwards; 
+}
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; 
+    }
+}
+
+
+
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        
+        <ul>
+          <li><a href="index.html" style="color: black;">Home</a></li>
+          <li><a href="about-us.html" style="color: black;">About Us</a></li>
+            <li><a href="calendar.html" style="color: black;">Calendar</a></li>
+            <li class="dropdown">
+                <a href="#" id="eventsLink">Conferences <span class="arrow">&#9660;</span></a>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="flc.html">Fall Conference</a>
+                    <a href="slc.html">State Conference</a>
+                    <a href="nlc.html">National Conference</a>
+                </div>
+            </li>
+            <li><a href="picture-gallery.html" style="color: black;">Gallery</a></li>
+            <li><a href="leadership.html" style="color: black;">Leadership</a></li>
+            <li><a href="membership.html" style="color: black;">Member Spotlight</a></li>
+            <li><a href="torch-awards.html" style="color: black;">Torch Awards</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+   
+    const hamburgerMenu = document.getElementById("hamburgerMenu");
+    const navInner = document.querySelector(".nav-inner");
+
+    hamburgerMenu.addEventListener("click", function () {
+        navInner.classList.toggle("active");  
+    });
+
+   
+    const eventsLink = document.getElementById("eventsLink");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    eventsLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    
+    window.addEventListener("click", function (event) {
+        if (
+            !event.target.matches('#eventsLink') &&
+            !event.target.matches('.dropdown-content') &&
+            !event.target.matches('.dropdown-content a')
+        ) {
+            dropdownMenu.style.display = "none";
+        }
+    });
+</script>
+       
+      <body>
+        <header>
+          <div class="container">
+            <img />
+          </div>
+        </header>
+        <main style="text-align: center">
+          <section id="picture-gallery">
+            <div class="container">
+             
+              <h1 class="scroll-reveal">Picture Gallery</h1>
+              <style>
+              h1:hover {
+                text-shadow: 2px 2px 0px #007bff, -2px -2px 0px #007bff, 2px -2px 0px #007bff, -2px 2px 0px #007bff; 
+              }
+              h1 {
+               border: 2px solid transparent; 
+               transition: border-color 0.3s ease; 
+              }
+              </style>
+           
+              </h1>    
+              <style>
+ .scroll-reveal {
+          opacity: 0;
+          transform: translateY(50px);
+          animation: scrollReveal 1.5s forwards;
+      }
+
+      @keyframes scrollReveal {
+          0% {
+              opacity: 0;
+              transform: translateY(50px);
+          }
+          100% {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+
+
+              </style>        
+                <br />
+              <div class="ripple"></div>
+              <script>
+               
+                setTimeout(() => {
+                  const ripple = document.getElementById('ripple');
+                  if (ripple) {
+                    ripple.remove();
+                  }
+                }, 3000);
+               
+
+              </script>
+
+  <div class="bpa1-images">
+              
+    <img src="yes picture gallery.jpeg" alt="img1" class="small-img fade-in">
+  </div>
+
+         
+          <div class="pages">
+            
+            <a href="gallery2.html">
+              <button class="next">Next</button>
+          </a>        </div>   
+        </section>
+         
+            </body>
+
+<br>
+<br> 
+<br>
+<br>
+  
+          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
+            <style>
+              a {
+                  text-decoration: none;
+                  color: black;
+              }
+
+              a:visited {
+                  color: black;
+              }
+
+              a:hover {
+                  color: navy;
+              }
+          </style>
+             <h4 style="text-align: center;">Resources</h4>
+             <br>
+             <br>
+             <title>Footer </title>
+   <style>
+     .footer {
+       display: flex;
+       justify-content: space-between;
+       padding: 20px;
+       text-align: left;
+     }
+     .footer-column {
+       display: flex;
+       flex-direction: column;
+       gap: 10px;
+     }
+     .footer-column a {
+       text-decoration: none;
+       color: #333;
+       font-size: 16px;
+     }
+     .footer-column a:hover {
+       color: #007BFF;
+       text-decoration: underline;
+     }
+     @media (max-width: 768px) {
+       .footer {
+         flex-direction: column;
+         align-items: center;
+       }
+       .footer-column {
+         align-items: center;
+       }
+     }
+   </style>
+ </head>
+ <body>
+  <div class="footer">
+    <div class="footer-column">
+      <a href="https://www.instagram.com/ccsa_bpa/">Instagram</a>
+      <a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
+      <a href="about-us.html">About Us</a>
+    </div>
+    <div class="footer-column">
+       <a href="calendar.html">Calendar</a>
+       <a href="leadership.html">Leadership</a>
+       <a href="learn-more.html">Get Involved</a>
+
+    </div>
+    <div class="footer-column">
+      <a href="membership.html">Membership Spotlight</a>
+      <a href="picture-gallery.html">Picture Gallery</a>
+      <a href="torch-awards.html">Torch Awards</a>
+
+    </div>
+    <div class="footer-column">
+       
+      <a href="flc.html">FLC</a>
+      <a href="slc.html">SLC</a>
+      <a href="nlc.html">NLC</a>
+    </div>
+  </div>
+ <br>
+ <br>
+           </div>
+         </footer>
+       </body>
+     </main>
+   </body>
+ </html>
