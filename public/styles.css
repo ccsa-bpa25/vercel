@@ -1,1 +1,137 @@
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f4f8;
+  color: #333;
+}
 
+#auth-container {
+  width: 360px;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+#auth-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #444;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+input:focus {
+  border-color: #4caf50;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+  outline: none;
+}
+
+input::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+input:focus::placeholder {
+  opacity: 0;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.auth-form p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.auth-form a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.auth-form a:hover {
+  color: #45a049;
+}
+
+#password-rules {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.rule {
+  margin-bottom: 5px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.rule::before {
+  content: "❌";
+  color: red;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.rule.valid::before {
+  content: "✔️";
+  color: rgb(55, 189, 2);
+}
+
+@media (max-width: 400px) {
+  #auth-container {
+    width: 90%;
+    padding: 25px;
+  }
+  input,
+  button {
+    padding: 12px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+}
