@@ -3,10 +3,9 @@ const bcryptjs = require('bcryptjs');
 
 // Initialize Supabase client with environment variables
 const supabase = createClient(
-  process.env.SUPABASE_URL, 
+  process.env.SUPABASE_URL,
   process.env.SUPABASE_KEY
 );
-
 
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
@@ -40,8 +39,8 @@ module.exports = async (req, res) => {
         return res.status(400).json({ error: 'Invalid username or password.' });
       }
 
-      // If password matches, return a success message
-      return res.status(200).json({ message: 'Login successful!' });
+      // Send success message along with the username (so it can be displayed on the dashboard)
+      return res.status(200).json({ message: 'Login successful!', username: username });
 
     } catch (err) {
       console.error('Error during login:', err.message);
@@ -51,4 +50,3 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
   }
 };
-
