@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -74,7 +75,7 @@
 <body>
   <div class="container">
     <h1>Welcome to Your Dashboard!</h1>
-    <p id="userWelcomeMessage">Loading...</p>
+    <p id="userWelcomeMessage">Hello, User!</p>
     <p>Your account is successfully active. Here you can manage your activities.</p>
 
     <!-- Add more content or features you want the user to interact with -->
@@ -88,25 +89,34 @@
   </div>
 
   <script>
-    // Check if the user is logged in
+    // This should be the logic to check if the user is authenticated.
+    // For example, you could use localStorage, a session, or a token to verify user login status.
     document.addEventListener('DOMContentLoaded', function () {
-      const username = localStorage.getItem('username');
-      if (!username) {
-        window.location.href = 'signup.html';  // Redirect to signup page if not logged in
+      // Example of user verification (mock logic)
+      const userLoggedIn = true; // This should be based on actual login state, i.e., token or session check
+
+      if (!userLoggedIn) {
+        window.location.href = '/login.html';  // Redirect to login if user is not authenticated
       } else {
-        // If user is logged in, populate the welcome message
-        document.getElementById('userWelcomeMessage').textContent = `Hello, ${username}!`;
+        // If user is logged in, populate the welcome message or fetch user details
+        document.getElementById('userWelcomeMessage').textContent = `Hello, ${getUsername()}`; // Use actual username
       }
     });
 
-    // Logout function
+    // Logout function (mocked logic)
     function logout() {
-      // Remove user session data from localStorage (log out)
-      localStorage.removeItem('username');
-      localStorage.removeItem('password');
-      window.location.href = 'signup.html';  // Redirect to signup page after logout
+      // You can add actual logic to remove user session or token here
+      alert('You have logged out.');
+      window.location.href = '/index.html';  // Redirect to login page after logout
+    }
+
+    // Function to get the username (mocked logic, replace with real data)
+    function getUsername() {
+      // This can be replaced with a real method (e.g., from a token or session)
+      return "John Doe";
     }
   </script>
-</body>
+  </body>
 
 </html>
+
