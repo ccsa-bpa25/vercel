@@ -322,37 +322,233 @@ nav a:hover {
                 <br />
               <br>
               <br>
-                   <h1 style="text-align: center; font-size: 2.5rem; font-family: 'Arial'">
-        Team and Competition Information
-      </h1>
-      <br />
-      <br />
-      <p style="text-align: center; font-size: 1.5rem; font-weight: semi-bold">
-        Website designed for the Middle Level (955) Website Design Team
-        competition 2024-2025
-      </p>
-      <br>
-      <p style="text-align: center; font-size: 1.5rem; font-weight: semi-bold">
-       Theme: <span><b>Capture The Moment</b></span>
-      </p>
-      <br>
-      <p style="font-size: 1.35rem; margin-left: 20%;"><b>Roles:</b></p>
-      <br>
-      <p style="margin-left: 20%;">Paramasivan Punnaivanam (00190094): Team Captain, Developer</p>
-      <br>
-      <p style="margin-left: 20%;">Saanvi Donuru (00145173): Developer</p>
-      <br>
-      <p style="margin-left: 20%;">Gautham Prashanth (00190093): Content Specialist </p>
-      <br>
-      <p style="margin-left: 20%;">Riddik Neetipalli (00145183): Tester</p>
-      <br>
-      <br>
-      <p style="font-size: 1.35rem; margin-left: 20%;"><b>Team Details:</b></p>
-      <br>
-      <p style="margin-left: 20%;">Website Design Team from Cab Calloway School of the Arts, Wilmington, DE, 19807. Middle School Level (6-8).</p>
+              <div class="abt-container" style="text-align: center;">
+  
 
-            </body>
+                <h2>Meet Our Wonderful Team</h2>
                 <br>
+                <br>
+                <br>
+                  <div class="intro-section">
+                    <h3>Introduction</h3>
+                    <p>Greetings! We are a passionate team of students from Cab Calloway School of the Arts (Wilmington, Delaware). Full of experienced coders, we coding this website from scratch on Visual Studio Code using HTML, CSS, and JavaScript. We all have different roles and worked together to create this website. We invite you to explore our website and enjoy your experience!</p>
+                </div>
+                
+          
+              
+                  <!--member cards -->
+        <div class="team-members">
+          <!-- ishan -->
+          <div class="team-member">
+              <img src="IMG_8128.jpg" alt="Paramasivan Punnaivanam">
+              <h3>Paramasivan Punnaivanam</h3>
+              <p>Developer</p>
+              <p>(Team Captain)</p>
+          </div>
+
+
+                  <!-- saanvi -->
+            <div class="team-member">
+              <img src="IMG_0178.jpeg" alt="Saanvi Donuru">
+              <h3>Saanvi Donuru</h3>
+              <p>Developer</p>
+          </div>
+
+          <!-- gautham -->
+          <div class="team-member">
+              <img src="IMG_8129.jpeg" alt="Gautham Prashanth">
+              <h3>Gautham Prashanth</h3>
+              <p>Content Specialist</p>
+          </div>
+
+          <!-- riddik -->
+          <div class="team-member">
+              <img src="riddiknee.jpg" alt="Riddik Neetipalli">
+              <h3>Riddik Neetipalli</h3>
+              <p>Tester</p>
+          </div>
+       </div>
+      
+          
+      <div class="experience-section">
+        <h3>Our Experiences</h3>
+        <p>Throughout this process, we faced challenges, overcame them, and learned some valuable skills. Although we love coding, it is not all that easy. We face some tough challenges like when our JavaScript modal functions weren't working, our dropdown events didn't work all the time, our path to images wasn't working, and many more. But we overcame these challenges as a team. These experiences have taught us teamwork, determination, and communication skills.</p>
+    </div>
+  </div>
+                <style>
+                    h1 {
+            text-align: center;
+            font-size: 3.5rem;
+            color: #2c3e50;
+            text-align: center;
+            letter-spacing: 2px;
+            margin: 20px 0;
+            font-weight: bold;
+            animation: fadeIn 2s ease-out;
+        }
+
+        h2 {
+          text-align: center;
+            font-size: 1.8rem;
+            color: #7f8c8d;
+            margin-top: -15px;
+            text-align: center;
+            animation: fadeInUp 2s ease-out;
+        }
+
+       
+        .abt-container {
+            text-align: center;
+            width: 90%;
+            max-width: 20000px;
+            margin-left: 40px;
+            margin-right: 40px;
+            padding: 50px;
+            background: #ffffff;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInUp 2s ease-out;
+        }
+
+       
+        .intro-section {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .intro-section h3 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+       
+        .experience-section {
+            background: #ecf0f1;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .experience-section h3 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .experience-section p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .team-member {
+            background: #ecf0f1;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .team-member p {
+            font-size: 1.5rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+
+       
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+       
+        @media (max-width: 768px) {
+            .team-members {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+                </style>
+      
+          </section>
+            
+            </body>
+           
+     
+          <br>
           <br>
           <br>
           <br>
