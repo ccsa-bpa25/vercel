@@ -301,6 +301,78 @@
       }
     }
   </script>
+  <script>
+    // Handle signup form submission
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+  
+      const username = document.getElementById('signupUsername').value;
+      const password = document.getElementById('signupPassword').value;
+  
+      const signupData = {
+        username: username,
+        password: password
+      };
+  
+      fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signupData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message) {
+          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
+  
+          // Redirect to the dashboard after successful signup
+          window.location.href = data.redirect;  // Uses the redirect URL sent from the server
+        } else {
+          document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
+        }
+      })
+      .catch(error => {
+        document.getElementById('message').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+      });
+    });
+  
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+  
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+  
+      const loginData = {
+        username: username,
+        password: password
+      };
+  
+      fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message) {
+          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
+  
+          // Redirect to the dashboard after successful login
+          window.location.href = data.redirect;  // Uses the redirect URL sent from the server
+        } else {
+          document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
+        }
+      })
+      .catch(error => {
+        document.getElementById('message').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+      });
+    });
+  </script>
+  
 
 </body>
 
