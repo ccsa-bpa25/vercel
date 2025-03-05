@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 // Initialize Supabase client with environment variables
 const supabase = createClient(
-  process.env.SUPABASE_URL, 
+  process.env.SUPABASE_URL,
   process.env.SUPABASE_KEY
 );
 
@@ -46,8 +46,8 @@ module.exports = async (req, res) => {
         return res.status(500).json({ error: 'Error inserting user into database.', details: dbError });
       }
 
-      // Send a success response
-      return res.status(201).json({ message: 'User registered successfully!', user: data });
+      // Send success message along with the username (so it can be displayed on the dashboard)
+      return res.status(201).json({ message: 'User registered successfully!', username: username });
     } catch (err) {
       console.error('Error:', err.message);
       return res.status(500).json({ error: 'Internal Server Error.' });
@@ -57,4 +57,3 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
   }
 };
-
