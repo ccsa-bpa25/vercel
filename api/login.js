@@ -7,6 +7,7 @@ const supabase = createClient(
   process.env.SUPABASE_KEY
 );
 
+
 module.exports = async (req, res) => {
   if (req.method === 'POST') {
     const { username, password } = req.body;
@@ -39,8 +40,8 @@ module.exports = async (req, res) => {
         return res.status(400).json({ error: 'Invalid username or password.' });
       }
 
-      // If password matches, send a success message with the redirect URL to the dashboard
-      return res.status(200).json({ message: 'Login successful!', redirect: '/dashboard.html' });
+      // If password matches, return a success message
+      return res.status(200).json({ message: 'Login successful!' });
 
     } catch (err) {
       console.error('Error during login:', err.message);
@@ -50,3 +51,4 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
   }
 };
+
