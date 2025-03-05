@@ -2,307 +2,66 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cab Calloway BPA - Signup & Login</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #3498db, #2c3e50);
-      overflow: hidden;
-    }
-
-    .container {
-      display: flex;
-      width: 80%;
-      height: 80vh;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .form-container {
-      flex: 1;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-      border-radius: 20px 0 0 20px;
-    }
-
-    h2 {
-      font-size: 3em;
-      color: #2c3e50;
-      margin-bottom: 20px;
-      text-align: center;
-      font-weight: bold;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    label {
-      font-size: 1.1em;
-      color: #34495e;
-      display: block;
-      margin-bottom: 5px;
-      position: relative;
-      font-weight: 600;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 14px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 1.1em;
-      color: #34495e;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    input[type="text"]:focus,
-    input[type="password"]:focus {
-      border-color: #3498db;
-      box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
-    }
-
-    label::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: #3498db;
-      transition: width 0.4s ease;
-    }
-
-    input[type="text"]:focus ~ label[for="signupUsername"]::after,
-    input[type="password"]:focus ~ label[for="signupPassword"]::after {
-      width: 100%;
-    }
-
-    button {
-      background-color: #3498db;
-      color: white;
-      padding: 14px 0;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
-      width: 100%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    button:hover {
-      background-color: #2980b9;
-      transform: scale(1.05);
-    }
-
-    p {
-      color: #34495e;
-      font-size: 1.1em;
-      text-align: center;
-    }
-
-    a {
-      color: #3498db;
-      font-weight: bold;
-      text-decoration: none;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    a:hover {
-      color: #2980b9;
-      transform: scale(1.05);
-    }
-
-    .bpa-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      border-radius: 0 20px 20px 0;
-    }
-
-    .bpa-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.8;
-    }
-
-    /* Media Query for responsiveness */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .form-container {
-        padding: 20px;
-      }
-
-      .bpa-image {
-        height: 300px;
-        border-radius: 0 0 20px 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cab Calloway BPA - Signup & Login</title>
+    <style>
+        /* Your styles here */
+    </style>
 </head>
 
 <body>
-
-  <div class="container">
-    <div class="form-container">
-      <!-- Signup Form -->
-      <div id="signupSection">
-        <h2>Signup</h2>
-        <form id="signupForm">
-          <label for="signupUsername">Username:</label>
-          <input type="text" id="signupUsername" name="username" required />
-          <label for="signupPassword">Password:</label>
-          <input type="password" id="signupPassword" name="password" required />
-          <button type="submit">Sign Up</button>
-        </form>
-        <br>
-        <p>Already have an account? <a href="javascript:void(0);" onclick="toggleForms()">Login</a></p>
-      </div>
-
-      <!-- Login Form (hidden by default) -->
-      <div id="loginSection" style="display: none;">
-        <h2>Login</h2>
-        <form id="loginForm">
-          <label for="loginUsername">Username:</label>
-          <input type="text" id="loginUsername" name="username" required />
-          <label for="loginPassword">Password:</label>
-          <input type="password" id="loginPassword" name="password" required />
-          <button type="submit">Log In</button>
-        </form>
-        <br>
-        <p>Don't have an account? <a href="javascript:void(0);" onclick="toggleForms()">Sign up</a></p>
-      </div>
+    <div class="container">
+        <div class="form-container">
+            <!-- Signup Form -->
+            <div id="signupSection">
+                <h2>Signup</h2>
+                <form id="signupForm">
+                    <label for="signupUsername">Username:</label>
+                    <input type="text" id="signupUsername" name="username" required />
+                    <label for="signupPassword">Password:</label>
+                    <input type="password" id="signupPassword" name="password" required />
+                    <button type="submit">Sign Up</button>
+                </form>
+                <br>
+                <p>Already have an account? <a href="javascript:void(0);" onclick="toggleForms()">Login</a></p>
+            </div>
+        </div>
     </div>
 
-    <div class="bpa-image">
-      <img src="capturebpa.jpg" alt="BPA Theme" />
-    </div>
-  </div>
-  <script>
-    function toggleForms() {
-      var signupSection = document.getElementById('signupSection');
-      var loginSection = document.getElementById('loginSection');
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
 
-      if (signupSection.style.display === 'none') {
-        signupSection.style.display = 'block';
-        loginSection.style.display = 'none';
-      } else {
-        signupSection.style.display = 'none';
-        loginSection.style.display = 'block';
-      }
-    }
-  </script>
+            const username = document.getElementById('signupUsername').value;
+            const password = document.getElementById('signupPassword').value;
 
+            const signupData = {
+                username: username,
+                password: password
+            };
 
-
-  <div id="message"></div>
-
-  <script>
-    // Handle signup form submission
-    document.getElementById('signupForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent default form submission
-
-      const username = document.getElementById('signupUsername').value;
-      const password = document.getElementById('signupPassword').value;
-
-      const signupData = {
-        username: username,
-        password: password
-      };
-
-      fetch('/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(signupData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.message) {
-          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
-        } else {
-          document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
-        }
-      })
-      .catch(error => {
-        document.getElementById('message').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
-      });
-    });
-
-    // Handle login form submission
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent default form submission
-
-      const username = document.getElementById('loginUsername').value;
-      const password = document.getElementById('loginPassword').value;
-
-      const loginData = {
-        username: username,
-        password: password
-      };
-
-      fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(loginData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.message) {
-          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
-        } else {
-          document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
-        }
-      })
-      .catch(error => {
-        document.getElementById('message').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
-      });
-    });
-  </script>
-
-  <script>
-    function toggleForms() {
-      var signupSection = document.getElementById("signupSection");
-      var loginSection = document.getElementById("loginSection");
-
-      if (signupSection.style.display === "none") {
-        signupSection.style.display = "block";
-        loginSection.style.display = "none";
-      } else {
-        signupSection.style.display = "none";
-        loginSection.style.display = "block";
-      }
-    }
-  </script>
-
+            fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(signupData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.username) {
+                    // On successful signup, redirect to the dashboard and pass the username
+                    window.location.href = `/dashboard.html?username=${data.username}`;
+                } else {
+                    document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('message').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            });
+        });
+    </script>
 </body>
 
 </html>
-
