@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 // Initialize Supabase client with environment variables
 const supabase = createClient(
-  process.env.SUPABASE_URL,
+  process.env.SUPABASE_URL, 
   process.env.SUPABASE_KEY
 );
 
@@ -31,23 +31,21 @@ module.exports = async (req, res) => {
       // Hash the password for PostgreSQL storage (if needed)
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      // Insert user data into the PostgreSQL database (additional table in Supabase)
+      // Insert user data into the PostgreSQL database
       const { data, error: dbError } = await supabase
         .from('users')
-        .insert([
-          {
-            username: username,
-            password: hashedPassword,
-          },
-        ]);
+        .insert([{
+          username: username,
+          password: hashedPassword,
+        }]);
 
       if (dbError) {
         console.error('Error inserting into database:', dbError);
-        return res.status(500).json({ error: 'Error inserting user into database.', details: dbError });
+        return res.status(500).json({ error: 'Error inserting user into database.' });
       }
 
-      // Send success message along with the username (so it can be displayed on the dashboard)
-      return res.status(201).json({ message: 'User registered successfully!', username: username });
+      // Send a success response with the redirect URL to the dashboard
+      return res.status(201).json({ message: 'User registered successfully!', redirect: '/dashboard.html' });
     } catch (err) {
       console.error('Error:', err.message);
       return res.status(500).json({ error: 'Internal Server Error.' });
@@ -57,3 +55,4 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
   }
 };
+
