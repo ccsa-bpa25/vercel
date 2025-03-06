@@ -216,11 +216,7 @@
         loginSection.style.display = 'block';
       }
     }
-  </script>
 
-  <div id="message"></div>
-
-  <script>
     // Handle signup form submission
     document.getElementById('signupForm').addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent default form submission
@@ -242,9 +238,10 @@
       })
       .then(response => response.json())
       .then(data => {
-        if (data.message) {
-          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
-          window.location.href = '/dashboard.html'; // Redirect after signup
+        if (data.token) {
+          // Store the token and redirect to dashboard
+          localStorage.setItem('authToken', data.token);
+          window.location.href = '/dashboard.html'; // Redirect to dashboard
         } else {
           document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
         }
@@ -275,9 +272,10 @@
       })
       .then(response => response.json())
       .then(data => {
-        if (data.message) {
-          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
-          window.location.href = '/dashboard.html'; // Redirect after login
+        if (data.token) {
+          // Store the token and redirect to dashboard
+          localStorage.setItem('authToken', data.token);
+          window.location.href = '/dashboard.html'; // Redirect to dashboard
         } else {
           document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
         }
