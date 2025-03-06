@@ -81,7 +81,10 @@
       width: 100%; 
       margin-top: 10px; 
     }
-  }
+  
+   body {
+  background-color: #3498db;
+}
   body {
     font-family: josefin sans, sans-serif;
     margin: 0;
