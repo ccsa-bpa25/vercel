@@ -1,32 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard - Cab Calloway BPA</title>
   <style>
-    /* Your Dashboard CSS here */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #3498db, #2c3e50);
+      height: 100vh;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .container {
+      background-color: white;
+      color: #34495e;
+      padding: 40px;
+      border-radius: 20px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #3498db;
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+    }
+
+    .logout {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+
+    a {
+      color: #3498db;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #2980b9;
+    }
   </style>
 </head>
-<body>
 
-  <div id="message">Welcome to your Dashboard!</div>
+<body>
+  <div class="container">
+    <h1>Welcome to Your Dashboard!</h1>
+    <p id="userWelcomeMessage">Hello, User!</p>
+    <p>Your account is successfully active. Here you can manage your activities.</p>
+
+    <!-- Add more content or features you want the user to interact with -->
+
+    <!-- Button to logout or go back to homepage -->
+    <button class="btn" onclick="logout()">Logout</button>
+
+    <div class="logout">
+      <p>Want to logout? <a href="javascript:void(0);" onclick="logout()">Logout</a></p>
+    </div>
+  </div>
 
   <script>
+    // This should be the logic to check if the user is authenticated.
+    // For example, you could use localStorage, a session, or a token to verify user login status.
     document.addEventListener('DOMContentLoaded', function () {
-      // Check if the user is logged in (by checking localStorage)
-      const isLoggedIn = localStorage.getItem('isLoggedIn');
-      
-      if (!isLoggedIn) {
-        // If the user is not logged in, redirect to signup page
-        window.location.href = '/signup.html';
+      // Example of user verification (mock logic)
+      const userLoggedIn = true; // This should be based on actual login state, i.e., token or session check
+
+      if (!userLoggedIn) {
+        window.location.href = '/login.html';  // Redirect to login if user is not authenticated
       } else {
-        // User is logged in, fetch username (from localStorage or server)
-        const username = localStorage.getItem('username');
-        document.getElementById('message').textContent = `Welcome back, ${username}!`;
+        // If user is logged in, populate the welcome message or fetch user details
+        document.getElementById('userWelcomeMessage').textContent = `Hello, ${getUsername()}`; // Use actual username
       }
     });
-  </script>
 
-</body>
+    // Logout function (mocked logic)
+    function logout() {
+      // You can add actual logic to remove user session or token here
+      alert('You have logged out.');
+      window.location.href = '/index.html';  // Redirect to login page after logout
+    }
+
+    // Function to get the username (mocked logic, replace with real data)
+    function getUsername() {
+      // This can be replaced with a real method (e.g., from a token or session)
+      return "John Doe";
+    }
+  </script>
+  </body>
+
 </html>
+
+
