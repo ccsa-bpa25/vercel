@@ -57,4 +57,3 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
   }
 };
-
