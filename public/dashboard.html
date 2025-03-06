@@ -6,48 +6,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard - Cab Calloway BPA</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #3498db, #2c3e50);
-      height: 100vh;
-      color: white;
+    /* Reset and Box-sizing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fc; /* Light background color */
+      color: #333; /* Dark text for readability */
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      text-align: center;
+      padding: 0;
+      margin: 0;
     }
 
+    /* Main container styling */
     .container {
       background-color: white;
-      color: #34495e;
+      width: 100%;
+      max-width: 1000px;
       padding: 40px;
-      border-radius: 20px;
-      width: 80%;
-      max-width: 600px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+      margin-top: 20px;
     }
 
     h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      font-weight: bold;
+      font-size: 2.5em;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #2c3e50;
     }
 
     p {
       font-size: 1.2em;
       margin-bottom: 20px;
+      color: #555;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      font-size: 1.1em;
+      cursor: pointer;
+      background-color: #3498db;
+      color: white;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+      margin: 0 10px;
+    }
+
+    .tab:hover {
+      background-color: #2980b9;
+    }
+
+    .tab.active {
+      background-color: #2980b9;
+    }
+
+    .tab-content {
+      display: none;
+      width: 100%;
+      padding: 30px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1.1em;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .contact-form button {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #2980b9;
     }
 
     .btn {
       background-color: #3498db;
       color: white;
-      padding: 14px 20px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 10px;
-      font-size: 1.2em;
+      border-radius: 8px;
+      font-size: 1.1em;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
+      transition: all 0.3s ease;
+      margin-top: 20px;
     }
 
     .btn:hover {
@@ -57,7 +138,7 @@
 
     .logout {
       margin-top: 20px;
-      font-size: 1.2em;
+      font-size: 1.1em;
     }
 
     a {
@@ -69,55 +150,98 @@
     a:hover {
       color: #2980b9;
     }
+
+    /* Full-page adjustment */
+    .full-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Styling for tabs */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Welcome to Your Dashboard!</h1>
-    <p id="userWelcomeMessage">Hello, User!</p>
-    <p>Your account is successfully active. Here you can manage your activities.</p>
+  <!-- Full Page Layout Container -->
+  <div class="full-page">
+    <div class="container">
+      <h1>Welcome to Your Dashboard!</h1>
+      <p id="userWelcomeMessage">Hello, User!</p>
+      <p>Your account is successfully active. Here you can manage your activities.</p>
 
-    <!-- Add more content or features you want the user to interact with -->
+      <!-- Tabs for Notifications and Contact Us -->
+      <div class="tabs">
+        <div class="tab active" onclick="showTab('notifications')">Notifications</div>
+        <div class="tab" onclick="showTab('contact')">Contact Us</div>
+      </div>
 
-    <!-- Button to logout or go back to homepage -->
-    <button class="btn" onclick="logout()">Logout</button>
+      <!-- Tab Content -->
+      <div id="notifications" class="tab-content active">
+        <h3>Notifications</h3>
+        <ul>
+          <p>You currently do not have any notifications.</p>
+        </ul>
+      </div>
 
-    <div class="logout">
-      <p>Want to logout? <a href="javascript:void(0);" onclick="logout()">Logout</a></p>
+      <div id="contact" class="tab-content">
+        <h3>Contact Us</h3>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" id="name" required />
+          <input type="text" placeholder="Your Grade" id="grade" required />
+          <textarea placeholder="Your Message" id="message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Logout Button -->
+      <button class="btn" onclick="logout()">Logout</button>
+
+      <div class="logout">
+        <p>Want to logout? <a href="javascript:void(0);" onclick="logout()">Logout</a></p>
+      </div>
     </div>
   </div>
 
   <script>
-    // This should be the logic to check if the user is authenticated.
-    // For example, you could use localStorage, a session, or a token to verify user login status.
-    document.addEventListener('DOMContentLoaded', function () {
-      // Example of user verification (mock logic)
-      const userLoggedIn = true; // This should be based on actual login state, i.e., token or session check
+    // Show the clicked tab content
+    function showTab(tabId) {
+      // Remove active class from all tabs and contents
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
 
-      if (!userLoggedIn) {
-        window.location.href = '/login.html';  // Redirect to login if user is not authenticated
-      } else {
-        // If user is logged in, populate the welcome message or fetch user details
-        document.getElementById('userWelcomeMessage').textContent = `Hello, ${getUsername()}`; // Use actual username
+      // Add active class to the clicked tab and content
+      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Mock logout function
+    function logout() {
+      alert('You have logged out.');
+      window.location.href = '/index.html'; // Redirect to the login page
+    }
+
+    // Simulate user login (Replace with actual authentication)
+    document.addEventListener('DOMContentLoaded', function () {
+      const userLoggedIn = true; // This should be replaced with actual login state check
+      if (userLoggedIn) {
+        document.getElementById('userWelcomeMessage').textContent = `Hello, ${getUsername()}`;
       }
     });
 
-    // Logout function (mocked logic)
-    function logout() {
-      // You can add actual logic to remove user session or token here
-      alert('You have logged out.');
-      window.location.href = '/index.html';  // Redirect to login page after logout
-    }
-
-    // Function to get the username (mocked logic, replace with real data)
     function getUsername() {
-      // This can be replaced with a real method (e.g., from a token or session)
-      return "John Doe";
+      return User; // This should be replaced with actual user data
     }
   </script>
-  </body>
+</body>
 
 </html>
-
-
