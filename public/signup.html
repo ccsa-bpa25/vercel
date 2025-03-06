@@ -202,7 +202,6 @@
       <img src="capturebpa.jpg" alt="BPA Theme" />
     </div>
   </div>
-
   <script>
     function toggleForms() {
       var signupSection = document.getElementById('signupSection');
@@ -216,7 +215,13 @@
         loginSection.style.display = 'block';
       }
     }
+  </script>
 
+
+
+  <div id="message"></div>
+
+  <script>
     // Handle signup form submission
     document.getElementById('signupForm').addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent default form submission
@@ -238,10 +243,8 @@
       })
       .then(response => response.json())
       .then(data => {
-        if (data.token) {
-          // Store the token and redirect to dashboard
-          localStorage.setItem('authToken', data.token);
-          window.location.href = '/dashboard.html'; // Redirect to dashboard
+        if (data.message) {
+          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
         } else {
           document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
         }
@@ -272,10 +275,8 @@
       })
       .then(response => response.json())
       .then(data => {
-        if (data.token) {
-          // Store the token and redirect to dashboard
-          localStorage.setItem('authToken', data.token);
-          window.location.href = '/dashboard.html'; // Redirect to dashboard
+        if (data.message) {
+          document.getElementById('message').innerHTML = `<p style="color: green;">${data.message}</p>`;
         } else {
           document.getElementById('message').innerHTML = `<p style="color: red;">${data.error}</p>`;
         }
@@ -286,6 +287,22 @@
     });
   </script>
 
+  <script>
+    function toggleForms() {
+      var signupSection = document.getElementById("signupSection");
+      var loginSection = document.getElementById("loginSection");
+
+      if (signupSection.style.display === "none") {
+        signupSection.style.display = "block";
+        loginSection.style.display = "none";
+      } else {
+        signupSection.style.display = "none";
+        loginSection.style.display = "block";
+      }
+    }
+  </script>
+
 </body>
 
 </html>
+
