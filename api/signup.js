@@ -1,5 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 // Initialize Supabase client with environment variables
 const supabase = createClient(
@@ -28,31 +29,34 @@ module.exports = async (req, res) => {
         return res.status(400).json({ error: 'Username already exists.' });
       }
 
-      // Hash the password for PostgreSQL storage (if needed)
+      // Hash the password for PostgreSQL storage
       const hashedPassword = await bcrypt.hash(password, 10);
 
       // Insert user data into the PostgreSQL database
       const { data, error: dbError } = await supabase
         .from('users')
-        .insert([{
-          username: username,
-          password: hashedPassword,
-        }]);
+        .insert([
+          {
+            username: username,
+            password: hashedPassword,
+          },
+        ]);
 
       if (dbError) {
-        console.error('Error inserting into database:', dbError);
         return res.status(500).json({ error: 'Error inserting user into database.' });
       }
 
-      // Send a success response with the redirect URL to the dashboard
-      return res.status(201).json({ message: 'User registered successfully!', redirect: '/dashboard.html' });
+      // Generate a JWT token
+      const token = jwt.sign({ userId: data[0].id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+      // Send a success response with token
+      return res.status(201).json({ message: 'User registered successfully!', token });
+
     } catch (err) {
       console.error('Error:', err.message);
       return res.status(500).json({ error: 'Internal Server Error.' });
     }
   } else {
-    // Method not allowed
     return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
   }
 };
-
