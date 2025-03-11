@@ -416,18 +416,124 @@ header {
                
 
               </script>
+              <style>
+                
+                 .tabs {
+            margin-bottom: 20px;
+        }
 
-  <div class="bpa1-images">
-              
-    <img src="yes picture gallery.jpeg" alt="img1" class="small-img fade-in">
-  </div>
+        .tab-btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #f1f1f1;
+            color: #333;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
 
-         
-          <div class="pages">
+        .tab-btn.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .tab-btn:hover {
+            background-color: #45a049;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .gallery-image {
+            max-width: 500px;
+            max-height: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        #tab1 {
+            display: block;
+        }
+              </style>
+
+<div class="gallery-container">
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('tab1')">SLC</button>
+        <button class="tab-btn" onclick="showTab('tab2')">FLC</button>
+        <button class="tab-btn" onclick="showTab('tab3')">CCSA BPA</button>
+    </div>
+
+    <div class="gallery">
+        <div id="tab1" class="tab-content">
+            <img src="20250205_202304(1).jpg" alt="SLC1" class="gallery-image" style="width: 600px; height: 450px;">
+            <img src="IMG_0251.jpg" alt="SLC2" class="gallery-image" style="width: 600px; height: 450px;">
+            <br>
+            <img src="IMG_0256.jpg" alt="SLC3" class="gallery-image" style="width: 600px; height: 450px;">
+            <img src="IMG_0311.jpg" alt="SLC4" class="gallery-image" style="width: 600px; height: 450px;">
+
             
-            <a href="gallery2.html">
-              <button class="next">Next</button>
-          </a>        </div>   
+        </div>
+        <div id="tab2" class="tab-content">
+            <img src="20241030_084444.jpg" alt="FLC1" class="gallery-image" style="width: 600px; height: 450px;">
+            <img src="20241030_110303.jpg" alt="FLC2" class="gallery-image" style="width: 600px; height: 450px;">
+            <br>
+            <img src="20241030_091115 (1).jpg" alt="FLC3" class="gallery-image" style="width: 600px; height: 450px;">
+            <img src="20241030_084629.jpg" alt="FLC4" class="gallery-image" style="width: 600px; height: 450px;">
+
+        </div>
+        <div id="tab3" class="tab-content">
+            <img src="imgchaitra.jpg" alt="BPA4" class="gallery-image" style="width: 600px; height: 450px;">
+            <img src="IMG-7996.jpg" alt="BPA2" class="gallery-image" style="width: 600px; height: 450px;">
+            <br>
+            <img src="IMG-2326.jpg" alt="BPA3" class="gallery-image" style="width: 600px; height: 450px;">
+            <img src="IMG-2335.jpg" alt="BPA1" class="gallery-image" style="width: 600px; height: 450px;">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(tabName) {
+        // Hide all tab contents
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => {
+            tab.style.display = 'none';
+        });
+
+        // Remove 'active' class from all buttons
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        // Show the selected tab
+        const selectedTab = document.getElementById(tabName);
+        selectedTab.style.display = 'block';
+
+        // Add 'active' class to the clicked button
+        const selectedButton = document.querySelector(`button[onclick="showTab('${tabName}')"]`);
+        selectedButton.classList.add('active');
+    }
+</script>
+        
         </section>
          
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
