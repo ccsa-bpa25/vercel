@@ -4,11 +4,143 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>CCSA BPA | Home</title>
+    <title>CCSA BPA | About Us</title>
 
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <style>
+       nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #faf9df;
+    padding: 1rem 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-left .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .nav-center {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .nav-center li {
+    display: inline;
+    list-style-type: none;
+  }
+  
+  .nav-left a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-left a:hover {
+    color: #791299;
+  }
+  
+  .nav-left a:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495e;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    animation: growUnderline 0.3s forwards;
+  }
+  
+  @keyframes growUnderline {
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  .nav-center a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-center a:hover {
+    color: #34495e;
+  }
+  
+  .nav-center a:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495e;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    animation: growUnderline 0.3s forwards;
+  }
+  
+  @keyframes growUnderline {
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  .nav-right {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    background-color: #192836;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .btn:hover {
+    background-color: #34495e;
+    color: white;
+  }
+  
+  .btn:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495e;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+  }
+      </style>
     <nav>
       <div class="nav-left">
         <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
