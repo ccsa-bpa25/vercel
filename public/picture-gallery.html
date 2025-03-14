@@ -1,13 +1,226 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Picture Gallery</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CCSA BPA | Picture Gallery</title>
+
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <main>
-      <style>
-         .ripple {
+  </head>
+  <body>
+    <style>
+       nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #faf9df;
+    padding: 0.1rem 0.1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-left .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .nav-center {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .nav-center li {
+    display: inline;
+    list-style-type: none;
+  }
+  
+  .nav-left a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-left a:hover {
+    color: #791299;
+  }
+  
+  .nav-left a:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495e;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    animation: growUnderline 0.3s forwards;
+  }
+  
+  @keyframes growUnderline {
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  .nav-center a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-center a:hover {
+    color: #34495e;
+  }
+  
+  .nav-center a:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495e;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    animation: growUnderline 0.3s forwards;
+  }
+  
+  @keyframes growUnderline {
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  .nav-right {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    background-color: #192836;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .btn:hover {
+    background-color: #34495e;
+    color: white;
+  }
+  
+  .btn:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495e;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+  }
+      </style>
+    <nav>
+      <div class="nav-left">
+        <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+        <a href="index.html"
+          ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+        >
+      </div>
+
+      <ul class="nav-center">
+        <li><a href="about-us.html" style="color:#000000">About Us</a></li>
+        <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
+        <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
+        <li>
+          <a href="#" id="eventsLink"
+          style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+          >
+          <div class="dropdown-content" id="dropdownMenu">
+            <a href="flc.html" style="color:#000000">Fall Conference</a>
+            <a href="slc.html" style="color:#000000">State Conference</a>
+            <a href="nlc.html" style="color:#000000">National Conference</a>
+          </div>
+        </li>
+        <li><a href="#" style="color:#000000">Torch Awards</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="signup.html" class="btn" ><p style="color:#ffffff">Login</p></a>
+        <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
+      </div>
+    </nav>
+    <style>
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 8px 16px;
+        border-radius: 4px;
+      }
+
+      .dropdown-content a {
+        text-decoration: none;
+        color: black;
+        display: block;
+        padding: 8px 0;
+        font-size: 1rem;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+    </style>
+    <script>
+      const eventsLink = document.getElementById("eventsLink");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      eventsLink.addEventListener("click", function (event) {
+        event.stopPropagation();
+        dropdownMenu.style.display =
+          dropdownMenu.style.display === "block" ? "none" : "block";
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!eventsLink.contains(event.target)) {
+          dropdownMenu.style.display = "none";
+        }
+      });
+
+      dropdownMenu.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+    </script>
+   <main style="text-align: center">
+    <section id="what-is-bpa">
+      <div class="container">
+        <br />
+        <br />
+<style>
+   .ripple {
       position: fixed; 
       top: 50%;
       left: 50%;
@@ -32,698 +245,361 @@
       }
     }
  
-        
-
-          #torch-awards {
-            padding: 50px 20px;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-       
-         @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-         h1, h3 {
-            color: #333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            animation: fadeIn 2s ease-in-out;
-        }
-      nav ul li:hover {
-    background-color: #D1B89E; 
+</style>
+<h1 class="scroll-reveal">Picture Gallery</h1>
+<style>
+h1:hover {
+  text-shadow: 2px 2px 0px #007bff, -2px -2px 0px #007bff, 2px -2px 0px #007bff, -2px 2px 0px #007bff; 
 }
-nav ul li.active {
-    background-color: #D1B89E; 
+h1 {
+ border: 2px solid transparent; 
+ transition: border-color 0.3s ease; 
 }
-    nav .nav-inner {
-            display: flex;
-            justify-content: space-between;  
-            align-items: center;
-            padding: 10px 30px;
-            width: 100%;
-        }
+</style>
 
-       
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            padding: 10;
-            margin: 0;
-            justify-content: space-between; 
-            width: 100%;
-        }
-
-        nav ul li {
-            flex-shrink: 0;
-        }
-        nav ul li:hover {
-    background-color: #D1B89E; 
-}
-nav a:hover {
-    background-color: #D1B89E; 
-    color: black; 
-}
-       
-        nav a {
-            color: black;
-            text-decoration: none;
-            padding: 20px 20px; 
-            font-size: 14px; 
-            white-space: nowrap;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-       
-        nav a:hover {
-            background-color: #D1B89E; 
-            color: black;
-        }
-
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 180px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            flex-direction: column;
-        }
-
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-       
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        
-        .dropdown-content a:hover {
-            background-color: #D1B89E;
-            color: black;
-        }
-
-        .arrow {
-            font-size: 12px;
-            margin-left: 5px;
-            vertical-align: middle;
-        }
-
-        
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 25px;
-        }
-
-        .hamburger-menu div {
-            height: 4px;
-            background-color: black;
-            border-radius: 2px;
-        }
-        
-           
-        #eventsLink {
-    color: black; 
-    text-decoration: none; 
-}
-        @media (max-width: 768px) {
-            .nav-inner {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-            }
-
-           
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: #fff;
-            }
-
-            nav ul li a {
-                padding: 10px 20px;
-                width: 100%;
-                text-align: left;
-            }
-
-           
-            .hamburger-menu {
-                display: flex;
-            }
-            
-            .nav-inner.active ul {
-                display: flex;
-            }
-
-            
-            nav ul li a {
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-            }
-        }
-        .image-container {
-  display: flex; 
-  gap: 10px; 
+</h1>    
+<style>
+.scroll-reveal {
+opacity: 0;
+transform: translateY(50px);
+animation: scrollReveal 1.5s forwards;
 }
 
-.small-img {
-  width: 900%; 
-  height: auto; 
+@keyframes scrollReveal {
+0% {
+opacity: 0;
+transform: translateY(50px);
 }
-
-.flc-images img, .small-img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease; 
-  will-change: transform; 
-  transform-origin: center center; 
+100% {
+opacity: 1;
+transform: translateY(0);
+}
 }
 
 
 
-header {
-  background-color: #3498db; 
-  color: white;
-  padding: 20px;
-  nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-.typing {
-    display: inline-block;
-    overflow: hidden; 
-    white-space: nowrap; 
-    border-right: 3px solid black; 
-    width: 0; 
-    animation: typing 7.5s steps(30) forwards, blink-caret 5.0s step-end forwards; 
-}
-
-
-@keyframes typing {
-    to {
-        width: 100%; 
-    }
-}
-
-@keyframes blink-caret {
-    50% {
-        border-color: transparent; 
-    }
-    100% {
-        border-color: transparent; 
-    }
-}
-
-
-
-.fade-in {
-    opacity: 0; 
-    animation: fadeIn 3s ease-in-out forwards; 
-}
-
-
-@keyframes fadeIn {
-    to {
-        opacity: 1; 
-    }
-}
-
-
-
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-}
-
-
-    </style>
-</head>
-<body>
-
-<nav>
-    <div class="nav-inner">
-        
-        <div class="hamburger-menu" id="hamburgerMenu">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-
-        
-        <ul>
-          <li><a href="index.html" style="color: black;">Home</a></li>
-          <li><a href="about-us.html" style="color: black;">About Us</a></li>
-            <li><a href="calendar.html" style="color: black;">Calendar</a></li>
-            <li class="dropdown">
-                <a href="#" id="eventsLink">Conferences <span class="arrow">&#9660;</span></a>
-                <div class="dropdown-content" id="dropdownMenu">
-                    <a href="flc.html">Fall Conference</a>
-                    <a href="slc.html">State Conference</a>
-                    <a href="nlc.html">National Conference</a>
-                </div>
-            </li>
-            <li><a href="picture-gallery.html" style="color: black;">Gallery</a></li>
-            <li><a href="leadership.html" style="color: black;">Leadership</a></li>
-            <li><a href="membership.html" style="color: black;">Member Spotlight</a></li>
-            <li><a href="torch-awards.html" style="color: black;">Torch Awards</a></li>
-             <li><a href="signup.html" style="color: black;">Login/Signup</a></li>
-        </ul>
-    </div>
-</nav>
-
+</style>        
+  <br />
+<div class="ripple"></div>
 <script>
-   
-    const hamburgerMenu = document.getElementById("hamburgerMenu");
-    const navInner = document.querySelector(".nav-inner");
+ 
+  setTimeout(() => {
+    const ripple = document.getElementById('ripple');
+    if (ripple) {
+      ripple.remove();
+    }
+  }, 3000);
+ 
 
-    hamburgerMenu.addEventListener("click", function () {
-        navInner.classList.toggle("active");  
-    });
-
-   
-    const eventsLink = document.getElementById("eventsLink");
-    const dropdownMenu = document.getElementById("dropdownMenu");
-
-    eventsLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-    });
-
-    
-    window.addEventListener("click", function (event) {
-        if (
-            !event.target.matches('#eventsLink') &&
-            !event.target.matches('.dropdown-content') &&
-            !event.target.matches('.dropdown-content a')
-        ) {
-            dropdownMenu.style.display = "none";
-        }
-    });
 </script>
-       
-      <body>
-        <header>
-          <div class="container">
-            <img />
-          </div>
-        </header>
-        <main style="text-align: center">
-          <section id="picture-gallery">
-            <div class="container">
-             
-              <h1 class="scroll-reveal">Picture Gallery</h1>
-              <style>
-              h1:hover {
-                text-shadow: 2px 2px 0px #007bff, -2px -2px 0px #007bff, 2px -2px 0px #007bff, -2px 2px 0px #007bff; 
-              }
-              h1 {
-               border: 2px solid transparent; 
-               transition: border-color 0.3s ease; 
-              }
-              </style>
-           
-              </h1>    
-              <style>
- .scroll-reveal {
-          opacity: 0;
-          transform: translateY(50px);
-          animation: scrollReveal 1.5s forwards;
-      }
+<style>
+  
+   .tabs {
+margin-bottom: 20px;
+}
 
-      @keyframes scrollReveal {
-          0% {
-              opacity: 0;
-              transform: translateY(50px);
-          }
-          100% {
-              opacity: 1;
-              transform: translateY(0);
-          }
-      }
+.tab-btn {
+font-size: 18px;
+padding: 10px 20px;
+background-color: #f1f1f1;
+color: #333;
+border: 1px solid #ddd;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin: 0 10px;
+border-radius: 5px;
+}
 
+.tab-btn.active {
+background-color: #4CAF50;
+color: white;
+border: 1px solid #4CAF50;
+}
 
+.tab-btn:hover {
+background-color: #45a049;
+}
 
-              </style>        
-                <br />
-              <div class="ripple"></div>
-              <script>
-               
-                setTimeout(() => {
-                  const ripple = document.getElementById('ripple');
-                  if (ripple) {
-                    ripple.remove();
-                  }
-                }, 3000);
-               
+.gallery {
+display: flex;
+justify-content: center;
+grid-template-columns: repeat(2, 1fr); 
+flex-wrap: wrap;
+gap: 15px;
+}
 
-              </script>
-              <style>
-                
-                 .tabs {
-            margin-bottom: 20px;
-        }
+.gallery-image {
+max-width: 500px;
+max-height: 500px;
+border-radius: 10px;
+object-fit: cover;
+transition: transform 0.3s ease;
+}
 
-        .tab-btn {
-            font-size: 18px;
-            padding: 10px 20px;
-            background-color: #f1f1f1;
-            color: #333;
-            border: 1px solid #ddd;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 0 10px;
-            border-radius: 5px;
-        }
+.gallery-image:hover {
+transform: scale(1.05);
+}
 
-        .tab-btn.active {
-            background-color: #4CAF50;
-            color: white;
-            border: 1px solid #4CAF50;
-        }
+.tab-content {
+display: none;
+}
 
-        .tab-btn:hover {
-            background-color: #45a049;
-        }
-
-        .gallery {
-            display: flex;
-            justify-content: center;
-            grid-template-columns: repeat(2, 1fr); 
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .gallery-image {
-            max-width: 500px;
-            max-height: 500px;
-            border-radius: 10px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-image:hover {
-            transform: scale(1.05);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        #tab1 {
-            display: block;
-        }
-              </style>
+#tab1 {
+display: block;
+}
+</style>
 
 <div class="gallery-container">
 
-    <div class="tabs">
-        <button class="tab-btn active" onclick="showTab('tab1')">SLC</button>
-        <button class="tab-btn" onclick="showTab('tab2')">FLC</button>
-        <button class="tab-btn" onclick="showTab('tab3')">CCSA BPA</button>
-    </div>
+<div class="tabs">
+<button class="tab-btn active" onclick="showTab('tab1')">SLC</button>
+<button class="tab-btn" onclick="showTab('tab2')">FLC</button>
+<button class="tab-btn" onclick="showTab('tab3')">CCSA BPA</button>
+</div>
 
-    <div class="gallery">
-        <div id="tab1" class="tab-content">
-          <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-    <img src="20250205_202304(1).jpg" alt="SLC1" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    <img src="IMG_0251.jpg" alt="SLC2" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+<div class="gallery">
+<div id="tab1" class="tab-content">
+<div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
+<img src="20250205_202304(1).jpg" alt="SLC1" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+<img src="IMG_0251.jpg" alt="SLC2" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
 </div>
 <div style="display: flex; justify-content: center; gap: 15px;">
-    <img src="IMG_0256.jpg" alt="SLC3" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    <img src="IMG_0311.jpg" alt="SLC4" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+<img src="IMG_0256.jpg" alt="SLC3" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+<img src="IMG_0311.jpg" alt="SLC4" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
 </div>
 
-            
-        </div>
-        <div id="tab2" class="tab-content">
-             <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-      <img src="20241030_084444.jpg" alt="SLC1" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      <img src="20241030_110303.jpg" alt="SLC2" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-  </div>
-  <div style="display: flex; justify-content: center; gap: 15px;">
-      <img src="20241030_091115 (1).jpg" alt="SLC3" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      <img src="20241030_084629.jpg" alt="SLC4" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-  </div>
-        </div>
-        <div id="tab3" class="tab-content">
-         <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-            <img src="imgchaitra.jpg" alt="SLC1" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <img src="IMG-7996.jpg" alt="SLC2" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        </div>
-        <div style="display: flex; justify-content: center; gap: 15px;">
-            <img src="IMG-2326.jpg" alt="SLC3" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            <img src="IMG-2335.jpg" alt="SLC4" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        </div>
-        </div>
-    </div>
+
+</div>
+<div id="tab2" class="tab-content">
+<div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
+<img src="20241030_084444.jpg" alt="SLC1" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+<img src="20241030_110303.jpg" alt="SLC2" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+</div>
+<div style="display: flex; justify-content: center; gap: 15px;">
+<img src="20241030_091115 (1).jpg" alt="SLC3" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+<img src="20241030_084629.jpg" alt="SLC4" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+</div>
+</div>
+<div id="tab3" class="tab-content">
+<div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
+<img src="imgchaitra.jpg" alt="SLC1" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+<img src="IMG-7996.jpg" alt="SLC2" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+</div>
+<div style="display: flex; justify-content: center; gap: 15px;">
+<img src="IMG-2326.jpg" alt="SLC3" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+<img src="IMG-2335.jpg" alt="SLC4" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+</div>
+</div>
+</div>
 </div>
 
 <script>
-    function showTab(tabName) {
-        // hide
-        const tabs = document.querySelectorAll('.tab-content');
-        tabs.forEach(tab => {
-            tab.style.display = 'none';
-        });
+function showTab(tabName) {
+// hide
+const tabs = document.querySelectorAll('.tab-content');
+tabs.forEach(tab => {
+tab.style.display = 'none';
+});
 
-      
-        const buttons = document.querySelectorAll('.tab-btn');
-        buttons.forEach(button => {
-            button.classList.remove('active');
-        });
 
-        // shwo the tab when clicked one
-        const selectedTab = document.getElementById(tabName);
-        selectedTab.style.display = 'block';
+const buttons = document.querySelectorAll('.tab-btn');
+buttons.forEach(button => {
+button.classList.remove('active');
+});
 
-     
-        const selectedButton = document.querySelector(`button[onclick="showTab('${tabName}')"]`);
-        selectedButton.classList.add('active');
-    }
+// shwo the tab when clicked one
+const selectedTab = document.getElementById(tabName);
+selectedTab.style.display = 'block';
+
+
+const selectedButton = document.querySelector(`button[onclick="showTab('${tabName}')"]`);
+selectedButton.classList.add('active');
+}
 </script>
-        
-        </section>
-         
+
+</section>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 
 <div id="chatbotButton" class="chatbot-button">
-  <i class="fas fa-comment-dots"></i> <!-- Font Awesome chat icon -->
+<i class="fas fa-comment-dots"></i> <!-- Font Awesome chat icon -->
 </div>
 
 <div id="chatbotContainer" class="chatbot-container">
-  <iframe
-    src="https://www.chatbase.co/chatbot-iframe/d3r3C9H4kvPe2op5b5e56"
-    width="100%"
-    style="height: 100%"
-    frameborder="0"
-  ></iframe>
-  <button id="closeChatbot" class="close-chatbot">X</button>
+<iframe
+src="https://www.chatbase.co/chatbot-iframe/d3r3C9H4kvPe2op5b5e56"
+width="100%"
+style="height: 100%"
+frameborder="0"
+></iframe>
+<button id="closeChatbot" class="close-chatbot">X</button>
 </div>
 
 <style>
 
-  .chatbot-button {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;  
-    background-color: #007bff;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    z-index: 9999;
-    transition: all 0.3s ease; 
-  }
+.chatbot-button {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 60px;
+height: 60px;
+border-radius: 50%;  
+background-color: #007bff;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 24px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+z-index: 9999;
+transition: all 0.3s ease; 
+}
 
-  .chatbot-button:hover {
-    background-color: #0056b3;
-  }
+.chatbot-button:hover {
+background-color: #0056b3;
+}
 
- 
-  .chatbot-container {
-    display: none; 
-    position: fixed;
-    bottom: 20px;  
-    right: 30px;
-    width: 350px;
-    height: 500px;
-    background-color: #fff;
-    border-radius: 8px; 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 9998;
-    transition: all 0.3s ease;
-  }
 
- 
-  .close-chatbot {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #ff4136;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 16px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+.chatbot-container {
+display: none; 
+position: fixed;
+bottom: 20px;  
+right: 30px;
+width: 350px;
+height: 500px;
+background-color: #fff;
+border-radius: 8px; 
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+z-index: 9998;
+transition: all 0.3s ease;
+}
 
-  .close-chatbot:hover {
-    background-color: #e60000;
-  }
+
+.close-chatbot {
+position: absolute;
+top: 10px;
+right: 10px;
+background-color: #ff4136;
+color: white;
+border: none;
+padding: 5px 10px;
+font-size: 16px;
+border-radius: 50%;
+cursor: pointer;
+}
+
+.close-chatbot:hover {
+background-color: #e60000;
+}
 </style>
 
 <script>
-  const chatbotButton = document.getElementById("chatbotButton");
-  const chatbotContainer = document.getElementById("chatbotContainer");
-  const closeButton = document.getElementById("closeChatbot");
+const chatbotButton = document.getElementById("chatbotButton");
+const chatbotContainer = document.getElementById("chatbotContainer");
+const closeButton = document.getElementById("closeChatbot");
 
-  chatbotButton.addEventListener("click", function () {
-    chatbotButton.style.display = "none"; // Hide the chatbot button
-    chatbotContainer.style.display = "block"; // Show the chatbot container
-  });
+chatbotButton.addEventListener("click", function () {
+chatbotButton.style.display = "none"; // Hide the chatbot button
+chatbotContainer.style.display = "block"; // Show the chatbot container
+});
 
 
-  closeButton.addEventListener("click", function () {
-    chatbotButton.style.display = "flex"; // Show the chatbot button again
-    chatbotContainer.style.display = "none"; // Hide the chatbot container
-  });
+closeButton.addEventListener("click", function () {
+chatbotButton.style.display = "flex"; // Show the chatbot button again
+chatbotContainer.style.display = "none"; // Hide the chatbot container
+});
 </script>
-            </body>
+</body>
 
 <br>
 <br> 
 <br>
 <br>
-  
-          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
-            <style>
-              a {
-                  text-decoration: none;
-                  color: black;
-              }
 
-              a:visited {
-                  color: black;
-              }
+<footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
+<style>
+a {
+    text-decoration: none;
+    color: black;
+}
 
-              a:hover {
-                  color: navy;
-              }
-          </style>
-             <h4 style="text-align: center;">Resources</h4>
-             <br>
-             <br>
-             <title>Footer </title>
-   <style>
-     .footer {
-       display: flex;
-       justify-content: space-between;
-       padding: 20px;
-       text-align: left;
-     }
-     .footer-column {
-       display: flex;
-       flex-direction: column;
-       gap: 10px;
-     }
-     .footer-column a {
-       text-decoration: none;
-       color: #333;
-       font-size: 16px;
-     }
-     .footer-column a:hover {
-       color: #007BFF;
-       text-decoration: underline;
-     }
-     @media (max-width: 768px) {
-       .footer {
-         flex-direction: column;
-         align-items: center;
-       }
-       .footer-column {
-         align-items: center;
-       }
-     }
-   </style>
- </head>
- <body>
-  <div class="footer">
-    <div class="footer-column">
-      <a href="https://www.instagram.com/ccsa_bpa/">Instagram</a>
-      <a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
-      <a href="about-us.html">About Us</a>
-    </div>
-    <div class="footer-column">
-       <a href="calendar.html">Calendar</a>
-       <a href="leadership.html">Leadership</a>
-       <a href="learn-more.html">Get Involved</a>
+a:visited {
+    color: black;
+}
 
-    </div>
-    <div class="footer-column">
-      <a href="membership.html">Membership Spotlight</a>
-      <a href="picture-gallery.html">Picture Gallery</a>
-      <a href="torch-awards.html">Torch Awards</a>
+a:hover {
+    color: navy;
+}
+</style>
+<h4 style="text-align: center;">Resources</h4>
+<br>
+<br>
+<title>Footer </title>
+<style>
+.footer {
+display: flex;
+justify-content: space-between;
+padding: 20px;
+text-align: left;
+}
+.footer-column {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.footer-column a {
+text-decoration: none;
+color: #333;
+font-size: 16px;
+}
+.footer-column a:hover {
+color: #007BFF;
+text-decoration: underline;
+}
+@media (max-width: 768px) {
+.footer {
+flex-direction: column;
+align-items: center;
+}
+.footer-column {
+align-items: center;
+}
+}
+</style>
+</head>
+<body>
+<div class="footer">
+<div class="footer-column">
+<a href="https://www.instagram.com/ccsa_bpa/">Instagram</a>
+<a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
+<a href="about-us.html">About Us</a>
+</div>
+<div class="footer-column">
+<a href="calendar.html">Calendar</a>
+<a href="leadership.html">Leadership</a>
+<a href="learn-more.html">Get Involved</a>
 
-    </div>
-    <div class="footer-column">
-       
-      <a href="flc.html">FLC</a>
-      <a href="slc.html">SLC</a>
-      <a href="nlc.html">NLC</a>
-    </div>
-  </div>
- <br>
- <br>
-           </div>
-         </footer>
-       </body>
-     </main>
-   </body>
- </html>
+</div>
+<div class="footer-column">
+<a href="membership.html">Membership Spotlight</a>
+<a href="picture-gallery.html">Picture Gallery</a>
+<a href="torch-awards.html">Torch Awards</a>
+
+</div>
+<div class="footer-column">
+
+<a href="flc.html">FLC</a>
+<a href="slc.html">SLC</a>
+<a href="nlc.html">NLC</a>
+</div>
+</div>
+<br>
+<br>
+</div>
+</footer>
+</body>
+</main>
+</body>
+</html>
