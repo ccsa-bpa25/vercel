@@ -42,7 +42,7 @@ nav a:hover {
     color: black; 
 }
 header {
-  background-color: #3498db; 
+  background-color: #d8bfd8; 
   color: white;
   padding: 20px;
   nav {
@@ -123,22 +123,7 @@ header {
                 transform: translateY(0);
             }
         }
-         h1, h3 {
-            color: #333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            animation: fadeIn 2s ease-in-out;
-        }
+        
         .dropdown-content a:hover {
             background-color: #D1B89E;
             color: black;
@@ -239,7 +224,6 @@ header {
             <li><a href="leadership.html" style="color: black;">Leadership</a></li>
             <li><a href="membership.html" style="color: black;">Member Spotlight</a></li>
             <li><a href="torch-awards.html" style="color: black;">Torch Awards</a></li>
-             <li><a href="signup.html" style="color: black;">Login/Signup</a></li>
  
         </ul>
     </div>
@@ -297,6 +281,22 @@ header {
               <img src="20241030_084629 (2).jpg" alt="FLC Image" class="smaller-image">
 
               <style>
+                 h1, h3 {
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
                 .smaller-image {
                   transform: scale(0.7); 
                   display: block; 
@@ -539,98 +539,7 @@ header {
             </div> 
           </section>
             
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-
-<div id="chatbotButton" class="chatbot-button">
-  <i class="fas fa-comment-dots"></i> <!-- Font Awesome chat icon -->
-</div>
-
-<div id="chatbotContainer" class="chatbot-container">
-  <iframe
-    src="https://www.chatbase.co/chatbot-iframe/d3r3C9H4kvPe2op5b5e56"
-    width="100%"
-    style="height: 100%"
-    frameborder="0"
-  ></iframe>
-  <button id="closeChatbot" class="close-chatbot">X</button>
-</div>
-
-<style>
-
-  .chatbot-button {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;  
-    background-color: #007bff;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    z-index: 9999;
-    transition: all 0.3s ease; 
-  }
-
-  .chatbot-button:hover {
-    background-color: #0056b3;
-  }
-
- 
-  .chatbot-container {
-    display: none; 
-    position: fixed;
-    bottom: 20px;  
-    right: 30px;
-    width: 350px;
-    height: 500px;
-    background-color: #fff;
-    border-radius: 8px; 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 9998;
-    transition: all 0.3s ease;
-  }
-
- 
-  .close-chatbot {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #ff4136;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 16px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  .close-chatbot:hover {
-    background-color: #e60000;
-  }
-</style>
-
-<script>
-  const chatbotButton = document.getElementById("chatbotButton");
-  const chatbotContainer = document.getElementById("chatbotContainer");
-  const closeButton = document.getElementById("closeChatbot");
-
-  chatbotButton.addEventListener("click", function () {
-    chatbotButton.style.display = "none"; // Hide the chatbot button
-    chatbotContainer.style.display = "block"; // Show the chatbot container
-  });
-
-
-  closeButton.addEventListener("click", function () {
-    chatbotButton.style.display = "flex"; // Show the chatbot button again
-    chatbotContainer.style.display = "none"; // Hide the chatbot container
-  });
-</script>
             </body>
            
          
