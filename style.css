@@ -21,10 +21,7 @@
   nav.scrolled {
     background-color: purple; 
   }
-  nav a:hover {
-    background-color: #D1B89E; 
-    color: #D1B89E; 
-  }
+
   .nav-inner {
     display: flex; 
     justify-content: space-between; 
