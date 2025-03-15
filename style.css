@@ -111,9 +111,7 @@
     color: #333; 
     transition: color 0.3s ease; 
   }
-  nav li a:hover {
-    color: #D1B89E; 
-  }
+
   nav ul {
     list-style: none;
     padding: 0;
@@ -174,10 +172,7 @@
     font-size: 16px;
   }
   
-  nav ul li a:hover {
-    background-color: #D1B89E;
-  }
-  
+
   section {
     margin-bottom: 40px;
   }
