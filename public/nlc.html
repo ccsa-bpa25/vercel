@@ -1,282 +1,221 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>National Leadership Conference</title>
+    <title>State Leadership Conference</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <main>
-      <style>
-.scroll-reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            animation: scrollReveal 1.5s forwards;
-        }
-
-        @keyframes scrollReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-          #torch-awards {
-            padding: 50px 20px;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-         h1, h3 {
-            color: #333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-       nav ul li:hover {
-    background-color: #D1B89E; 
-}
-nav ul li.active {
-    background-color: #D1B89E; 
-}
-    nav .nav-inner {
-            display: flex;
-            justify-content: space-between;  
-            align-items: center;
-            padding: 10px 30px;
-            width: 100%;
-        }
-
-       
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            padding: 10;
-            margin: 0;
-            justify-content: space-between; 
-            width: 100%;
-        }
-
-        nav ul li {
-            flex-shrink: 0;
-        }
-        nav ul li:hover {
-    background-color: #D1B89E; 
-}
-nav a:hover {
-    background-color: #D1B89E; 
-    color: black; 
-}
-       
-        nav a {
-            color: black;
-            text-decoration: none;
-            padding: 20px 20px; 
-            font-size: 14px; 
-            white-space: nowrap;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-       
-        nav a:hover {
-            background-color: #D1B89E; 
-            color: black;
-        }
-
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 180px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            flex-direction: column;
-        }
-
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-       
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        
-        .dropdown-content a:hover {
-            background-color: #D1B89E;
-            color: black;
-        }
-
-        .arrow {
-            font-size: 12px;
-            margin-left: 5px;
-            vertical-align: middle;
-        }
-
-        
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 25px;
-        }
-
-        .hamburger-menu div {
-            height: 4px;
-            background-color: black;
-            border-radius: 2px;
-        }
-        
-           
-        #eventsLink {
-    color: black; 
-    text-decoration: none; 
-}
-        @media (max-width: 768px) {
-            .nav-inner {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-            }
-
-           
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: #fff;
-            }
-
-            nav ul li a {
-                padding: 10px 20px;
-                width: 100%;
-                text-align: left;
-            }
-
-           
-            .hamburger-menu {
-                display: flex;
-            }
-            
-            .nav-inner.active ul {
-                display: flex;
-            }
-
-            
-            nav ul li a {
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-            }
-        }
-        header {
-  background-color: #3498db; 
-  color: white;
-  padding: 20px;
-  nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-}
-    </style>
-</head>
-
-<body>
-
-<nav>
-    <div class="nav-inner">
-        
-        <div class="hamburger-menu" id="hamburgerMenu">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-
-        
-        <ul>
-          <li><a href="index.html" style="color: black;">Home</a></li>
-          <li><a href="about-us.html" style="color: black;">About Us</a></li>
-            <li><a href="calendar.html" style="color: black;">Calendar</a></li>
-            <li class="dropdown">
-                <a href="#" id="eventsLink">Conferences <span class="arrow">&#9660;</span></a>
-                <div class="dropdown-content" id="dropdownMenu">
-                    <a href="flc.html">Fall Conference</a>
-                    <a href="slc.html">State Conference</a>
-                    <a href="nlc.html">National Conference</a>
-                </div>
-            </li>
-            <li><a href="picture-gallery.html" style="color: black;">Gallery</a></li>
-            <li><a href="leadership.html" style="color: black;">Leadership</a></li>
-            <li><a href="membership.html" style="color: black;">Member Spotlight</a></li>
-            <li><a href="torch-awards.html" style="color: black;">Torch Awards</a></li>
-             <li><a href="signup.html" style="color: black;">Login/Signup</a></li>
-        </ul>
-    </div>
-</nav>
-
-<script>
+      <main>
+        <style>
+               header {
+     background-color: #3498db;
+ }
+ 
+        nav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     background-color: #faf9df;
+     padding: 0.1rem 0.1rem;
+     position: sticky;
+     top: 0;
+     z-index: 10;
+   }
    
-    const hamburgerMenu = document.getElementById("hamburgerMenu");
-    const navInner = document.querySelector(".nav-inner");
-
-    hamburgerMenu.addEventListener("click", function () {
-        navInner.classList.toggle("active");  
-    });
-
+   .nav-left {
+     display: flex;
+     align-items: center;
+   }
    
-    const eventsLink = document.getElementById("eventsLink");
-    const dropdownMenu = document.getElementById("dropdownMenu");
-
-    eventsLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-    });
-
-    
-    window.addEventListener("click", function (event) {
-        if (
-            !event.target.matches('#eventsLink') &&
-            !event.target.matches('.dropdown-content') &&
-            !event.target.matches('.dropdown-content a')
-        ) {
-            dropdownMenu.style.display = "none";
-        }
-    });
-</script>
+   .nav-left .logo {
+     width: 50px;
+     height: 50px;
+     margin-right: 10px;
+   }
+   
+   .nav-center {
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+   }
+   
+   .nav-center li {
+     display: inline;
+     list-style-type: none;
+   }
+   
+   .nav-left a {
+     text-decoration: none;
+     color: white;
+     font-size: 0.8rem;
+     font-weight: 500;
+     position: relative;
+     padding-bottom: 5px;
+     transition: color 0.3s ease;
+   }
+   
+   .nav-left a:hover {
+     color: #791299;
+   }
+   
+   .nav-left a:hover::after {
+     content: "";
+     position: absolute;
+     width: 100%;
+     height: 2px;
+     background-color: #34495e;
+     bottom: 0;
+     left: 0;
+     transform: scaleX(0);
+     animation: growUnderline 0.3s forwards;
+   }
+   
+   @keyframes growUnderline {
+     100% {
+       transform: scaleX(1);
+     }
+   }
+   
+   .nav-center a {
+     text-decoration: none;
+     color: white;
+     font-size: 1rem;
+     font-weight: 500;
+     position: relative;
+     padding-bottom: 5px;
+     transition: color 0.3s ease;
+   }
+   
+   .nav-center a:hover {
+     color: #34495e;
+   }
+   
+   .nav-center a:hover::after {
+     content: "";
+     position: absolute;
+     width: 100%;
+     height: 2px;
+     background-color: #34495e;
+     bottom: 0;
+     left: 0;
+     transform: scaleX(0);
+     animation: growUnderline 0.3s forwards;
+   }
+   
+   @keyframes growUnderline {
+     100% {
+       transform: scaleX(1);
+     }
+   }
+   
+   .nav-right {
+     display: flex;
+     gap: 20px;
+   }
+   
+   .btn {
+     display: inline-block;
+     padding: 10px 25px;
+     font-size: 1.1rem;
+     font-weight: 500;
+     color: white;
+     background-color: #192836;
+     border-radius: 30px;
+     text-decoration: none;
+     transition: all 0.3s ease;
+     position: relative;
+   }
+   
+   .btn:hover {
+     background-color: #34495e;
+     color: white;
+   }
+   
+   .btn:hover::after {
+     content: "";
+     position: absolute;
+     width: 100%;
+     height: 2px;
+     background-color: #34495e;
+     bottom: -5px;
+     left: 0;
+     transform: scaleX(0);
+   }
+       </style>
+     <nav>
+       <div class="nav-left">
+         <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+         <a href="index.html"
+           ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+         >
+       </div>
+ 
+       <ul class="nav-center">
+         <li><a href="about-us.html" style="color:#000000">About Us</a></li>
+         <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
+         <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
+         <li>
+           <a href="#" id="eventsLink"
+           style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+           >
+           <div class="dropdown-content" id="dropdownMenu">
+             <a href="flc.html" style="color:#000000">Fall Conference</a>
+             <a href="slc.html" style="color:#000000">State Conference</a>
+             <a href="nlc.html" style="color:#000000">National Conference</a>
+           </div>
+         </li>
+         <li><a href="#" style="color:#000000">Torch Awards</a></li>
+       </ul>
+       <div class="nav-right">
+         <a href="signup.html" class="btn" ><p style="color:#ffffff">Login</p></a>
+         <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
+       </div>
+     </nav>
+     <style>
+       .dropdown-content {
+         display: none;
+         position: absolute;
+         background-color: #f9f9f9;
+         min-width: 160px;
+         z-index: 1;
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+         padding: 8px 16px;
+         border-radius: 4px;
+       }
+ 
+       .dropdown-content a {
+         text-decoration: none;
+         color: black;
+         display: block;
+         padding: 8px 0;
+         font-size: 1rem;
+       }
+ 
+       .dropdown-content a:hover {
+         background-color: #ddd;
+       }
+     </style>
+     <script>
+       const eventsLink = document.getElementById("eventsLink");
+       const dropdownMenu = document.getElementById("dropdownMenu");
+ 
+       eventsLink.addEventListener("click", function (event) {
+         event.stopPropagation();
+         dropdownMenu.style.display =
+           dropdownMenu.style.display === "block" ? "none" : "block";
+       });
+ 
+       document.addEventListener("click", function (event) {
+         if (!eventsLink.contains(event.target)) {
+           dropdownMenu.style.display = "none";
+         }
+       });
+ 
+       dropdownMenu.addEventListener("click", function (event) {
+         event.stopPropagation();
+       });
+     </script>
        
       <body>
         <header>
@@ -288,155 +227,91 @@ nav a:hover {
           <section id="what-is-bpa">
             <div class="container">
               <br>
-              <br>
-              <h1 class="scroll-reveal"> National Leadership Conference </h1>
-                            <style>
- h1:hover {
-  color: #5d1064; 
-  text-shadow: 0 0 1px rgba(104, 10, 122, 0.8), 0 0 20px rgba(88, 6, 78, 0.6), 0 0 30px rgb(97, 4, 100);
-}
-              </style>          
+              <br >
+              <h1 class="scroll-reveal">State Leadership Conference</h1>
+              <style>
+                   
+             h1:hover {
+      color: #70086b; 
+    }
+            </style>
                 <br>
               <br>
               <div class="nlc-info">
-                <h2>2025 NLC Event Information</h2>
+                <h2>2025 SLC Event Information</h2>
               
                 <div class="info-details" style="text-align: left; margin-left: 100px;">
-                  <p><strong>Where:</strong> Orlando, Florida</p>
-                  <p><strong>When:</strong> May 7, 2025 - May 11, 2025</p>
-                  <p><strong>Registration:</strong> Open from February 28, 2025 through March 28, 2025</p>
-                  <br>
-                  <p style="font-size: 0.8em; text-align: left; margin-left: 0px;">(Business Professionals of America. “Landing - Capture the Moment.” Business Professionals of America, https://bpa.org/nlc/. Accessed 10 November 2024.)</p>
-               
+                  <p><strong>State Testing Day (Buddy School System):</strong> January 15, 2025 </p>
+                  <p><strong>Middle Level SLC:</strong> February 5, 2025</p>
+                  <p><strong>Secondary Level SLC:</strong> February 6, 2025</p>
+                  <p><strong>Where:</strong> Bally's Casino (Dover, DE)</p>
+                  <p><strong>Time:</strong> 8:00 AM - 8:00 PM</p>
+                  <p><strong>Cost: </strong>$85 per student</p>
+                  <p><strong>Dress Code: </strong>Business professional attire</p>
+                  
+                  <div class="bally">
+                    <img src="ballys.jpg" alt="Hotel3" class="hotels">
+                    <p class="citation" style="font-size: 0.6em; text-align: center; width: 70%; margin: 10px auto;">
+                      (Mace, Ben. “A second Delaware casino returns to 24/7 gambling after adding more than 100 employees.” Delaware Online, https://www.delawareonline.com/story/mon ey/business/2024/07/25/ballys-dover-casino-resort-24-hour-gaming-adds-employees/74516615007/. Accessed 5 November 2024.)
+                    </p>
+                  </div>
+                  
+                  <style> 
+                    .bally {
+                      display: flex;
+                      flex-direction: column; 
+                      align-items: center; 
+                      margin-left: 500px; 
+                    }
+                  
+                    .hotels {
+                      width: 200px; 
+                      height: auto; 
+                      margin-top: -250px;
+                    }
+                  
+                    .citation {
+                      font-size: 0.7em; 
+                      text-align: center; 
+                      width: 70%;  
+                      margin: 0 auto;  
+                    }
+                  </style>
+                  
+                  
+                  
+
+
                 </div>
               
-                <h3>Cost Breakdown:</h3>
+                <h3>Schedule:</h3>
                 <div class="cost-list">
-                  <p style="text-align: left; margin-left: 100px;"><strong>Registration:</strong> $125</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Travel:</strong> $475</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Hotel (4 nights):</strong> $331</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Meals (5 days):</strong> $250</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Tours:</strong> $175</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Miscellaneous:</strong> $135</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Per Attendee Estimate:</strong> $1,491</p>
-                  <br>
-                  <p style="font-size: 0.8em; text-align: left;">(Business Professionals of America. “Landing - Capture the Moment.” Business Professionals of America, https://bpa.org/nlc/. Accessed 10 November 2024.)</p>
-               
+                  <p style="text-align: left; margin-left: 100px;"><strong>Registration: </strong>8:00 AM - 9:00 AM</p>
+                  <p style="text-align: left; margin-left: 100px;"><strong>Opening Session and Judges Orientation: </strong>9:00 AM</p>
+                  <p style="text-align: left; margin-left: 100px;"><strong>Events: </strong>9:15 AM - 12:00 PM</p>
+                  <p style="text-align: left; margin-left: 100px;"><strong>Presentations: </strong>9:30 AM - 12:00 PM</p>
+                  <p style="text-align: left; margin-left: 100px;"><strong>Lunch: </strong> 12:00 PM - 1:00 PM</p>
+                  <p style="text-align: left; margin-left: 100px;"><strong>Events: </strong>1:15 PM - 4:00 PM</p>
+                  <p style="text-align: left; margin-left: 100px;"><strong>Voting: </strong>4:00 PM - 5:00 PM</p>
+                  <p style="text-align: left; margin-left: 100px;"><strong>Awards: </strong>6:00 PM - 8:00 PM</p>
                 </div>
               
-                <h3>NLC Housing Assignments:</h3>
-                <div class="housing-list">
-                  <div class="hotel1">
-                    <img src="gaylordd.jpg" alt="Hotel1" class="hotels">
-                    
-                                      <div class="hotel-details">
-                      <p><strong>Gaylord Palms and Convention Center:</strong></p>
-                      <p>Cost: $289</p>
-                      <p>Assigned States - Florida, Iowa, Idaho, Indiana, Kansas, Michigan, Montana, New Mexico, and Texas attendees</p>
-                    </div>
+                
                     <style>
- .hotel1 {
-  display: flex; 
-  align-items: center; 
-  margin-left: 100px; 
-  margin-bottom: 20px; 
+                     
 
-}
-
-.hotels {
-    width: 100%; 
-    height: auto; 
-    margin-bottom: 10px; 
-}
-
-.image-citation {
-    font-size: 0.8em; 
-    text-align: center; 
-    margin-top: 0; 
-}
 .hotel-details {
   text-align: left; 
   font-size: 16px; 
 }
-
 
                       </style>
                   </div>
                   
-                  <p class="image-citation" style="font-size: 0.7em; text-align: center; margin-top: 10px; width: 25%; margin: 0 auto; margin-left: 100px;">("Gaylord Palms Resort and Convention Center." Five Star Alliance, https://www.fivestaralliance.com/4star-hotels/orlando-fl/gaylord-palms-resort-and-convention. Accessed 12 December 2024.)</p>
 
-                  <div class="hotel2">
-                    <img src="hoteltwo2.jpg" alt="Hotel2" class="hotels">
-                    <div class="hotel-details">
-                      <p><strong>Omni Champions Gate:</strong></p>
-                      <p>Cost: $249</p>
-                      <p>Assigned States - Illinois, Massachusetts, Minnesota, Oklahoma, and South Carolina attendees</p>
-                    </div>
-                  </div>
-<style>
-  .hotel2 {
-  display: flex; 
-  align-items: center; 
-  margin-left: 100px; 
-  margin-bottom: 20px; 
-}
-
-.hotels {
-  width: 200px; 
-  height: auto; 
-  margin-right: 20px; 
-}
-
-.hotel-details {
-  text-align: left; 
-  font-size: 16px; 
-}
-
-</style>     
-<p class="image-citation" style="font-size: 0.7em; text-align: center; margin-top: 10px; width: 25%; margin: 0 auto; margin-left: 100px;">(“Orlando Family Pool | Omni Resort In Orlando FL.” Omni Hotels, https://www.omnihotels.com/hotels/orlando-championsgate/pools/family-pool. Accessed 12 December 2024.  )</p>
-
-<div class="hotel3">
-  <img src="hotell3.jpg" alt="Hotel3" class="hotels">
-  <div class="hotel-details">
-    <p><strong>Orlando World Center Marriott:</strong></p>
-    <p>Cost: $269</p>
-    <p>Assigned States - Arkansas, Delaware, Ohio, and Wisconsin attendees</p>
-  </div>
- 
-</div>
-
-<style>
-  .hotel3 {
-  display: flex; 
-  align-items: center; 
-  margin-left: 100px; 
-  margin-bottom: 20px; 
-}
-
-.hotels {
-  width: 200px; 
-  height: auto; 
-  margin-right: 20px; 
-}
-
-.hotel-details {
-  text-align: left; 
-  font-size: 16px; 
-}
-
-  </style>
-    <p class="image-citation" style="font-size: 0.7em; text-align: center; margin-top: 10px; width: 25%; margin: 0 auto; margin-left: 100px;">(““ABC News Votes Orlando World Center Marriott's Pool Area One of the World's Coolest Hotel Slides.” TVS Design, https://www.tvsdesign.com/abc-news-votes-orlando-world-center-marriotts-pool-area-one-of-the-worlds-coolest-hotel-slides/. Accessed 12 December 2024. )</p>
-    <br>
-    <p style="font-size: 0.8em; text-align: left;">(Business Professionals of America. “Landing - Capture the Moment.” Business Professionals of America, https://bpa.org/nlc/. Accessed 10 November 2024.)</p>
-    
-  </div>
-  
-           
+                
  <style>
-  .hotels {
- width: 200px;
- height: 200px;
-}
+ 
 .nlc-info {
   max-width: 900px; 
   margin: 0 auto; 
@@ -477,13 +352,9 @@ h3 {
   margin-bottom: 30px; 
 }
 
-.housing-list {
-  background-color: #f1f1f1; 
-  padding: 15px; 
-  border-radius: 8px; 
-}
 
-h3 + .housing-list p {
+
+h3  {
   margin-top: 8px; 
 }
 
@@ -506,35 +377,12 @@ strong {
 }
 
                   </style>
-                                      <h3 style="text-align: center;">Future NLC's</h3>
-
-                  <div class="cost-list" style="text-align: left;">
-                    <br>
-                    <p><strong>May 6 - 10, 2026: </strong>Nashville, TN</p>
-                    <p><strong>May 5 - 9, 2027: </strong>Denver, CO</p>
-                    <p><strong>May 10 - 14, 2028: </strong>Orlando, FL</p>
-                    <br>
-                    <p style="font-size: 0.8em; text-align: left;">(Business Professionals of America. “Past and Future NLC Conferences - Capture the Moment.” BPA, https://bpa.org/nlc/highlights/past-and-future-nlc/. Accessed 12 November 2024.)</p>
-                 
-                  </div>
-                  <h3 style="text-align: center;">Past NLC's</h3>
-
-                  <div class="cost-list" style="text-align: left;">
-                    <br>
-                    <p><strong>2024: </strong>Chicago, IL</p>
-                    <p><strong>2023: </strong>Anaheim, CA</p>
-                    <p><strong>2022: </strong>Dallas, TX</p>
-                    <br>
-                    <p style="font-size: 0.8em; text-align: left;">(Business Professionals of America. “Past and Future NLC Conferences - Capture the Moment.” BPA, https://bpa.org/nlc/highlights/past-and-future-nlc/. Accessed 12 November 2024.)</p>
-                 
               </div>
               
               
             </div>
           </section>
             
-            </body>
-           
           <br>
           <br>
           <br>
