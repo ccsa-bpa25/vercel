@@ -21,10 +21,7 @@
   nav.scrolled {
     background-color: purple; 
   }
-  nav a:hover {
-    background-color: #D1B89E; 
-    color: #D1B89E; 
-  }
+  
   .nav-inner {
     display: flex; 
     justify-content: space-between; 
@@ -45,9 +42,7 @@
     transition: color 0.3s ease; 
   }
   
-  nav a:hover {
-    color: #007bff; 
-  }
+ 
   
   button {
     background-color: purple; 
@@ -111,9 +106,7 @@
     color: #333; 
     transition: color 0.3s ease; 
   }
-  nav li a:hover {
-    color: #D1B89E; 
-  }
+
   nav ul {
     list-style: none;
     padding: 0;
