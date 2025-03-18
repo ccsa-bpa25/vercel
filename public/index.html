@@ -151,35 +151,38 @@
     transform: scaleX(0);
   }
       </style>
-    <nav>
-      <div class="nav-left">
-        <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
-        <a href="index.html"
-          ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
-        >
-      </div>
+    <nav style="display: flex; justify-content: center; align-items: center; padding: 10px;">
+  <div class="nav-left" style="display: flex; align-items: center; margin-right: 70px;"> <!-- Increased margin-right -->
+    <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" style="margin-right: 20px;"/> <!-- Reduced margin-right -->
+    <a href="index.html">
+      <span class="bpa-text" style="font-size: 1.5rem; color: #000000;">
+        <p style="color:#000000; margin: 0;">CCSA BPA</p>
+      </span>
+    </a>
+  </div>
 
-      <ul class="nav-center">
-        <li><a href="about-us.html" style="color:#000000">About Us</a></li>
-        <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
-        <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
-        <li>
-          <a href="#" id="eventsLink"
-          style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
-          >
-          <div class="dropdown-content" id="dropdownMenu">
-            <a href="flc.html" style="color:#000000">Fall Conference</a>
-            <a href="slc.html" style="color:#000000">State Conference</a>
-            <a href="nlc.html" style="color:#000000">National Conference</a>
-          </div>
-        </li>
-        <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
-      </ul>
-      <div class="nav-right">
-        <a href="signup.html" class="btn" ><p style="color:#ffffff">Login</p></a>
-        <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
+  <ul class="nav-center" style="list-style: none; display: flex; margin: 0; padding: 0;">
+    <li><a href="about-us.html" style="color:#000000; margin: 0 35px;">About Us</a></li>
+    <li><a href="picture-gallery.html" style="color:#000000; margin: 0 35px;">Gallery</a></li>
+    <li><a href="leadership.html" style="color:#000000; margin: 0 35px;">Leadership</a></li>
+    <li>
+      <a href="#" id="eventsLink" style="color:#000000; margin: 0 35px;">
+        Conferences <span class="arrow">&#9660;</span>
+      </a>
+      <div class="dropdown-content" id="dropdownMenu">
+        <a href="flc.html" style="color:#000000;">Fall Conference</a>
+        <a href="slc.html" style="color:#000000;">State Conference</a>
+        <a href="nlc.html" style="color:#000000;">National Conference</a>
       </div>
-    </nav>
+    </li>
+    <li><a href="torch-awards.html" style="color:#000000; margin: 0 35px;">Torch Awards</a></li>
+  </ul>
+
+  <div class="nav-right" style="display: flex; align-items: center; margin-left: 90px;"> <!-- Increased margin-left -->
+    <a href="login.html" class="btn" style="margin-right: 30px;"><p style="color:#ffffff;">Login</p></a>
+    <a href="signup.html" class="btn"><p style="color:#ffffff;">Sign Up</p></a>
+  </div>
+</nav>
     <style>
       .dropdown-content {
         display: none;
