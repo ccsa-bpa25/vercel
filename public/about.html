@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CCSA BPA | About Us</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <style>
+       nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #faf9df;
+    padding: 0.1rem 0.1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-left .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .nav-center {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .nav-center li {
+    display: inline;
+    list-style-type: none;
+  }
+  
+  .nav-left a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-left a:hover {
+    color: #791299;
+  }
+  
+  .nav-left a:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495e;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    animation: growUnderline 0.3s forwards;
+  }
+  
+  @keyframes growUnderline {
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  .nav-center a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-center a:hover {
+    color: #34495e;
+  }
+  
+  .nav-center a:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495e;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    animation: growUnderline 0.3s forwards;
+  }
+  
+  @keyframes growUnderline {
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  .nav-right {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    background-color: #192836;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .btn:hover {
+    background-color: #34495e;
+    color: white;
+  }
+  
+  .btn:hover::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #34495e;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+  }
+      </style>
+    <nav>
+      <div class="nav-left">
+        <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+        <a href="home.html"
+          ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+        >
+      </div>
+
+      <ul class="nav-center">
+        <li><a href="about.html" style="color:#000000">About Us</a></li>
+        <li><a href="pic-gallery.html" style="color:#000000">Gallery</a></li>
+        <li><a href="ccsa-leadership.html" style="color:#000000">Leadership</a></li>
+        <li>
+          <a href="#" id="eventsLink"
+          style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+          >
+          <div class="dropdown-content" id="dropdownMenu">
+            <a href="fall.html" style="color:#000000">Fall Conference</a>
+            <a href="state.html" style="color:#000000">State Conference</a>
+            <a href="national.html" style="color:#000000">National Conference</a>
+          </div>
+        </li>
+        <li><a href="torchawards.html" style="color:#000000">Torch Awards</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="dashboard.html" class="btn" ><p style="color:#ffffff">Dashboard</p></a>
+        <a href="index.html" class="btn"><p style="color:#ffffff">Log Out</p></a>
+      </div>
+    </nav>
+    <style>
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 8px 16px;
+        border-radius: 4px;
+      }
+
+      .dropdown-content a {
+        text-decoration: none;
+        color: black;
+        display: block;
+        padding: 8px 0;
+        font-size: 1rem;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+    </style>
+    <script>
+      const eventsLink = document.getElementById("eventsLink");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      eventsLink.addEventListener("click", function (event) {
+        event.stopPropagation();
+        dropdownMenu.style.display =
+          dropdownMenu.style.display === "block" ? "none" : "block";
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!eventsLink.contains(event.target)) {
+          dropdownMenu.style.display = "none";
+        }
+      });
+
+      dropdownMenu.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+    </script>
+   <main style="text-align: center">
+    <section id="what-is-bpa">
+      <div class="container">
+        <br />
+        <br />
+        <style>
+  
+          .info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5rem;
+          }
+          .info .bpa {
+            max-width: 1500px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2rem;
+            align-items: center;
+          }
+          .info img {
+            width: 100px;
+            border-radius: 50%;
+          }
+          .info h3, .info p {
+            align-self: flex-start;
+          }</style>
+          <h1 style="font-size: 3.5rem;">Competition Information</h1>
+     
+      <div class="info">
+          <div class="bpa">
+                      <img src="capturebpa.jpg">
+
+              <h2>BPA Middle Level (995) Website Design Team Competition 2025 </h2>
+              <h2>Theme: <b>Capture the Moment</b></h2>
+  
+              <br>
+  
+              <h3>Team Members:</h3>
+              <p>Paramasivan Punnaivanam (00190094): Team Captain, Developer</p>
+              <p>Saanvi Donuru (00145173): Developer</p>
+              <p>Gautham Prashanth (00190093): Content Specialist</p>
+              <p>Riddik Neetipalli (00145183): Tester</p>
+  
+              <br>
+  
+              <h3>Team Details</h3>
+              <p>Website Design Team from Cab Calloway School of the Arts, Wilmington, DE, 19807. Middle level (6-8)</p>
+          </div>
+      </div>
+          <br />
+        <br>
+        <br>
+
+
+
+
+    </section>
+      
+      </body>
+     
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>      
+    <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
+      <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: navy;
+        }
+    </style>
+       <h4 style="text-align: center;">Resources</h4>
+       <br>
+       <br>
+       <title>Footer </title>
+<style>
+.footer {
+ display: flex;
+ justify-content: space-between;
+ padding: 20px;
+ text-align: left;
+}
+.footer-column {
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+}
+.footer-column a {
+ text-decoration: none;
+ color: #333;
+ font-size: 16px;
+}
+.footer-column a:hover {
+ color: #007BFF;
+ text-decoration: underline;
+}
+@media (max-width: 768px) {
+ .footer {
+   flex-direction: column;
+   align-items: center;
+ }
+ .footer-column {
+   align-items: center;
+ }
+}
+</style>
+</head>
+        
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+<div id="chatbotButton" class="chatbot-button">
+<i class="fas fa-comment-dots"></i> 
+</div>
+
+<div id="chatbotContainer" class="chatbot-container">
+<iframe
+src="https://www.chatbase.co/chatbot-iframe/d3r3C9H4kvPe2op5b5e56"
+width="100%"
+style="height: 100%"
+frameborder="0"
+></iframe>
+<button id="closeChatbot" class="close-chatbot">X</button>
+</div>
+
+<style>
+
+.chatbot-button {
+position: fixed;
+bottom: 30px;
+right: 30px;
+width: 60px;
+height: 60px;
+border-radius: 50%;  
+background-color: #007bff;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 24px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+z-index: 9999;
+transition: all 0.3s ease; 
+}
+
+.chatbot-button:hover {
+background-color: #0056b3;
+}
+
+
+.chatbot-container {
+display: none; 
+position: fixed;
+bottom: 20px;  
+right: 30px;
+width: 350px;
+height: 500px;
+background-color: #fff;
+border-radius: 8px; 
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+z-index: 9998;
+transition: all 0.3s ease;
+}
+
+
+.close-chatbot {
+position: absolute;
+top: 10px;
+right: 10px;
+background-color: #ff4136;
+color: white;
+border: none;
+padding: 5px 10px;
+font-size: 16px;
+border-radius: 50%;
+cursor: pointer;
+}
+
+.close-chatbot:hover {
+background-color: #e60000;
+}
+</style>
+
+<script>
+const chatbotButton = document.getElementById("chatbotButton");
+const chatbotContainer = document.getElementById("chatbotContainer");
+const closeButton = document.getElementById("closeChatbot");
+
+chatbotButton.addEventListener("click", function () {
+chatbotButton.style.display = "none"; // Hide the chatbot button
+chatbotContainer.style.display = "block"; // Show the chatbot container
+});
+
+
+closeButton.addEventListener("click", function () {
+chatbotButton.style.display = "flex"; // Show the chatbot button again
+chatbotContainer.style.display = "none"; // Hide the chatbot container
+});
+</script>
+<body>
+<div class="footer">
+<div class="footer-column">
+ <a href="https://www.instagram.com/ccsa_bpa/" target="_blank">Instagram</a>
+ <a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
+ <a href="about-us.html">About Us</a>
+</div>
+<div class="footer-column">
+  <a href="calendar.html">Calendar</a>
+  <a href="leadership.html">Leadership</a>
+  <a href="learn-more.html">Get Involved</a>
+
+</div>
+<div class="footer-column">
+ <a href="membership.html">Membership Spotlight</a>
+ <a href="picture-gallery.html">Picture Gallery</a>
+ <a href="torch-awards.html">Torch Awards</a>
+
+</div>
+<div class="footer-column">
+  
+ <a href="flc.html">FLC</a>
+ <a href="slc.html">SLC</a>
+ <a href="nlc.html">NLC</a>
+</div>
+</div>
+<br>
+<br>
+     </div>
+   </footer>
+ </body>
+</main>
+</body>
+</html>
