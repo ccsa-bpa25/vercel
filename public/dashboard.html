@@ -1141,6 +1141,36 @@ main.main section.main-content .content .results .billing-card:hover {
         <div class="desc">
           <h2 style="text-align: center;">We would love to hear from you!</h2>
         </div>
+        <div class="contact-us">
+          <h2>Contact Us</h2>
+          <p>Have any questions or feedback? Get in touch! We're here to help.</p>
+      
+          <form id="contactUsForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+            
+            <div class="form-group">
+              <label for="grade">Your Grade</label>
+              <select id="grade" name="grade" required>
+                <option value="" disabled selected>Select your grade</option>
+                <option value="6">6th Grade</option>
+                <option value="7">7th Grade</option>
+                <option value="8">8th Grade</option>
+              </select>
+            </div>
+      
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" required placeholder="Feedback? Opion? Thoughts?"></textarea>
+            </div>
+      
+            <button type="submit">Send Message</button>
+          </form>
+      
+         
+        </div>
        
       </div>
     
@@ -1307,36 +1337,11 @@ main.main section.main-content .content .results .billing-card:hover {
   </div>
 
 <!-- contact us tab -->
-<div class="tab-content" id="billingContent" style="display: none;">
-    <h2>CCSA-BPA Billing</h2>
-  <!-- contact us form -->
-  <div class="contact-us">
-    <h2>Contact Us</h2>
-    <p>If you have any questions or need assistance, please fill out the form below, and we'll get back to you as soon as possible!</p>
 
-    <form id="contactUsForm">
-      <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required placeholder="Enter your full name">
-      </div>
-      
-      <div class="form-group">
-        <label for="grade">Your Grade</label>
-        <select id="grade" name="grade" required>
-          <option value="" disabled selected>Select your grade</option>
-          <option value="6">6th Grade</option>
-          <option value="7">7th Grade</option>
-          <option value="8">8th Grade</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" required placeholder="Type your message here"></textarea>
-      </div>
-
-      <button type="submit">Send Message</button>
-    </form>
+  
+     
+    </div>
+  
 
     <style>
     /* Contact Us Form Styling (Smaller Version) */
@@ -1464,38 +1469,7 @@ main.main section.main-content .content .results .billing-card:hover {
 </script>
 
 
-  <!-- Contact Us Form (Added to Billing Tab) -->
-  <div class="contact-us">
-    <h2>Contact Us</h2>
-    <p>Have any questions or feedback? Get in touch! We're here to help.</p>
-
-    <form id="contactUsForm">
-      <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required placeholder="Enter your full name">
-      </div>
-      
-      <div class="form-group">
-        <label for="grade">Your Grade</label>
-        <select id="grade" name="grade" required>
-          <option value="" disabled selected>Select your grade</option>
-          <option value="6">6th Grade</option>
-          <option value="7">7th Grade</option>
-          <option value="8">8th Grade</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" required placeholder="Feedback? Opion? Thoughts?"></textarea>
-      </div>
-
-      <button type="submit">Send Message</button>
-    </form>
-
-   
-  </div>
-</div>
+  
 
 <script>
   document.getElementById('contactUsForm').addEventListener('submit', function (e) {
