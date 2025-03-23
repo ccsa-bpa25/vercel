@@ -6,652 +6,607 @@
 </head>
 <body>
     <main>
-   <style>
-       header {
-    background-color: #3498db;
-}
-
-.scaled-image {
- 
-  width: 55%; 
-  height: auto; 
-  margin-top: 0.1in; 
-  margin-right: 20.7in; 
-  margin-bottom: 0.1in;
-}
-.scrolling {
-            opacity: 0;
-            transform: translateY(50px);
-            animation: scrolling 1.5s forwards;
-        }
-
-        @keyframes scrolling {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
+        <style>
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #faf9df;
+                padding: 0.1rem 0.1rem;
+                position: sticky;
+                top: 0;
+                z-index: 10;
             }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+
+            .nav-left {
+                display: flex;
+                align-items: center;
             }
-        }
 
-          #torch-awards {
-            padding: 50px 20px;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
+            .nav-left .logo {
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
             }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+
+            .nav-center {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
             }
-        }
-         h1, h3 {
-            color: #333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
 
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+            .nav-center li {
+                display: inline;
+                list-style-type: none;
+            }
 
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .info-box {
-      
-           margin: 0% 5% 0 auto; 
-  padding: 20px 30px; 
-  background: #d8cfc4; 
-  color: #4b4b3a;
-  width: 460px;
-  border-left: 6px solid #a89f91; 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.05); 
-  font-family: 'Lora', serif; 
-  font-size: 17px; 
-  line-height: 1.7; 
-  text-align: left; 
-  border-radius: 8px; 
-  margin-left: 60%; 
-  transform: translateY(-200%); 
-  z-index: 1; 
-}
+            .nav-left a {
+                text-decoration: none;
+                color: white;
+                font-size: 0.8rem;
+                font-weight: 500;
+                position: relative;
+                padding-bottom: 5px;
+                transition: color 0.3s ease;
+            }
 
+            .nav-left a:hover {
+                color: #791299;
+            }
 
+            .nav-left a:hover::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #34495e;
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                animation: growUnderline 0.3s forwards;
+            }
 
+            @keyframes growUnderline {
+                100% {
+                    transform: scaleX(1);
+                }
+            }
 
-.info-box strong {
-  color: #8e7b58; 
-}
-.leadership-box {
-  width: 600px;
-  padding: 20px;
-  background: #ece7ca;  
-  color: #4b4b3a;  
-  border: 4px solid #4b4b3a; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-  font-size: 16px; 
-  line-height: 1.6; 
-  text-align: left;
-  border-radius: 6px; 
-  margin: 40px auto;  
-  margin-top: 1px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0; 
-  transform: translateY(30px);  
-}
+            .nav-center a {
+                text-decoration: none;
+                color: white;
+                font-size: 1rem;
+                font-weight: 500;
+                position: relative;
+                padding-bottom: 5px;
+                transition: color 0.3s ease;
+            }
 
-.leadership-box.animate {
-  opacity: 1;
-  transform: translateY(0); 
-}
+            .nav-center a:hover {
+                color: #34495e;
+            }
 
-.leadership-box:hover {
-  transform: translateY(-8px);  
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);  
-}
+            .nav-center a:hover::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #34495e;
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                animation: growUnderline 0.3s forwards;
+            }
 
-.leadership-box h3 {
-  font-size: 20px;  
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #4b4b3a;  
-}
+            @keyframes growUnderline {
+                100% {
+                    transform: scaleX(1);
+                }
+            }
 
-.leadership-box strong {
-  color: #8e7b58;  
-  font-weight: bold;
-}
+            .nav-right {
+                display: flex;
+                gap: 20px;
+            }
 
-.leadership-box p {
-  margin: 0;
-}
+            .btn {
+                display: inline-block;
+                padding: 10px 25px;
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: white;
+                background-color: #192836;
+                border-radius: 30px;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                position: relative;
+            }
 
-.leadership-box br {
-  margin-bottom: 10px; 
-}
+            .btn:hover {
+                background-color: #34495e;
+                color: white;
+            }
 
+            .btn:hover::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #34495e;
+                bottom: -5px;
+                left: 0;
+                transform: scaleX(0);
+            }
+        </style>
+        <nav>
+            <div class="nav-left">
+                <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+                <a href="index.html"
+                    ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+                >
+            </div>
 
+            <ul class="nav-center">
+                <li><a href="about-us.html" style="color:#000000">About Us</a></li>
+                <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
+                <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
+                <li>
+                    <a href="#" id="eventsLink"
+                    style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+                    >
+                    <div class="dropdown-content" id="dropdownMenu">
+                        <a href="flc.html" style="color:#000000">Fall Conference</a>
+                        <a href="slc.html" style="color:#000000">State Conference</a>
+                        <a href="nlc.html" style="color:#000000">National Conference</a>
+                    </div>
+                </li>
+                <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="signup.html" class="btn" ><p style="color:#ffffff">Login</p></a>
+                <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
+            </div>
+        </nav>
+        <style>
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                z-index: 1;
+                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                padding: 8px 16px;
+                border-radius: 4px;
+            }
 
-.cute-border-img {
-  border: 13px solid #c8ad7e; 
-  padding: 0px; 
-}
-.fun-facts-box {
-  display: inline-block;
-  padding: 20px 30px;
-  background-color: #f3f4f6; 
-  border: 2px solid #8e7b58; 
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  text-align: center;
-}
+            .dropdown-content a {
+                text-decoration: none;
+                color: black;
+                display: block;
+                padding: 8px 0;
+                font-size: 1rem;
+            }
 
-.fun-facts-box::before,
-.fun-facts-box::after {
-  content: '';
-  position: absolute;
-  width: 50px;
-  height: 2px;
-  background-color: #8e7b58; 
-  top: 50%;
-  transform: translateY(-50%);
-}
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+        </style>
+        <script>
+            const eventsLink = document.getElementById("eventsLink");
+            const dropdownMenu = document.getElementById("dropdownMenu");
 
-.fun-facts-box::before {
-  left: -60px; 
-}
+            eventsLink.addEventListener("click", function (event) {
+                event.stopPropagation();
+                dropdownMenu.style.display =
+                    dropdownMenu.style.display === "block" ? "none" : "block";
+            });
 
-.fun-facts-box::after {
-  right: -60px; 
-}
+            document.addEventListener("click", function (event) {
+                if (!eventsLink.contains(event.target)) {
+                    dropdownMenu.style.display = "none";
+                }
+            });
 
-.fun-facts-box h2 {
-  font-family: 'Lora', serif;
-  font-size: 24px;
-  color: #4b4b3a; 
-  margin: 0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-
-    </style>
-</head>
-<body>
-
-  <style>
-    nav {
- display: flex;
- justify-content: space-between;
- align-items: center;
- background-color: #faf9df;
- padding: 0.1rem 0.1rem;
- position: sticky;
- top: 0;
- z-index: 10;
-}
-
-.nav-left {
- display: flex;
- align-items: center;
-}
-
-.nav-left .logo {
- width: 50px;
- height: 50px;
- margin-right: 10px;
-}
-
-.nav-center {
- display: flex;
- justify-content: center;
- gap: 20px;
-}
-
-.nav-center li {
- display: inline;
- list-style-type: none;
-}
-
-.nav-left a {
- text-decoration: none;
- color: white;
- font-size: 0.8rem;
- font-weight: 500;
- position: relative;
- padding-bottom: 5px;
- transition: color 0.3s ease;
-}
-
-.nav-left a:hover {
- color: #791299;
-}
-
-.nav-left a:hover::after {
- content: "";
- position: absolute;
- width: 100%;
- height: 2px;
- background-color: #34495e;
- bottom: 0;
- left: 0;
- transform: scaleX(0);
- animation: growUnderline 0.3s forwards;
-}
-
-@keyframes growUnderline {
- 100% {
-   transform: scaleX(1);
- }
-}
-
-.nav-center a {
- text-decoration: none;
- color: white;
- font-size: 1rem;
- font-weight: 500;
- position: relative;
- padding-bottom: 5px;
- transition: color 0.3s ease;
-}
-
-.nav-center a:hover {
- color: #34495e;
-}
-
-.nav-center a:hover::after {
- content: "";
- position: absolute;
- width: 100%;
- height: 2px;
- background-color: #34495e;
- bottom: 0;
- left: 0;
- transform: scaleX(0);
- animation: growUnderline 0.3s forwards;
-}
-
-@keyframes growUnderline {
- 100% {
-   transform: scaleX(1);
- }
-}
-
-.nav-right {
- display: flex;
- gap: 20px;
-}
-
-.btn {
- display: inline-block;
- padding: 10px 25px;
- font-size: 1.1rem;
- font-weight: 500;
- color: white;
- background-color: #192836;
- border-radius: 30px;
- text-decoration: none;
- transition: all 0.3s ease;
- position: relative;
-}
-
-.btn:hover {
- background-color: #34495e;
- color: white;
-}
-
-.btn:hover::after {
- content: "";
- position: absolute;
- width: 100%;
- height: 2px;
- background-color: #34495e;
- bottom: -5px;
- left: 0;
- transform: scaleX(0);
-}
-   </style>
- <nav>
-   <div class="nav-left">
-     <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
-     <a href="index.html"
-       ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
-     >
-   </div>
-
-   <ul class="nav-center">
-     <li><a href="about-us.html" style="color:#000000">About Us</a></li>
-     <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
-     <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
-     <li>
-       <a href="#" id="eventsLink"
-       style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
-       >
-       <div class="dropdown-content" id="dropdownMenu">
-         <a href="flc.html" style="color:#000000">Fall Conference</a>
-         <a href="slc.html" style="color:#000000">State Conference</a>
-         <a href="nlc.html" style="color:#000000">National Conference</a>
-       </div>
-     </li>
-     <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
-   </ul>
-   <div class="nav-right">
-     <a href="signup.html" class="btn" ><p style="color:#ffffff">Login</p></a>
-     <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
-   </div>
- </nav>
- <style>
-   .dropdown-content {
-     display: none;
-     position: absolute;
-     background-color: #f9f9f9;
-     min-width: 160px;
-     z-index: 1;
-     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-     padding: 8px 16px;
-     border-radius: 4px;
-   }
-
-   .dropdown-content a {
-     text-decoration: none;
-     color: black;
-     display: block;
-     padding: 8px 0;
-     font-size: 1rem;
-   }
-
-   .dropdown-content a:hover {
-     background-color: #ddd;
-   }
- </style>
- <script>
-   const eventsLink = document.getElementById("eventsLink");
-   const dropdownMenu = document.getElementById("dropdownMenu");
-
-   eventsLink.addEventListener("click", function (event) {
-     event.stopPropagation();
-     dropdownMenu.style.display =
-       dropdownMenu.style.display === "block" ? "none" : "block";
-   });
-
-   document.addEventListener("click", function (event) {
-     if (!eventsLink.contains(event.target)) {
-       dropdownMenu.style.display = "none";
-     }
-   });
-
-   dropdownMenu.addEventListener("click", function (event) {
-     event.stopPropagation();
-   });
- </script>
-       
-      <body>
+            dropdownMenu.addEventListener("click", function (event) {
+                event.stopPropagation();
+            });
+        </script>
         <header>
             <img />
-          </div>
         </header>
         <main style="text-align: center">
-          <section id="leadership">
-            <div class="container">
-              <br />
-              <br />
-              <h1 class="scrolling rotate-hover">  <span>L</span><span>e</span><span>a</span><span>d</span><span>e</span><span>r</span><span>s</span><span>h</span><span>i</span><span>p</span>
-              </h1>   
-              <style>
+            <section id="leadership">
+                <div class="container">
+                    <br />
+                    <br />
+                    <h1 class="scrolling rotate-hover">  <span>L</span><span>e</span><span>a</span><span>d</span><span>e</span><span>r</span><span>s</span><span>h</span><span>i</span><span>p</span>
+                    </h1>   
+                    <style>
 
-.rotate-hover {
-  font-family: 'Poppins', sans-serif;
-  font-size: 4rem;
-  font-weight: 700;
-  color: #333;
-  text-align: center;
-  display: inline-block; 
-  cursor: pointer;
-  transition: transform 0.3s ease; 
+                    .rotate-hover {
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 4rem;
+                        font-weight: 700;
+                        color: #333;
+                        text-align: center;
+                        display: inline-block; 
+                        cursor: pointer;
+                        transition: transform 0.3s ease; 
+                    }
+
+
+                    .rotate-hover span {
+                        display: inline-block;
+                        transition: transform 0.5s ease, color 0.5s ease;
+                        will-change: transform;
+                    }
+
+
+                    .rotate-hover:hover {
+                        transform: scale(1.1); 
+                    }
+
+
+                    .rotate-hover:hover span {
+                        transform: rotate(20deg);
+                        color: #800080; 
+                    }
+
+
+                    </style>         
+                    <br />
+                    <br>
+                    <img src="20241030_084625.jpg" alt="Image" style="border: 5px solid #ccc; border-radius: 10px; width: 60%; height: auto;">
+                 
+                    <style>
+                        /* Info Box Styles */
+.info-box {
+    background: linear-gradient(145deg, #f0e6d6, #dcd0b0); /* Pastel beige gradient */
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 45%; /* Box takes up 45% of the width */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    margin-left: 20px; /* Space between image and info box */
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out, box-shadow 0.3s ease;
+    position: relative;
+    float: right; /* Position the info box to the right of the image */
 }
 
-
-.rotate-hover span {
-  display: inline-block;
-  transition: transform 0.5s ease, color 0.5s ease;
-  will-change: transform;
+/* Decorative elements: Adding a subtle inner shadow and border */
+.info-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    z-index: 1;
+    pointer-events: none;
 }
 
-
-.rotate-hover:hover {
-  transform: scale(1.1); 
+/* Adding an inner shadow for a cool effect */
+.info-box::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    z-index: 0;
 }
 
-
-.rotate-hover:hover span {
-  transform: rotate(20deg);
-  color: #800080; 
+/* Paragraph styling */
+.info-box p {
+    color: #7a6c55; /* Muted brownish-gray */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
 }
 
-
-              </style>         
-                <br />
-      <br>
-      <img src="flc1.jpg" alt="Image" class="scaled-image cute-border-img">
-      <div class="info-box">
-                <p>
-                  <strong>Left to right:</strong> Chaitra Lakshminarayan, Siritha Kalluru, Tanvi Bandi, Samyaksh Jandhyala, Ojal Patel, Saanvi Donuru, and Dhriti Narsangani (Not Pictured)
-                </p>
-               
-    
-                
-              </div>
-              <div class="leadership-box">
-                <h3>CCSA BPA ML Leadership Team</h3>
-                <p><strong>Advisor:</strong> Ms. Mercer<br>
-                <p><strong>President:</strong> Siritha Kalluru<br>
-                  <strong>Vice President:</strong> Dhriti Narsangani<br>
-                  <strong>Secretaries:</strong> Samyaksh Jandhyala & Chaitra Lakshminarayan<br>
-                  <strong>Treasurer:</strong> Ojal Patel<br>
-                  <strong>Historian:</strong> Saanvi Donuru<br>
-                  <strong>Parliamentarians:</strong> Tanvi Bandi and Samyaksh Jandhyala
-                </p>
-              </div>
-          
-              <div class="fun-facts-box">
-                <h2>Fun Facts</h2>
-              </div>
-              <br>
-              <br>
-              <br>
-              <div class="fun-facts-container" style="  text-align: center;
-              ">
-                <div class="fun-fact-card">
-                  <p><strong>Ms. Mercer:</strong> Favorite subject is Business and loves teaching.</p>
-                </div>
-                <div class="fun-fact-card">
-                  <p><strong>Siritha Kalluru:</strong> Loves to read, play pickleball, and paint.</p>
-                </div>
-                <div class="fun-fact-card">
-                  <p><strong>Dhriti Narsangani:</strong> Is a black belt, and likes to draw and read.</p>
-                </div>
-                <div class="fun-fact-card">
-                  <p><strong>Samyaksh Jandhyala:</strong> Plays tennis, chess, and the violin.</p>
-                </div>
-                <div class="fun-fact-card">
-                  <p><strong>Chaitra Lakshminarayan:</strong> Plays the flute, loves to read, and writes.</p>
-                </div>
-                <div class="fun-fact-card">
-                  <p><strong>Ojal Patel:</strong> Knows four languages and is learning a fifth.</p>
-                </div>
-                <div class="fun-fact-card">
-                  <p><strong>Saanvi Donuru:</strong>Likes to play outside, go biking, and read.</p>
-                </div>
-                <div class="fun-fact-card">
-                  <p><strong>Tanvi Bandi:</strong> In honors choir, draws, and listens to music.</p>
-                </div>
-              </div>
-<style>
-.fun-facts-container {
-  display: grid;
-  text-align: center;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px; 
-  padding: 20px;
-  background-color: #faf1e6;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  width: 1000px; 
+/* Hover effect for individual members */
+.info-box p:hover {
+    color: #b2996e; /* Soft golden-brown color on hover */
+    cursor: pointer;
+    transform: translateX(10px); /* Subtle movement */
 }
 
-.fun-fact-card {
-  background: #fff; 
-  border: 2px solid #d8cfc4; 
-  border-radius: 8px;
-  padding: 15px 20px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Scroll Animation */
+.info-box.animate {
+    animation: fadeInUp 1s ease-out forwards;
 }
 
-.fun-fact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.fun-fact-card p {
-  font-family: 'Lora', serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #4b4b3a; 
-  margin: 0;
-}
-
-.fun-fact-card strong {
-  color: #8e7b58; 
-}
-
-</style>              
-
-                <script>
-                
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-   
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate'); 
-      observer.unobserve(entry.target); 
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
-  });
-}, { threshold: 0.5 }); 
+}
+
+/* Scroll effect when the info box is in view */
+.info-box.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+    .info-box {
+        max-width: 90%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+                    </style>
+                  <div class="people-box" style="text-align: center;">
+                    <p class="name-list"><strong>Left to right:</strong> Saanvi Donuru, Samyaksh Jandhyala, Tanvi Bandi, Ojal Patel, Ms. Mercer, Siritha Kalluru, Chaitra Lakshminarayan, Dhriti Narsangani</p>
+                </div>
+                
+                    <style>
+
+/* People Box Styles */
+.people-box {
+    background: linear-gradient(145deg, #f0e6d6, #dcd0b0); /* Pastel beige gradient */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Add padding for spacing */
+    max-width: 60%; /* Set a smaller max-width (70%) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    text-align: center; /* Center-align the text horizontally */
+    margin-left: 20%;
+
+}
+
+/* Heading Styles */
+.people-box h4 {
+    color: #7a6c55; /* Muted brownish-gray color for text */
+    font-size: 1.2rem; /* Increase font size for better readability */
+    font-weight: 600; /* Make the text bold */
+    margin: 0; /* Remove any default margin */
+}
+
+/* Name List Styles */
+.people-box .name-list {
+    color: #7a6c55; /* Muted brownish-gray color for text */
+    font-size: 1.1rem; /* Set the font size for the names */
+    display: inline; /* Keep the names inline next to the heading */
+    font-weight: 500; /* Slightly bold the names for emphasis */
+    max-width: 1000px;
+}
 
 
-const leadershipBox = document.querySelector('.leadership-box');
-observer.observe(leadershipBox);
-</script>        
+                    </style>
+                    <div class="leadership-box animate">
+                        <h3 style="text-align: center;">CCSA BPA ML Leadership Team</h3>
+                        <p><strong>Advisor:</strong> Ms. Mercer<br>
+                        <p><strong>President:</strong> Siritha Kalluru<br>
+                            <strong>Vice President:</strong> Dhriti Narsangani<br>
+                            <strong>Secretaries:</strong> Samyaksh Jandhyala & Chaitra Lakshminarayan<br>
+                            <strong>Treasurer:</strong> Ojal Patel<br>
+                            <strong>Historian:</strong> Saanvi Donuru<br>
+                            <strong>Parliamentarians:</strong> Tanvi Bandi and Samyaksh Jandhyala
+                        </p>
+                    </div>
+<style>
+ /* Basic Styles for the leadership box */
+.leadership-box {
+    background: linear-gradient(145deg, #f0e6d6, #dcd0b0); /* Pastel beige gradient */
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 900px; /* Wider box */
+    margin: 50px auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out, box-shadow 0.3s ease;
+    position: relative;
+}
+h3{
+    text-align: center;
+}
+
+/* Decorative elements: Adding a subtle inner shadow and border */
+.leadership-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Adding an inner shadow for a cool effect */
+.leadership-box::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    z-index: 0;
+}
+
+/* Heading styles */
+.leadership-box h3 {
+    color: #6c4f3d; /* Dark brownish-gray for contrast */
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Paragraph styling */
+.leadership-box p {
+    color: #7a6c55; /* Muted brownish-gray */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for individual members */
+.leadership-box p:hover {
+    color: #b2996e; /* Soft golden-brown color on hover */
+    cursor: pointer;
+    transform: translateX(10px); /* Subtle movement */
+}
+
+/* Adding cool hover effect on the box */
+.leadership-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+}
+
+/* Scroll Animation */
+.animate {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Scroll effect when the box is in view */
+.leadership-box.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+    .leadership-box {
+        padding: 30px;
+        max-width: 90%;
+    }
+
+    .leadership-box h3 {
+        font-size: 1.5rem;
+    }
+
+    .leadership-box p {
+        font-size: 1rem;
+    }
+}
+
+</style>           
+<script>
+    // Add a scroll event listener to trigger the visibility
+window.addEventListener("scroll", function() {
+    const leadershipBox = document.querySelector('.leadership-box');
+    const boxPosition = leadershipBox.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    // When the box is in view (about 80% from the top of the viewport)
+    if (boxPosition < windowHeight * 0.8) {
+        leadershipBox.classList.add('is-visible');
+    }
+});
+
+</script>         
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>      
+                </div>
+            </section>
+        </main>
+        <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> 
+            <div class="container">
+                <style>
+                    a {
+                        text-decoration: none;
+                        color: black;
+                    }
+
+                    a:visited {
+                        color: black;
+                    }
+
+                    a:hover {
+                        color: navy;
+                    }
+                </style>
+                <h4 style="text-align: center;">Resources</h4>
+                <br>
+                <br>
+                <title>Footer </title>
+                <style>
+                    .footer {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 20px;
+                        text-align: left;
+                    }
+                    .footer-column {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                    .footer-column a {
+                        text-decoration: none;
+                        color: #333;
+                        font-size: 16px;
+                    }
+                    .footer-column a:hover {
+                        color: #007BFF;
+                        text-decoration: underline;
+                    }
+                    @media (max-width: 768px) {
+                        .footer {
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        .footer-column {
+                            align-items: center;
+                        }
+                    }
+                </style>
+                <div class="footer">
+                    <div class="footer-column">
+                        <a href="https://www.instagram.com/ccsa_bpa/">Instagram</a>
+                        <a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
+                        <a href="about-us.html">About Us</a>
+                    </div>
+                    <div class="footer-column">
+                        <a href="calendar.html">Calendar</a>
+                        <a href="leadership.html">Leadership</a>
+                        <a href="learn-more.html">Get Involved</a>
+
+                    </div>
+                    <div class="footer-column">
+                        <a href="membership.html">Membership Spotlight</a>
+                        <a href="picture-gallery.html">Picture Gallery</a>
+                        <a href="torch-awards.html">Torch Awards</a>
+
+                    </div>
+                    <div class="footer-column">
+                        
+                        <a href="flc.html">FLC</a>
+                        <a href="slc.html">SLC</a>
+                        <a href="nlc.html">NLC</a>
+                    </div>
+                </div>
+                <br>
+                <br>
             </div>
-          </section>
-
-
-          
-            </body>
-           
-
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>      
-          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
-            <style>
-              a {
-                  text-decoration: none;
-                  color: black;
-              }
-
-              a:visited {
-                  color: black;
-              }
-
-              a:hover {
-                  color: navy;
-              }
-          </style>
-             <h4 style="text-align: center;">Resources</h4>
-             <br>
-             <br>
-             <title>Footer </title>
-   <style>
-     .footer {
-       display: flex;
-       justify-content: space-between;
-       padding: 20px;
-       text-align: left;
-     }
-     .footer-column {
-       display: flex;
-       flex-direction: column;
-       gap: 10px;
-     }
-     .footer-column a {
-       text-decoration: none;
-       color: #333;
-       font-size: 16px;
-     }
-     .footer-column a:hover {
-       color: #007BFF;
-       text-decoration: underline;
-     }
-     @media (max-width: 768px) {
-       .footer {
-         flex-direction: column;
-         align-items: center;
-       }
-       .footer-column {
-         align-items: center;
-       }
-     }
-   </style>
- </head>
- <body>
-  <div class="footer">
-    <div class="footer-column">
-      <a href="https://www.instagram.com/ccsa_bpa/">Instagram</a>
-      <a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
-      <a href="about-us.html">About Us</a>
-    </div>
-    <div class="footer-column">
-       <a href="calendar.html">Calendar</a>
-       <a href="leadership.html">Leadership</a>
-       <a href="learn-more.html">Get Involved</a>
-
-    </div>
-    <div class="footer-column">
-      <a href="membership.html">Membership Spotlight</a>
-      <a href="picture-gallery.html">Picture Gallery</a>
-      <a href="torch-awards.html">Torch Awards</a>
-
-    </div>
-    <div class="footer-column">
-       
-      <a href="flc.html">FLC</a>
-      <a href="slc.html">SLC</a>
-      <a href="nlc.html">NLC</a>
-    </div>
-  </div>
- <br>
- <br>
-           </div>
-         </footer>
-       </body>
-     </main>
-   </body>
- </html>
+        </footer>
+    </body>
+</html>
