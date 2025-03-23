@@ -80,7 +80,7 @@
     }
   
    body {
-  background-color: #3498db;
+       background: linear-gradient(135deg, #c3a5ff, #511db8) ; 
 }
   body {
     font-family: josefin sans, sans-serif;
