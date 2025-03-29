@@ -1,451 +1,766 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>State Leadership Conference</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCSA BPA | State Leadership Conference</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Small navigation bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+            color: white;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Parallax container */
+        .parallax-container {
+            position: relative;
+            height: 80vh; /* Set the height to 50% of the viewport height */
+            overflow: hidden;
+        }
+
+        /* The fixed background image */
+        .parallax-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('cab6.jpg'); /* Your background image */
+            background-size: cover; /* Ensures the image covers the area */
+            background-position: center;
+            background-attachment: fixed; /* Creates the parallax effect */
+            z-index: -1; /* Keeps the image behind the text */
+        }
+
+        /* Text on top of the image */
+        .parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem; /* Larger font size for better visibility */
+    font-weight: bolder; /* Make the text bolder */
+    text-align: center;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Strong shadow for better contrast */
+    letter-spacing: 2px; /* Increase letter spacing for better readability */
+    font-family: 'Helvetica', 'Arial', sans-serif; /* Using Helvetica and Arial, widely supported fonts */
+}
+
+
+
+        /* Extra content to demonstrate scrolling */
+        .content {
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
-    <main>
-      <main>
-        <style>
-            h1 {
-    scroll-reveal;
-    font-size: 3.2rem;
-}
 
-  header {
-            background-color: transparent;
-     }
- 
-        nav {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     background-color: #faf9df;
-     padding: 0.1rem 0.1rem;
-     position: sticky;
-     top: 0;
-     z-index: 10;
-   }
-   
-   .nav-left {
-     display: flex;
-     align-items: center;
-   }
-   
-   .nav-left .logo {
-     width: 50px;
-     height: 50px;
-     margin-right: 10px;
-   }
-   
-   .nav-center {
-     display: flex;
-     justify-content: center;
-     gap: 20px;
-   }
-   
-   .nav-center li {
-     display: inline;
-     list-style-type: none;
-   }
-   
-   .nav-left a {
-     text-decoration: none;
-     color: white;
-     font-size: 0.8rem;
-     font-weight: 500;
-     position: relative;
-     padding-bottom: 5px;
-     transition: color 0.3s ease;
-   }
-   
-   .nav-left a:hover {
-     color: #791299;
-   }
-   
-   .nav-left a:hover::after {
-     content: "";
-     position: absolute;
-     width: 100%;
-     height: 2px;
-     background-color: #34495e;
-     bottom: 0;
-     left: 0;
-     transform: scaleX(0);
-     animation: growUnderline 0.3s forwards;
-   }
-   
-   @keyframes growUnderline {
-     100% {
-       transform: scaleX(1);
-     }
-   }
-   
-   .nav-center a {
-     text-decoration: none;
-     color: white;
-     font-size: 1rem;
-     font-weight: 500;
-     position: relative;
-     padding-bottom: 5px;
-     transition: color 0.3s ease;
-   }
-   
-   .nav-center a:hover {
-     color: #34495e;
-   }
-   
-   .nav-center a:hover::after {
-     content: "";
-     position: absolute;
-     width: 100%;
-     height: 2px;
-     background-color: #34495e;
-     bottom: 0;
-     left: 0;
-     transform: scaleX(0);
-     animation: growUnderline 0.3s forwards;
-   }
-   
-   @keyframes growUnderline {
-     100% {
-       transform: scaleX(1);
-     }
-   }
-   
-   .nav-right {
-     display: flex;
-     gap: 20px;
-   }
-   
-   .btn {
-     display: inline-block;
-     padding: 10px 25px;
-     font-size: 1.1rem;
-     font-weight: 500;
-     color: white;
-     background-color: #192836;
-     border-radius: 30px;
-     text-decoration: none;
-     transition: all 0.3s ease;
-     position: relative;
-   }
-   
-   .btn:hover {
-     background-color: #34495e;
-     color: white;
-   }
-   
-   .btn:hover::after {
-     content: "";
-     position: absolute;
-     width: 100%;
-     height: 2px;
-     background-color: #34495e;
-     bottom: -5px;
-     left: 0;
-     transform: scaleX(0);
-   }
-       </style>
-     <nav>
-       <div class="nav-left">
-         <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
-         <a href="index.html"
-           ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
-         >
-       </div>
- 
-       <ul class="nav-center">
-         <li><a href="about-us.html" style="color:#000000">About Us</a></li>
-         <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
-         <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
-         <li>
-           <a href="#" id="eventsLink"
-           style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
-           >
-           <div class="dropdown-content" id="dropdownMenu">
-             <a href="flc.html" style="color:#000000">Fall Conference</a>
-             <a href="slc.html" style="color:#000000">State Conference</a>
-             <a href="nlc.html" style="color:#000000">National Conference</a>
-           </div>
-         </li>
-         <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
-       </ul>
-       <div class="nav-right">
-         <a href="login.html" class="btn" ><p style="color:#ffffff">Login</p></a>
-         <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
-       </div>
-     </nav>
-     <style>
-       .dropdown-content {
-         display: none;
-         position: absolute;
-         background-color: #f9f9f9;
-         min-width: 160px;
-         z-index: 1;
-         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-         padding: 8px 16px;
-         border-radius: 4px;
-       }
- 
-       .dropdown-content a {
-         text-decoration: none;
-         color: black;
-         display: block;
-         padding: 8px 0;
-         font-size: 1rem;
-       }
- 
-       .dropdown-content a:hover {
-         background-color: #ddd;
-       }
-     </style>
-     <script>
-       const eventsLink = document.getElementById("eventsLink");
-       const dropdownMenu = document.getElementById("dropdownMenu");
- 
-       eventsLink.addEventListener("click", function (event) {
-         event.stopPropagation();
-         dropdownMenu.style.display =
-           dropdownMenu.style.display === "block" ? "none" : "block";
-       });
- 
-       document.addEventListener("click", function (event) {
-         if (!eventsLink.contains(event.target)) {
-           dropdownMenu.style.display = "none";
-         }
-       });
- 
-       dropdownMenu.addEventListener("click", function (event) {
-         event.stopPropagation();
-       });
-     </script>
-       
-      <body>
-        <header>
-          <div class="container">
-            <img />
-          </div>
-        </header>
-        <main style="text-align: center">
-          <section id="what-is-bpa">
-            <div class="container">
-              <br>
-              <br >
-              <h1 class="scroll-reveal">State Leadership Conference</h1>
-              <style>
-                   
-             h1:hover {
-      color: #70086b; 
-    }
-            </style>
-                <br>
-              <br>
-              <div class="nlc-info">
-                <h2>2025 SLC Event Information</h2>
-              
-                <div class="info-details" style="text-align: left; margin-left: 100px;">
-                  <p><strong>State Testing Day (Buddy School System):</strong> January 15, 2025 </p>
-                  <p><strong>Middle Level SLC:</strong> February 5, 2025</p>
-                  <p><strong>Secondary Level SLC:</strong> February 6, 2025</p>
-                  <p><strong>Where:</strong> Bally's Casino (Dover, DE)</p>
-                  <p><strong>Time:</strong> 8:00 AM - 8:00 PM</p>
-                  <p><strong>Cost: </strong>$85 per student</p>
-                  <p><strong>Dress Code: </strong>Business professional attire</p>
-                  
-                  <div class="bally">
-                    <img src="ballys.jpg" alt="Hotel3" class="hotels">
-                    <p class="citation" style="font-size: 0.6em; text-align: center; width: 70%; margin: 10px auto;">
-                      (Mace, Ben. “A second Delaware casino returns to 24/7 gambling after adding more than 100 employees.” Delaware Online, https://www.delawareonline.com/story/mon ey/business/2024/07/25/ballys-dover-casino-resort-24-hour-gaming-adds-employees/74516615007/. Accessed 5 November 2024.)
-                    </p>
-                  </div>
-                  
-                  <style> 
-                    .bally {
-                      display: flex;
-                      flex-direction: column; 
-                      align-items: center; 
-                      margin-left: 500px; 
-                    }
-                  
-                    .hotels {
-                      width: 200px; 
-                      height: auto; 
-                      margin-top: -250px;
-                    }
-                  
-                    .citation {
-                      font-size: 0.7em; 
-                      text-align: center; 
-                      width: 70%;  
-                      margin: 0 auto;  
-                    }
-                  </style>
-                  
-                  
-                  
-
-
-                </div>
-              
-                <h3>Schedule:</h3>
-                <div class="cost-list">
-                  <p style="text-align: left; margin-left: 100px;"><strong>Registration: </strong>8:00 AM - 9:00 AM</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Opening Session and Judges Orientation: </strong>9:00 AM</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Events: </strong>9:15 AM - 12:00 PM</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Presentations: </strong>9:30 AM - 12:00 PM</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Lunch: </strong> 12:00 PM - 1:00 PM</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Events: </strong>1:15 PM - 4:00 PM</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Voting: </strong>4:00 PM - 5:00 PM</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Awards: </strong>6:00 PM - 8:00 PM</p>
-                </div>
-              
-                
-                    <style>
-                     
-
-.hotel-details {
-  text-align: left; 
-  font-size: 16px; 
-}
-
-                      </style>
-                  </div>
-                  
-
-                
- <style>
- 
-.nlc-info {
-  max-width: 900px; 
-  margin: 0 auto; 
-  padding: 30px; 
-  background-color: #f8f8f8; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-  font-family: 'Arial', sans-serif; 
-  color: #333; 
-}
-
-h2 {
-  text-align: center; 
-  font-size: 28px; 
-  color: #800080; 
-  margin-bottom: 20px; 
-}
-
-h3 {
-  font-size: 22px; 
-  color: #800080; 
-  margin-top: 30px; 
-  margin-bottom: 10px; 
-}
-
-.info-details p,
-.cost-list p,
-.housing-list p {
-  font-size: 18px; 
-  line-height: 1.6; 
-  margin-bottom: 12px; 
-}
-
-.cost-list {
-  background-color: #f1f1f1; 
-  padding: 15px; 
-  border-radius: 8px; 
-  margin-bottom: 30px; 
-}
-
-
-
-h3  {
-  margin-top: 8px; 
-}
-
-strong {
-  font-weight: bold; 
-}
-
-@media (max-width: 768px) {
-  .nlc-info {
-    padding: 20px; 
-  }
-
-  h2 {
-    font-size: 24px; 
-  }
-
-  h3 {
-    font-size: 20px; 
-  }
-}
-
-                  </style>
-              </div>
-              
-              
-            </div>
-          </section>
-            
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>      
-          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
-            <style>
-              a {
-                  text-decoration: none;
-                  color: black;
-              }
-
-              a:visited {
-                  color: black;
-              }
-
-              a:hover {
-                  color: navy;
-              }
+  <style>          
+            nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 0.1rem 0.1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      
+      .nav-left {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-left .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+      
+      .nav-center {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .nav-center li {
+        display: inline;
+        list-style-type: none;
+      }
+      
+      .nav-left a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-left a:hover {
+        color: #791299;
+      }
+      
+      .nav-left a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-center a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-center a:hover {
+        color: #34495e;
+      }
+      
+      .nav-center a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-right {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .btn {
+        display: inline-block;
+        padding: 10px 25px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: white;
+        background-color: #192836;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .btn:hover {
+        background-color: #34495e;
+        color: white;
+      }
+      
+      .btn:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: -5px;
+        left: 0;
+        transform: scaleX(0);
+      }
           </style>
-             <h4 style="text-align: center;">Resources</h4>
-             <br>
-             <br>
-             <title>Footer </title>
-   <style>
-     .footer {
-       display: flex;
-       justify-content: space-between;
-       padding: 20px;
-       text-align: left;
-     }
-     .footer-column {
-       display: flex;
-       flex-direction: column;
-       gap: 10px;
-     }
-     .footer-column a {
-       text-decoration: none;
-       color: #333;
-       font-size: 16px;
-     }
-     .footer-column a:hover {
-       color: #007BFF;
-       text-decoration: underline;
-     }
-     @media (max-width: 768px) {
-       .footer {
-         flex-direction: column;
-         align-items: center;
-       }
-       .footer-column {
-         align-items: center;
-       }
-     }
-   </style>
- </head>
-              
+        <nav>
+          <div class="nav-left">
+            <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+            <a href="index.html"
+              ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+            >
+          </div>
+    
+          <ul class="nav-center">
+            <li><a href="about-us.html" style="color:#000000">About Us</a></li>
+            <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
+            <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
+            <li>
+              <a href="#" id="eventsLink"
+              style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+              >
+              <div class="dropdown-content" id="dropdownMenu">
+                <a href="flc.html" style="color:#000000">Fall Conference</a>
+                <a href="slc.html" style="color:#000000">State Conference</a>
+                <a href="nlc.html" style="color:#000000">National Conference</a>
+              </div>
+            </li>
+            <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
+          </ul>
+          <div class="nav-right">
+            <a href="login.html" class="btn" ><p style="color:#ffffff">Login</p></a>
+            <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
+          </div>
+        </nav>
+        <style>
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 4px;
+          }
+    
+          .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 8px 0;
+            font-size: 1rem;
+          }
+    
+          .dropdown-content a:hover {
+            background-color: #ddd;
+          }
+        </style>
+        <script>
+          const eventsLink = document.getElementById("eventsLink");
+          const dropdownMenu = document.getElementById("dropdownMenu");
+    
+          eventsLink.addEventListener("click", function (event) {
+            event.stopPropagation();
+            dropdownMenu.style.display =
+              dropdownMenu.style.display === "block" ? "none" : "block";
+          });
+    
+          document.addEventListener("click", function (event) {
+            if (!eventsLink.contains(event.target)) {
+              dropdownMenu.style.display = "none";
+            }
+          });
+    
+          dropdownMenu.addEventListener("click", function (event) {
+            event.stopPropagation();
+          });
+        </script>
+
+<header class="parallax-header">
+  <div class="content">
+    <h1 class="reveal">State Leadership Conference</h1>
+<style>
+  /* Initial state of the element (hidden and moved up) */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px); /* Start below the view */
+    animation: revealAnimation 1s ease-out forwards; /* Animation to fade in and move up */
+}
+
+/* Keyframes for the reveal animation */
+@keyframes revealAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Optional: Add a slight delay to stagger the effect */
+.reveal:nth-child(1) {
+    animation-delay: 0s;
+}
+
+</style>   
+      </div>
+</header>
+<style>
+  /* Parallax effect for the header */
+.parallax-header {
+  position: relative;
+  background-image: url('ocean.jpg'); /* Add your background image here */
+  background-attachment: fixed; /* This ensures the background doesn't scroll */
+  background-size: cover; /* Makes sure the image covers the entire area */
+  background-position: center;
+  height: 50vh; /* Make the header take up the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  text-align: center;
+  padding: 0 20px; /* Add some padding for smaller screen sizes */
+}
+
+/* Content inside the header */
+.parallax-header .content {
+  z-index: 1;
+  position: relative;
+}
+
+/* Heading Styling */
+.parallax-header h1 {
+  font-size: 3.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Paragraph Styling */
+.parallax-header p {
+  font-size: 1.5rem;
+  font-family: 'Arial', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+</style>
+<section class="flc-info">
+  <div class="flc-text">
+      <h2 class="auto-reveal">About the SLC</h2>
+      <br>
+      <p>- In the State Leadership Conference, the BPA chapters of Delaware will compete for the chance to go to the NLC.</p>
+    <br>
+      <p>- In addition to competing, students can attend workshops, meet guest speakers, and network with peers.</p>   
+     <br>
+      <p>- The SLC is a great oppurtunity to learn, grow, and connect with students with the same interests and goals.</p>  </div>
+  <div class="flc-image">
+      <img src="20250205_202304(1).jpg"  alt="FLC Event Image">
+  </div>
+</section>
+<style>/* Import Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300;400&display=swap');
+  
+  /* Container for the split layout */
+  .flc-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 20px;
+  }
+  
+  /* Styling for the text part */
+  .flc-text {
+      width: 50%;
+      padding-right: 30px;
+  }
+  
+  .flc-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+  }
+  
+  .flc-text p {
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 1.3rem;
+      color: #555;
+      line-height: 1.6;
+      font-weight: 100;
+  }
+  
+  /* Styling for the image part */
+  .flc-image {
+      width: 45%;
+  }
+  
+  .flc-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+  }
+  
+  /* Make the layout responsive for smaller screens */
+  @media screen and (max-width: 768px) {
+      .flc-info {
+          flex-direction: column;
+          text-align: center;
+      }
+  
+      .flc-text,
+      .flc-image {
+          width: 100%;
+          padding: 0;
+          margin-bottom: 30px;
+      }
+  
+      .flc-text h2 {
+          font-size: 2rem;
+      }
+  
+      .flc-text p {
+          font-size: 1rem;
+      }
+  }
+  
+</style>
+<style>
+  /* Initially, hide the element and position it below */
+.auto-reveal {
+  opacity: 0; /* Make the element invisible */
+  transform: translateY(50px); /* Move it below its original position */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Add smooth transition */
+}
+
+/* When the element comes into view, make it visible */
+.auto-reveal.auto-reveal-visible {
+  opacity: 1; /* Make it visible */
+  transform: translateY(0); /* Move it back to its original position */
+}
+
+</style>
+<script>
+  // Automatically reveal the element after a delay
+window.addEventListener("DOMContentLoaded", function() {
+  var element = document.querySelector(".auto-reveal"); // Select the element with class 'auto-reveal'
+
+  // Add the 'auto-reveal-visible' class to trigger the reveal effect
+  setTimeout(function() {
+    element.classList.add("auto-reveal-visible");
+  }, 300);  // Delay of 500 milliseconds before revealing
+});
+
+</script>
+<br>
+<br>
+<br>
+
+<section class="google-map">
+  <!-- Container for the map and address -->
+  <div class="map-container">
+    <!-- Address Section -->
+    <div class="address">
+      <h2 class="reveal-on-scroll">SLC Info</h2>
+      <div class="info-item reveal-on-scroll">
+        <span class="info-label">Address:</span>
+        <span class="info-text">(Bally's Dover Casino) 1131 N Dupont Hwy, Dover, DE 19901</span>
+      </div>
+      <div class="info-item reveal-on-scroll">
+        <span class="info-label">Date:</span>
+        <span class="info-text">February 5, 2025 (Middle Level) & February 6, 2025 (Secondary Level)</span>
+      </div>
+      <div class="info-item reveal-on-scroll">
+        <span class="info-label">Time:</span>
+        <span class="info-text">8:00 AM - 8:00 PM</span>
+      </div>
+      <div class="info-item reveal-on-scroll">
+        <span class="info-label">Cost:</span>
+        <span class="info-text">$85 per student</span>
+      </div>
+      <div class="info-item reveal-on-scroll">
+        <span class="info-label">Dress Code:</span>
+        <span class="info-text">Business Professional Attire</span>
+      </div>
+    </div>
+    
+
+    <!-- Embed Google Map -->
+    <div class="map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3092.361025463518!2d-75.53693292497435!3d39.189244629432814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c77b2dd9d3eda1%3A0x411eddb375ad0ae!2s1131%20N%20Dupont%20Hwy%2C%20Dover%2C%20DE%2019901!5e0!3m2!1sen!2sus!4v1743113310967!5m2!1sen!2sus" 
+        width="685" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Wrapper for the Google Map and Address */
+  .google-map {
+    padding: 20px;
+  }
+
+  /* Flex container to align the map and address */
+  .map-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;  /* Align items to the start */
+    gap: 30px; /* Space between the map and the address */
+  }
+
+  /* Styling for the map */
+  .map {
+    flex: 1; /* Allows the map to take up as much space as possible */
+    max-width: 800px;
+    border-radius: 8px;
+  }
+
+/* Styling for the address section */
+.address {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  text-align: left;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  left: -9%; /* This will move it towards the right */
+  transform: translateX(50%); /* Move it further to the right */
+}
+
+.address h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Styling for each info item */
+.info-item {
+  display: flex;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.info-label {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #007BFF; /* Blue color for labels */
+}
+
+.info-text {
+  color: #555;
+}
+
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .address {
+    max-width: 100%;
+    padding: 15px;
+    left: 50%; /* Keep it aligned */
+    transform: translateX(50%); /* Move it to the right on smaller screens */
+  }
+
+  .address h2 {
+    font-size: 1.8rem;
+  }
+}
+</style>
+<br>
+<br>
+<section class="slc-winners">
+  <h2 class="section-title reveal-on-scroll">2025 CCSA SLC Winners</h2>
+  <style>
+    /* Initially, the element is invisible and slightly moved */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(20px); /* Start below */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* When the element comes into view, it will have full opacity and slide into place */
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+  </style>
+  <script>
+    // Create an intersection observer to detect when the element is in the viewport
+const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Add the 'revealed' class to make the element visible
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target); // Stop observing after the element has been revealed
+        }
+    });
+}, {
+    threshold: 0.5  // Trigger when 50% of the element is in view
+});
+
+// Observe each element that has the 'reveal-on-scroll' class
+revealElements.forEach(element => {
+    observer.observe(element);
+});
+
+  </script>
+  <div class="winners-list">
+    <div class="winner-item">
+      <h3 class="category-title">Website Design Team - 3rd Place</h3>
+      <p><strong>Team Members:</strong> Saanvi Donuru, Riddik Neetipalli, Gautham Prashanth, Paramasivan Punnaivanam</p>
+    </div>
+
+    <div class="winner-item">
+      <h3 class="category-title">Digital Citizenship - 2nd Place</h3>
+      <p><strong>Winner:</strong> Saanvi Donuru</p>
+    </div>
+
+    <div class="winner-item">
+      <h3 class="category-title">Business Math Concepts - 2nd Place</h3>
+      <p><strong>Winner:</strong> Saanvi Donuru</p>
+    </div>
+
+    <div class="winner-item">
+      <h3 class="category-title">Computer Literacy Concepts - 2nd Place</h3>
+      <p><strong>Winner:</strong> Saanvi Donuru</p>
+    </div>
+
+    <div class="winner-item">
+      <h3 class="category-title">Prepared Speech - 5th Place</h3>
+      <p><strong>Winner:</strong> Rishik Borkar</p>
+    </div>
+
+    <div class="winner-item">
+      <h3 class="category-title">V07 Cybersecurity Digital Forensics</h3>
+      <p><strong>Winner:</strong> Ankush Singh</p>
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+/* Section Styling */
+.slc-winners {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+/* List of winners */
+.winners-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* Individual Winner Item */
+.winner-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: calc(50% - 15px); /* Two per row, accounting for the gap */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.winner-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Category Title */
+.category-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2980b9;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+/* Winner Details */
+.winner-item p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.winner-item p strong {
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .winners-list {
+    padding: 0 15px;
+  }
+
+  .winner-item {
+    width: 100%; /* Stacks the items vertically on smaller screens */
+    margin-bottom: 20px;
+  }
+}
+
+</style>
+
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 
@@ -521,6 +836,7 @@ strong {
     background-color: #e60000;
   }
 </style>
+</main>
 
 <script>
   const chatbotButton = document.getElementById("chatbotButton");
@@ -538,8 +854,63 @@ strong {
     chatbotContainer.style.display = "none"; // Hide the chatbot container
   });
 </script>
- <body>
-<div class="footer">
+
+        
+        
+               
+          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
+            <style>
+              a {
+                  text-decoration: none; 
+                  color: black; 
+              }
+      
+              a:visited {
+                  color: black;
+              }
+      
+              a:hover {
+                  color: navy;
+              }
+          </style>
+            <h4 style="text-align: center;">Resources</h4>
+            <br>
+            <br>
+            <title>Footer </title>
+  <style>
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      text-align: left;
+    }
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-column a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+    .footer-column a:hover {
+      color: #007BFF;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-column {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="footer">
         <div class="footer-column">
           <a href="https://www.instagram.com/ccsa_bpa/" target="_blank">Instagram</a>
           <a href="https://www.tiktok.com/@ccsabpa" target="_blank">TikTok</a>
@@ -548,7 +919,7 @@ strong {
         <div class="footer-column">
            <a href="signup.html">Signup</a>
            <a href="login.html">Login</a>
-           <a href="learn-more.html">Get Involved</a>
+           <a href="index.html">Home</a>
    
         </div>
         <div class="footer-column">
@@ -564,11 +935,13 @@ strong {
           <a href="nlc.html">NLC</a>
         </div>
       </div>
- <br>
- <br>
-           </div>
-         </footer>
-       </body>
-     </main>
-   </body>
- </html>
+<br>
+<br>
+    </div>
+      
+   
+        </footer>
+    
+    </main>
+  </body>
+</html>
