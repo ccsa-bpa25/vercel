@@ -389,6 +389,7 @@
       <p>Seconds</p>
     </div>
   </div>
+  <div id="completedMessage" style="display: none; font-size: 2rem; color: green; margin-top: 20px;">Completed!</div>
 </div>
 
 <!-- Include confetti library -->
@@ -477,8 +478,8 @@
 </style>
 
 <script>
-// Set the target date (May 7, 2025)
-const targetDate = new Date("May 7, 2025 00:00:00").getTime();
+// Set the target date (May 11, 2025)
+const targetDate = new Date("May 11, 2025 00:00:00").getTime();
 
 // Function to update the countdown
 const updateCountdown = () => {
@@ -487,6 +488,14 @@ const updateCountdown = () => {
 
     // Calculate the remaining time
     const remainingTime = targetDate - now;
+
+    if (remainingTime <= 0) {
+        // Countdown finished
+        document.getElementById("completedMessage").style.display = 'block';  // Show the completed message
+        clearInterval(countdownInterval);  // Stop the countdown interval
+        startConfetti();  // Start confetti effect
+        return;
+    }
 
     // Calculate days, hours, minutes, and seconds
     const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
@@ -524,14 +533,12 @@ const startConfetti = () => {
   }, 3000); // Fire confetti every 3 seconds
 };
 
-// Start the confetti effect immediately
-startConfetti();
-
 // Update the countdown immediately and then every second
 updateCountdown();
 const countdownInterval = setInterval(updateCountdown, 1000);
 
 </script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
@@ -793,8 +800,7 @@ handleScroll();
 
   </style>
 
-<br>
-    <br>
+
 <div id="chatbotButton" class="chatbot-button">
   <i class="fas fa-comment-dots"></i> <!-- Font Awesome chat icon -->
 </div>
