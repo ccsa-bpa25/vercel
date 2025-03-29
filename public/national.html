@@ -1,541 +1,804 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>National Leadership Conference</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCSA BPA | National Leadership Conference</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Small navigation bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+            color: white;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Parallax container */
+        .parallax-container {
+            position: relative;
+            height: 80vh; /* Set the height to 50% of the viewport height */
+            overflow: hidden;
+        }
+
+        /* The fixed background image */
+        .parallax-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('cab6.jpg'); /* Your background image */
+            background-size: cover; /* Ensures the image covers the area */
+            background-position: center;
+            background-attachment: fixed; /* Creates the parallax effect */
+            z-index: -1; /* Keeps the image behind the text */
+        }
+
+        /* Text on top of the image */
+        .parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem; /* Larger font size for better visibility */
+    font-weight: bolder; /* Make the text bolder */
+    text-align: center;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Strong shadow for better contrast */
+    letter-spacing: 2px; /* Increase letter spacing for better readability */
+    font-family: 'Helvetica', 'Arial', sans-serif; /* Using Helvetica and Arial, widely supported fonts */
+}
+
+
+
+        /* Extra content to demonstrate scrolling */
+        .content {
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
-    <main>
-      <style>
-          h1 {
-    font-size: 3.2rem;
-}
 
-  header {
-            background-color: transparent;
-     }
- nav {
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: #faf9df;
-padding: 0.1rem 0.1rem;
-position: sticky;
-top: 0;
-z-index: 10;
-}
+  <style>          
+            nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 0.1rem 0.1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      
+      .nav-left {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-left .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+      
+      .nav-center {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .nav-center li {
+        display: inline;
+        list-style-type: none;
+      }
+      
+      .nav-left a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-left a:hover {
+        color: #791299;
+      }
+      
+      .nav-left a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-center a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-center a:hover {
+        color: #34495e;
+      }
+      
+      .nav-center a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-right {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .btn {
+        display: inline-block;
+        padding: 10px 25px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: white;
+        background-color: #192836;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .btn:hover {
+        background-color: #34495e;
+        color: white;
+      }
+      
+      .btn:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: -5px;
+        left: 0;
+        transform: scaleX(0);
+      }
+          </style>
+        <nav>
+          <div class="nav-left">
+            <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+            <a href="index.html"
+              ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+            >
+          </div>
+    
+          <ul class="nav-center">
+            <li><a href="about.html" style="color:#000000">About Us</a></li>
+            <li><a href="gallery.html" style="color:#000000">Gallery</a></li>
+            <li><a href="ccsa-leadership.html" style="color:#000000">Leadership</a></li>
+            <li>
+              <a href="#" id="eventsLink"
+              style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+              >
+              <div class="dropdown-content" id="dropdownMenu">
+                <a href="fall.html" style="color:#000000">Fall Conference</a>
+                <a href="state.html" style="color:#000000">State Conference</a>
+                <a href="national.html" style="color:#000000">National Conference</a>
+              </div>
+            </li>
+            <li><a href="torchawards.html" style="color:#000000">Torch Awards</a></li>
+          </ul>
+          <div class="nav-right">
+            <a href="dashboard.html" class="btn" ><p style="color:#ffffff">Dashboard</p></a>
+            <a href="index.html" class="btn"><p style="color:#ffffff">Logout</p></a>
+          </div>
+        </nav>
+        <style>
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 4px;
+          }
+    
+          .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 8px 0;
+            font-size: 1rem;
+          }
+    
+          .dropdown-content a:hover {
+            background-color: #ddd;
+          }
+        </style>
+        <script>
+          const eventsLink = document.getElementById("eventsLink");
+          const dropdownMenu = document.getElementById("dropdownMenu");
+    
+          eventsLink.addEventListener("click", function (event) {
+            event.stopPropagation();
+            dropdownMenu.style.display =
+              dropdownMenu.style.display === "block" ? "none" : "block";
+          });
+    
+          document.addEventListener("click", function (event) {
+            if (!eventsLink.contains(event.target)) {
+              dropdownMenu.style.display = "none";
+            }
+          });
+    
+          dropdownMenu.addEventListener("click", function (event) {
+            event.stopPropagation();
+          });
+        </script>
 
-.nav-left {
-display: flex;
-align-items: center;
-}
-
-.nav-left .logo {
-width: 50px;
-height: 50px;
-margin-right: 10px;
-}
-
-.nav-center {
-display: flex;
-justify-content: center;
-gap: 20px;
-}
-
-.nav-center li {
-display: inline;
-list-style-type: none;
-}
-
-.nav-left a {
-text-decoration: none;
-color: white;
-font-size: 0.8rem;
-font-weight: 500;
-position: relative;
-padding-bottom: 5px;
-transition: color 0.3s ease;
-}
-
-.nav-left a:hover {
-color: #791299;
-}
-
-.nav-left a:hover::after {
-content: "";
-position: absolute;
-width: 100%;
-height: 2px;
-background-color: #34495e;
-bottom: 0;
-left: 0;
-transform: scaleX(0);
-animation: growUnderline 0.3s forwards;
-}
-
-@keyframes growUnderline {
-100% {
-transform: scaleX(1);
-}
-}
-
-.nav-center a {
-text-decoration: none;
-color: white;
-font-size: 1rem;
-font-weight: 500;
-position: relative;
-padding-bottom: 5px;
-transition: color 0.3s ease;
-}
-
-.nav-center a:hover {
-color: #34495e;
-}
-
-.nav-center a:hover::after {
-content: "";
-position: absolute;
-width: 100%;
-height: 2px;
-background-color: #34495e;
-bottom: 0;
-left: 0;
-transform: scaleX(0);
-animation: growUnderline 0.3s forwards;
-}
-
-@keyframes growUnderline {
-100% {
-transform: scaleX(1);
-}
-}
-
-.nav-right {
-display: flex;
-gap: 20px;
-}
-
-.btn {
-display: inline-block;
-padding: 10px 25px;
-font-size: 1.1rem;
-font-weight: 500;
-color: white;
-background-color: #192836;
-border-radius: 30px;
-text-decoration: none;
-transition: all 0.3s ease;
-position: relative;
-}
-
-.btn:hover {
-background-color: #34495e;
-color: white;
-}
-
-.btn:hover::after {
-content: "";
-position: absolute;
-width: 100%;
-height: 2px;
-background-color: #34495e;
-bottom: -5px;
-left: 0;
-transform: scaleX(0);
-}
-</style>
-<nav>
-<div class="nav-left">
-  <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
-  <a href="home.html"
-    ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
-  >
-</div>
-
-<ul class="nav-center">
-  <li><a href="about.html" style="color:#000000">About Us</a></li>
-  <li><a href="pic-gallery.html" style="color:#000000">Gallery</a></li>
-  <li><a href="ccsa-leadership.html" style="color:#000000">Leadership</a></li>
-  <li>
-    <a href="#" id="eventsLink"
-    style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
-    >
-    <div class="dropdown-content" id="dropdownMenu">
-      <a href="fall.html" style="color:#000000">Fall Conference</a>
-      <a href="state.html" style="color:#000000">State Conference</a>
-      <a href="national.html" style="color:#000000">National Conference</a>
-    </div>
-  </li>
-  <li><a href="torchawards.html" style="color:#000000">Torch Awards</a></li>
-</ul>
-<div class="nav-right">
-  <a href="dashboard.html" class="btn" ><p style="color:#ffffff">Dashboard</p></a>
-  <a href="index.html" class="btn"><p style="color:#ffffff">Log Out</p></a>
-</div>
-</nav>
+<header class="parallax-header">
+  <div class="content">
+    <h1 class="reveal">National Leadership Conference</h1>
 <style>
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
+  /* Initial state of the element (hidden and moved up) */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px); /* Start below the view */
+    animation: revealAnimation 1s ease-out forwards; /* Animation to fade in and move up */
+}
+
+/* Keyframes for the reveal animation */
+@keyframes revealAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Optional: Add a slight delay to stagger the effect */
+.reveal:nth-child(1) {
+    animation-delay: 0s;
+}
+
+</style>   
+      </div>
+</header>
+<style>
+  /* Parallax effect for the header */
+.parallax-header {
+  position: relative;
+  background-image: url('nlc5-Picsart-AiImageEnhancer.jpg'); /* Add your background image here */
+  background-attachment: fixed; /* This ensures the background doesn't scroll */
+  background-size: cover; /* Makes sure the image covers the entire area */
+  background-position: center;
+  height: 65vh; /* Make the header take up the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  text-align: center;
+  padding: 0 20px; /* Add some padding for smaller screen sizes */
+}
+
+/* Content inside the header */
+.parallax-header .content {
   z-index: 1;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  padding: 8px 16px;
-  border-radius: 4px;
+  position: relative;
 }
 
-.dropdown-content a {
-  text-decoration: none;
-  color: black;
-  display: block;
-  padding: 8px 0;
-  font-size: 1rem;
+/* Heading Styling */
+.parallax-header h1 {
+  font-size: 3.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
+/* Paragraph Styling */
+.parallax-header p {
+  font-size: 1.5rem;
+  font-family: 'Arial', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
 }
 </style>
-<script>
-const eventsLink = document.getElementById("eventsLink");
-const dropdownMenu = document.getElementById("dropdownMenu");
 
-eventsLink.addEventListener("click", function (event) {
-  event.stopPropagation();
-  dropdownMenu.style.display =
-    dropdownMenu.style.display === "block" ? "none" : "block";
-});
+<div class="countdown-container">
+  <h1 style="color: #000000; font-size: 1.9rem; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Countdown to Nationals!</h1>
+  <br><br>
+  <div id="countdown" class="countdown">
+    <div class="countdown-item">
+      <span id="days"></span>
+      <p>Days</p>
+    </div>
+    <div class="countdown-item">
+      <span id="hours"></span>
+      <p>Hours</p>
+    </div>
+    <div class="countdown-item">
+      <span id="minutes"></span>
+      <p>Minutes</p>
+    </div>
+    <div class="countdown-item">
+      <span id="seconds"></span>
+      <p>Seconds</p>
+    </div>
+  </div>
+  <div id="completedMessage" style="display: none; font-size: 2rem; color: green; margin-top: 20px;">Completed!</div>
+</div>
 
-document.addEventListener("click", function (event) {
-  if (!eventsLink.contains(event.target)) {
-    dropdownMenu.style.display = "none";
+<!-- Include confetti library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+<style>
+/* Countdown container styling */
+.countdown-container {
+  text-align: center;
+  background: #ffffff;
+  padding: 2px;
+  width: 80%;
+  max-width: 700px;
+  margin: 100px auto; /* Center the countdown on the page */
+  position: relative; /* Make sure confetti stays within this container */
+}
+
+/* Countdown section container */
+.countdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative; /* Ensure confetti appears over the countdown */
+}
+
+/* Countdown item (Days, Hours, Minutes, Seconds) */
+.countdown-item {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 50%; /* Circular shape */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 130px;
+  height: 130px; /* Ensuring the item is a perfect circle */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  
+  /* Add a border with your desired color */
+  border: 4.75px solid #051230; /* Example border color (blue) */
+}
+
+.countdown-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Countdown number (larger text) */
+.countdown-item span {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #a6a4a7;
+}
+
+/* Countdown label (small text below the number) */
+.countdown-item p {
+  font-size: 1rem;
+  color: #555;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .countdown {
+    flex-direction: column;
+    align-items: center;
   }
-});
 
-dropdownMenu.addEventListener("click", function (event) {
-  event.stopPropagation();
-});
+  .countdown-item {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+</style>
+
+<script>
+// Set the target date (May 11, 2025)
+const targetDate = new Date("May 11, 2025 00:00:00").getTime();
+
+// Function to update the countdown
+const updateCountdown = () => {
+    // Get the current date and time
+    const now = new Date().getTime();
+
+    // Calculate the remaining time
+    const remainingTime = targetDate - now;
+
+    if (remainingTime <= 0) {
+        // Countdown finished
+        document.getElementById("completedMessage").style.display = 'block';  // Show the completed message
+        clearInterval(countdownInterval);  // Stop the countdown interval
+        startConfetti();  // Start confetti effect
+        return;
+    }
+
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+    // Display the countdown
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+};
+
+// Function to trigger the confetti effect over the entire countdown container
+const startConfetti = () => {
+  const countdownContainer = document.querySelector('.countdown-container');
+
+  // Get the bounding box of the countdown container
+  const boundingBox = countdownContainer.getBoundingClientRect();
+
+  // Using a continuous confetti effect that falls directly over the container
+  setInterval(() => {
+    confetti({
+      particleCount: 100,
+      spread: 60,
+      origin: {
+        x: boundingBox.left + boundingBox.width / 2,  // X center of the countdown container
+        y: boundingBox.top + boundingBox.height / 2   // Y center of the countdown container
+      },
+      colors: ['#ff9a8b', '#f7bb97', '#f6d02f', '#ff6300'],
+      gravity: 0.5,
+      scalar: 1.2
+    });
+  }, 3000); // Fire confetti every 3 seconds
+};
+
+// Update the countdown immediately and then every second
+updateCountdown();
+const countdownInterval = setInterval(updateCountdown, 1000);
+
 </script>
 
-       
-      <body>
-        <header>
-          <div class="container">
-            <img />
-          </div>
-        </header>
-        <main style="text-align: center">
-          <section id="what-is-bpa">
-            <div class="container">
-              <br>
-              <br>
-              <h1 class="scroll-reveal"> National Leadership Conference </h1>
-                            <style>
- h1:hover {
-  color: #5d1064; 
-  text-shadow: 0 0 1px rgba(104, 10, 122, 0.8), 0 0 20px rgba(88, 6, 78, 0.6), 0 0 30px rgb(97, 4, 100);
-}
-              </style>          
-                <br>
-              <br>
-              <div class="nlc-info">
-                <h2>2025 NLC Event Information</h2>
-              
-                <div class="info-details" style="text-align: left; margin-left: 100px;">
-                  <p><strong>Where:</strong> Orlando, Florida</p>
-                  <p><strong>When:</strong> May 7, 2025 - May 11, 2025</p>
-                  <p><strong>Registration:</strong> Open from February 28, 2025 through March 28, 2025</p>
-                  <br>
-                  <p style="font-size: 0.8em; text-align: left; margin-left: 0px;">(Business Professionals of America. “Landing - Capture the Moment.” Business Professionals of America, https://bpa.org/nlc/. Accessed 10 November 2024.)</p>
-               
-                </div>
-              
-                <h3>Cost Breakdown:</h3>
-                <div class="cost-list">
-                  <p style="text-align: left; margin-left: 100px;"><strong>Registration:</strong> $125</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Travel:</strong> $475</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Hotel (4 nights):</strong> $331</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Meals (5 days):</strong> $250</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Tours:</strong> $175</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Miscellaneous:</strong> $135</p>
-                  <p style="text-align: left; margin-left: 100px;"><strong>Per Attendee Estimate:</strong> $1,491</p>
-                  <br>
-                  <p style="font-size: 0.8em; text-align: left;">(Business Professionals of America. “Landing - Capture the Moment.” Business Professionals of America, https://bpa.org/nlc/. Accessed 10 November 2024.)</p>
-               
-                </div>
-              
-                <h3>NLC Housing Assignments:</h3>
-                <div class="housing-list">
-                  <div class="hotel1">
-                    <img src="gaylordd.jpg" alt="Hotel1" class="hotels">
-                    
-                                      <div class="hotel-details">
-                      <p><strong>Gaylord Palms and Convention Center:</strong></p>
-                      <p>Cost: $289</p>
-                      <p>Assigned States - Florida, Iowa, Idaho, Indiana, Kansas, Michigan, Montana, New Mexico, and Texas attendees</p>
-                    </div>
-                    <style>
- .hotel1 {
-  display: flex; 
-  align-items: center; 
-  margin-left: 100px; 
-  margin-bottom: 20px; 
-
-}
-
-.hotels {
-    width: 100%; 
-    height: auto; 
-    margin-bottom: 10px; 
-}
-
-.image-citation {
-    font-size: 0.8em; 
-    text-align: center; 
-    margin-top: 0; 
-}
-.hotel-details {
-  text-align: left; 
-  font-size: 16px; 
-}
 
 
-                      </style>
-                  </div>
-                  
-                  <p class="image-citation" style="font-size: 0.7em; text-align: center; margin-top: 10px; width: 25%; margin: 0 auto; margin-left: 100px;">("Gaylord Palms Resort and Convention Center." Five Star Alliance, https://www.fivestaralliance.com/4star-hotels/orlando-fl/gaylord-palms-resort-and-convention. Accessed 12 December 2024.)</p>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
 
-                  <div class="hotel2">
-                    <img src="hoteltwo2.jpg" alt="Hotel2" class="hotels">
-                    <div class="hotel-details">
-                      <p><strong>Omni Champions Gate:</strong></p>
-                      <p>Cost: $249</p>
-                      <p>Assigned States - Illinois, Massachusetts, Minnesota, Oklahoma, and South Carolina attendees</p>
-                    </div>
-                  </div>
-<style>
-  .hotel2 {
-  display: flex; 
-  align-items: center; 
-  margin-left: 100px; 
-  margin-bottom: 20px; 
-}
+    <!-- The button is optional, as confetti will trigger automatically -->
 
-.hotels {
-  width: 200px; 
-  height: auto; 
-  margin-right: 20px; 
-}
+    <script>
+        let confettiCount = 0;  // Counter to track how many times confetti has triggered
 
-.hotel-details {
-  text-align: left; 
-  font-size: 16px; 
-}
+        // Function to trigger the confetti
+        function triggerConfetti() {
+            if (confettiCount < 3) { // Check if confetti has triggered less than 3 times
+                confetti({
+                    particleCount: 200, // Increased particle count
+                    angle: 90,
+                    spread: 100,
+                    origin: { x: 0.5, y: 0.6 }, // Center of the screen
+                    colors: ['#FF5733', '#FFEB3B', '#4CAF50', '#2196F3', '#9C27B0'], // Brighter colors
+                    gravity: 0.5, // Slight gravity effect
+                    scalar: 1.2 // Increase particle size
+                });
+                confettiCount++;  // Increment the counter after each trigger
+            }
+        }
 
-</style>     
-<p class="image-citation" style="font-size: 0.7em; text-align: center; margin-top: 10px; width: 25%; margin: 0 auto; margin-left: 100px;">(“Orlando Family Pool | Omni Resort In Orlando FL.” Omni Hotels, https://www.omnihotels.com/hotels/orlando-championsgate/pools/family-pool. Accessed 12 December 2024.  )</p>
+        // Trigger confetti 3 times automatically at 3-second intervals
+        const intervalId = setInterval(() => {
+            triggerConfetti();
+            if (confettiCount >= 2) {
+                clearInterval(intervalId);  // Stop the interval after 3 triggers
+            }
+        }, 2000);  // Fire confetti every 3 seconds
 
-<div class="hotel3">
-  <img src="hotell3.jpg" alt="Hotel3" class="hotels">
-  <div class="hotel-details">
-    <p><strong>Orlando World Center Marriott:</strong></p>
-    <p>Cost: $269</p>
-    <p>Assigned States - Arkansas, Delaware, Ohio, and Wisconsin attendees</p>
+        // Trigger confetti once when the page loads (optional)
+        triggerConfetti();
+    </script>
+
+<!-- Optional Font Awesome for styling if needed -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div class="info-box">
+  <div class="info-text">
+    <h2 class="split-text">
+      <span class="word">NLC</span>
+      <span class="word">Info</span>
+  </h2>
+  <br>
+      <p><strong>Place:</strong> Orlando, Florida</p>
+      <br>
+      <p><strong>Date:</strong> May 7 - 11, 2025</p>
+      <br>
+      <p><strong>Cost: </strong>$1,491 per attendee estimate</p>
+      <br>
+      <p><strong>Registration: </strong>February 28, 2025 - March 28, 2025</p>
+      <br>
+      <p><strong>Hotel: </strong> Orlando World Center Marriott</p>
   </div>
- 
+  <div class="info-image">
+      <img src="owcm.jfif" alt="Event Image">
+  </div>
 </div>
+<script>
+// Function to wrap each letter of the text in a span
+function splitText() {
+    const words = document.querySelectorAll('.split-text .word');
+    
+    words.forEach(word => {
+        const text = word.textContent.trim();
+        word.innerHTML = ''; // Clear the existing text content
 
+        // Wrap each letter in a <span> tag
+        text.split('').forEach(letter => {
+            const span = document.createElement('span');
+            span.textContent = letter;
+            word.appendChild(span);
+        });
+    });
+}
+
+// Function to handle scroll event and trigger animation
+function handleScroll() {
+    const element = document.querySelector('.split-text');
+    const position = element.getBoundingClientRect();
+    
+    // If the element is in the viewport, add the 'animate' class
+    if (position.top >= 0 && position.bottom <= window.innerHeight) {
+        element.classList.add('animate');
+    }
+}
+
+// Call the function to split the text
+splitText();
+
+// Listen for the scroll event
+window.addEventListener('scroll', handleScroll);
+
+// Initial check in case the element is already in the viewport on page load
+handleScroll();
+
+</script>
 <style>
-  .hotel3 {
-  display: flex; 
-  align-items: center; 
-  margin-left: 100px; 
-  margin-bottom: 20px; 
+
+/* Style for the h2 element */
+.split-text {
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #051230;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
 }
 
-.hotels {
-  width: 200px; 
-  height: auto; 
-  margin-right: 20px; 
+/* Style for each word */
+.split-text .word {
+    display: inline-block;
+    margin-right: 10px; /* Space between NLC and Info */
 }
 
-.hotel-details {
-  text-align: left; 
-  font-size: 16px; 
+/* Split the text into individual letters */
+.split-text .word span {
+    display: inline-block;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Animation for the text splitting and coming back together */
+.split-text.animate .word span {
+    transform: translateX(0); /* Move letters to normal position */
+    opacity: 1;
+}
+
+/* Optional: You can add a slight delay for each letter */
+.split-text .word span:nth-child(1) {
+    transition-delay: 0.1s;
+}
+.split-text .word span:nth-child(2) {
+    transition-delay: 0.2s;
+}
+.split-text .word span:nth-child(3) {
+    transition-delay: 0.3s;
+}
+/* Continue with the pattern for each letter */
+
+
+
+  /* Container for the info box */
+.info-box {
+    display: flex;
+    border: 2px solid navy; /* Navy blue border */
+    width: 100%;
+    max-width: 1300px;
+    height: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px; /* Slight rounded corners */
+}
+
+/* Left side of the box (text) */
+.info-text {
+    flex: 1; /* Takes up the remaining space */
+    padding-right: 20px; /* Space between text and image */
+}
+
+.info-text h2 {
+    margin-top: 0;
+    color: #051230; /* Dark text color for the title */
+}
+
+.info-text p {
+    font-size: 1.6rem;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Right side of the box (image) */
+.info-image {
+    flex: 1; /* Takes up 50% of the space */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.info-image img {
+    width: 100%; /* Makes the image fill the entire right side */
+    height: 450px;
+    display: block;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .info-box {
+        flex-direction: column; /* Stack the text and image on top of each other */
+        align-items: center;
+    }
+
+    .info-text {
+        padding-right: 0; /* Remove the right padding */
+        text-align: center; /* Center text on smaller screens */
+    }
+
+    .info-image {
+        width: 100%; /* Image takes up full width on small screens */
+        margin-top: 20px;
+    }
+}
+
+</style>
+
+<br>
+<section class="about-nlc">
+  <div class="about-content">
+    <h2>About NLC</h2>
+    <br>
+    <p>At the National Leadership Conference, students will have the oppurtunity to compete for national titles and have a great learning experience along the way!</p>
+    <br>
+    <p>Students will have a chance to showcase their skills and abilities through competitive and open events.</p>
+ <br>
+ <p>Rewarding all the student's hard work, they will have time to enjoy and go on excursions such as Disney, Universal Studios, and more!</p>
+  </div>
+  <div class="about-image">
+    <img src="universal.jpg" alt="National Learning Center">
+  </div>
+</section>
+<style>
+  .about-nlc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.about-content {
+  margin-left: 4%;
+  flex: 1;
+  padding-right: 20px;
+  max-width: 40%;
+}
+
+.about-content h2 {
+  font-size: 2.4em;
+  color: #333;
+}
+
+.about-content p {
+  font-size: 1.6em;
+  color: #555;
+}
+
+.about-image {
+  flex: 0 0 40%;
+}
+
+.about-image img {
+  width: 90%;
+  height: auto;
+  border-radius: 8px;
 }
 
   </style>
-    <p class="image-citation" style="font-size: 0.7em; text-align: center; margin-top: 10px; width: 25%; margin: 0 auto; margin-left: 100px;">(““ABC News Votes Orlando World Center Marriott's Pool Area One of the World's Coolest Hotel Slides.” TVS Design, https://www.tvsdesign.com/abc-news-votes-orlando-world-center-marriotts-pool-area-one-of-the-worlds-coolest-hotel-slides/. Accessed 12 December 2024. )</p>
-    <br>
-    <p style="font-size: 0.8em; text-align: left;">(Business Professionals of America. “Landing - Capture the Moment.” Business Professionals of America, https://bpa.org/nlc/. Accessed 10 November 2024.)</p>
-    
-  </div>
-  
-           
- <style>
-  .hotels {
- width: 200px;
- height: 200px;
-}
-.nlc-info {
-  max-width: 900px; 
-  margin: 0 auto; 
-  padding: 30px; 
-  background-color: #f8f8f8; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-  font-family: 'Arial', sans-serif; 
-  color: #333; 
-}
-
-h2 {
-  text-align: center; 
-  font-size: 28px; 
-  color: #800080; 
-  margin-bottom: 20px; 
-}
-
-h3 {
-  font-size: 22px; 
-  color: #800080; 
-  margin-top: 30px; 
-  margin-bottom: 10px; 
-}
-
-.info-details p,
-.cost-list p,
-.housing-list p {
-  font-size: 18px; 
-  line-height: 1.6; 
-  margin-bottom: 12px; 
-}
-
-.cost-list {
-  background-color: #f1f1f1; 
-  padding: 15px; 
-  border-radius: 8px; 
-  margin-bottom: 30px; 
-}
-
-.housing-list {
-  background-color: #f1f1f1; 
-  padding: 15px; 
-  border-radius: 8px; 
-}
-
-h3 + .housing-list p {
-  margin-top: 8px; 
-}
-
-strong {
-  font-weight: bold; 
-}
-
-@media (max-width: 768px) {
-  .nlc-info {
-    padding: 20px; 
-  }
-
-  h2 {
-    font-size: 24px; 
-  }
-
-  h3 {
-    font-size: 20px; 
-  }
-}
-
-                  </style>
-                                      <h3 style="text-align: center;">Future NLC's</h3>
-
-                  <div class="cost-list" style="text-align: left;">
-                    <br>
-                    <p><strong>May 6 - 10, 2026: </strong>Nashville, TN</p>
-                    <p><strong>May 5 - 9, 2027: </strong>Denver, CO</p>
-                    <p><strong>May 10 - 14, 2028: </strong>Orlando, FL</p>
-                    <br>
-                    <p style="font-size: 0.8em; text-align: left;">(Business Professionals of America. “Past and Future NLC Conferences - Capture the Moment.” BPA, https://bpa.org/nlc/highlights/past-and-future-nlc/. Accessed 12 November 2024.)</p>
-                 
-                  </div>
-                  <h3 style="text-align: center;">Past NLC's</h3>
-
-                  <div class="cost-list" style="text-align: left;">
-                    <br>
-                    <p><strong>2024: </strong>Chicago, IL</p>
-                    <p><strong>2023: </strong>Anaheim, CA</p>
-                    <p><strong>2022: </strong>Dallas, TX</p>
-                    <br>
-                    <p style="font-size: 0.8em; text-align: left;">(Business Professionals of America. “Past and Future NLC Conferences - Capture the Moment.” BPA, https://bpa.org/nlc/highlights/past-and-future-nlc/. Accessed 12 November 2024.)</p>
-                 
-              </div>
-              
-              
-            </div>
-          </section>
-            
-            </body>
-           
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>      
-          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
-            <style>
-              a {
-                  text-decoration: none;
-                  color: black;
-              }
-
-              a:visited {
-                  color: black;
-              }
-
-              a:hover {
-                  color: navy;
-              }
-          </style>
-             <h4 style="text-align: center;">Resources</h4>
-             <br>
-             <br>
-             <title>Footer </title>
-   <style>
-     .footer {
-       display: flex;
-       justify-content: space-between;
-       padding: 20px;
-       text-align: left;
-     }
-     .footer-column {
-       display: flex;
-       flex-direction: column;
-       gap: 10px;
-     }
-     .footer-column a {
-       text-decoration: none;
-       color: #333;
-       font-size: 16px;
-     }
-     .footer-column a:hover {
-       color: #007BFF;
-       text-decoration: underline;
-     }
-     @media (max-width: 768px) {
-       .footer {
-         flex-direction: column;
-         align-items: center;
-       }
-       .footer-column {
-         align-items: center;
-       }
-     }
-   </style>
- </head>
-              
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 
 <div id="chatbotButton" class="chatbot-button">
@@ -610,6 +873,7 @@ strong {
     background-color: #e60000;
   }
 </style>
+</main>
 
 <script>
   const chatbotButton = document.getElementById("chatbotButton");
@@ -627,37 +891,94 @@ strong {
     chatbotContainer.style.display = "none"; // Hide the chatbot container
   });
 </script>
- <body>
-   <div class="footer">
+
+        
+        
+               
+          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
+            <style>
+              a {
+                  text-decoration: none; 
+                  color: black; 
+              }
+      
+              a:visited {
+                  color: black;
+              }
+      
+              a:hover {
+                  color: navy;
+              }
+          </style>
+            <h4 style="text-align: center;">Resources</h4>
+            <br>
+            <br>
+            <title>Footer </title>
+  <style>
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      text-align: left;
+    }
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-column a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+    .footer-column a:hover {
+      color: #007BFF;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-column {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="footer">
         <div class="footer-column">
           <a href="https://www.instagram.com/ccsa_bpa/" target="_blank">Instagram</a>
           <a href="https://www.tiktok.com/@ccsabpa" target="_blank">TikTok</a>
-          <a href="about.html">About Us</a>
+          <a href="about-us.html">About Us</a>
         </div>
         <div class="footer-column">
-           <a href="dashboard.html">Dashboard</a>
-           <a href="ccsa-leadership.html">Leadership</a>
-           <a href="get-involved.html">Get Involved</a>
+           <a href="signup.html">Signup</a>
+           <a href="login.html">Login</a>
+           <a href="index.html">Home</a>
    
         </div>
         <div class="footer-column">
-          <a href="home.html">Home</a>
-          <a href="pic-gallery.html">Picture Gallery</a>
-          <a href="torchawards.html">Torch Awards</a>
+          <a href="leadership.html">Leadership</a>
+          <a href="picture-gallery.html">Picture Gallery</a>
+          <a href="torch-awards.html">Torch Awards</a>
    
         </div>
         <div class="footer-column">
            
-          <a href="fall.html">FLC</a>
-          <a href="state.html">SLC</a>
-          <a href="national.html">NLC</a>
+          <a href="flc.html">FLC</a>
+          <a href="slc.html">SLC</a>
+          <a href="nlc.html">NLC</a>
         </div>
       </div>
- <br>
- <br>
-           </div>
-         </footer>
-       </body>
-     </main>
-   </body>
- </html>
+<br>
+<br>
+    </div>
+      
+   
+        </footer>
+    
+    </main>
+  </body>
+</html>
