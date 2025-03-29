@@ -1,563 +1,1003 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Fall Leadership Conference 2024</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling Effect</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Small navigation bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+            color: white;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Parallax container */
+        .parallax-container {
+            position: relative;
+            height: 80vh; /* Set the height to 50% of the viewport height */
+            overflow: hidden;
+        }
+
+        /* The fixed background image */
+        .parallax-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('cab6.jpg'); /* Your background image */
+            background-size: cover; /* Ensures the image covers the area */
+            background-position: center;
+            background-attachment: fixed; /* Creates the parallax effect */
+            z-index: -1; /* Keeps the image behind the text */
+        }
+
+        /* Text on top of the image */
+        .parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem; /* Larger font size for better visibility */
+    font-weight: bolder; /* Make the text bolder */
+    text-align: center;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Strong shadow for better contrast */
+    letter-spacing: 2px; /* Increase letter spacing for better readability */
+    font-family: 'Helvetica', 'Arial', sans-serif; /* Using Helvetica and Arial, widely supported fonts */
+}
+
+
+
+        /* Extra content to demonstrate scrolling */
+        .content {
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
-    <main>
-       <style>
- header {
-            background-color: transparent;
-     }
 
-       nav {
+  <style>          
+            nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 0.1rem 0.1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      
+      .nav-left {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-left .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+      
+      .nav-center {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .nav-center li {
+        display: inline;
+        list-style-type: none;
+      }
+      
+      .nav-left a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-left a:hover {
+        color: #791299;
+      }
+      
+      .nav-left a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-center a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-center a:hover {
+        color: #34495e;
+      }
+      
+      .nav-center a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-right {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .btn {
+        display: inline-block;
+        padding: 10px 25px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: white;
+        background-color: #192836;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .btn:hover {
+        background-color: #34495e;
+        color: white;
+      }
+      
+      .btn:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: -5px;
+        left: 0;
+        transform: scaleX(0);
+      }
+          </style>
+        <nav>
+          <div class="nav-left">
+            <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+            <a href="index.html"
+              ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+            >
+          </div>
+    
+          <ul class="nav-center">
+            <li><a href="about-us.html" style="color:#000000">About Us</a></li>
+            <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
+            <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
+            <li>
+              <a href="#" id="eventsLink"
+              style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+              >
+              <div class="dropdown-content" id="dropdownMenu">
+                <a href="flc.html" style="color:#000000">Fall Conference</a>
+                <a href="slc.html" style="color:#000000">State Conference</a>
+                <a href="nlc.html" style="color:#000000">National Conference</a>
+              </div>
+            </li>
+            <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
+          </ul>
+          <div class="nav-right">
+            <a href="login.html" class="btn" ><p style="color:#ffffff">Login</p></a>
+            <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
+          </div>
+        </nav>
+        <style>
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 4px;
+          }
+    
+          .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 8px 0;
+            font-size: 1rem;
+          }
+    
+          .dropdown-content a:hover {
+            background-color: #ddd;
+          }
+        </style>
+        <script>
+          const eventsLink = document.getElementById("eventsLink");
+          const dropdownMenu = document.getElementById("dropdownMenu");
+    
+          eventsLink.addEventListener("click", function (event) {
+            event.stopPropagation();
+            dropdownMenu.style.display =
+              dropdownMenu.style.display === "block" ? "none" : "block";
+          });
+    
+          document.addEventListener("click", function (event) {
+            if (!eventsLink.contains(event.target)) {
+              dropdownMenu.style.display = "none";
+            }
+          });
+    
+          dropdownMenu.addEventListener("click", function (event) {
+            event.stopPropagation();
+          });
+        </script>
+
+<header class="parallax-header">
+  <div class="content">
+    <h1 class="reveal">Fall Leadership Conference</h1>
+<style>
+  /* Initial state of the element (hidden and moved up) */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px); /* Start below the view */
+    animation: revealAnimation 1s ease-out forwards; /* Animation to fade in and move up */
+}
+
+/* Keyframes for the reveal animation */
+@keyframes revealAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Optional: Add a slight delay to stagger the effect */
+.reveal:nth-child(1) {
+    animation-delay: 0s;
+}
+
+</style>   
+      </div>
+</header>
+<style>
+  /* Parallax effect for the header */
+.parallax-header {
+  position: relative;
+  background-image: url('flcpic-Picsart-AiImageEnhancer.jpg'); /* Add your background image here */
+  background-attachment: fixed; /* This ensures the background doesn't scroll */
+  background-size: cover; /* Makes sure the image covers the entire area */
+  background-position: center;
+  height: 50vh; /* Make the header take up the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  text-align: center;
+  padding: 0 20px; /* Add some padding for smaller screen sizes */
+}
+
+/* Content inside the header */
+.parallax-header .content {
+  z-index: 1;
+  position: relative;
+}
+
+/* Heading Styling */
+.parallax-header h1 {
+  font-size: 3.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Paragraph Styling */
+.parallax-header p {
+  font-size: 1.5rem;
+  font-family: 'Arial', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+</style>
+
+<style>
+
+</style>
+<br>
+<br>
+<section class="flc-info">
+  <div class="flc-text">
+      <h2 class="auto-reveal">What is the FLC?</h2>
+      <p>The Fall Leadership Conference (FLC) is an event where the leaders of each chapter come together for a day to learn and develop crucial leadership skills. There are breakout sessions where each group will complete an acitivity about the four pillars of leadership: trust, hope compassion, and stability.</p>
+  </div>
+  <div class="flc-image">
+      <img src="20241030_084629.jpg"  alt="FLC Event Image">
+  </div>
+</section>
+<style>/* Import Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300;400&display=swap');
+  
+  /* Container for the split layout */
+  .flc-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 20px;
+  }
+  
+  /* Styling for the text part */
+  .flc-text {
+      width: 50%;
+      padding-right: 30px;
+  }
+  
+  .flc-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+  }
+  
+  .flc-text p {
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      font-weight: 300;
+  }
+  
+  /* Styling for the image part */
+  .flc-image {
+      width: 50%;
+  }
+  
+  .flc-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+  }
+  
+  /* Make the layout responsive for smaller screens */
+  @media screen and (max-width: 768px) {
+      .flc-info {
+          flex-direction: column;
+          text-align: center;
+      }
+  
+      .flc-text,
+      .flc-image {
+          width: 100%;
+          padding: 0;
+          margin-bottom: 30px;
+      }
+  
+      .flc-text h2 {
+          font-size: 2rem;
+      }
+  
+      .flc-text p {
+          font-size: 1rem;
+      }
+  }
+  
+</style>
+<style>
+  /* Initially, hide the element and position it below */
+.auto-reveal {
+  opacity: 0; /* Make the element invisible */
+  transform: translateY(50px); /* Move it below its original position */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Add smooth transition */
+}
+
+/* When the element comes into view, make it visible */
+.auto-reveal.auto-reveal-visible {
+  opacity: 1; /* Make it visible */
+  transform: translateY(0); /* Move it back to its original position */
+}
+
+</style>
+<script>
+  // Automatically reveal the element after a delay
+window.addEventListener("DOMContentLoaded", function() {
+  var element = document.querySelector(".auto-reveal"); // Select the element with class 'auto-reveal'
+
+  // Add the 'auto-reveal-visible' class to trigger the reveal effect
+  setTimeout(function() {
+    element.classList.add("auto-reveal-visible");
+  }, 100);  // Delay of 500 milliseconds before revealing
+});
+
+</script>
+
+<head>
+  <!-- Add Font Awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<section class="leadership-pillars">
+  <!-- Header for the section -->
+  <h2 class="section-title auto-reveal-visible">The Four Pillars of Leadership</h2>
+  
+  <!-- Pillars under the header -->
+  <div class="pillars-container">
+      <!-- Trust Pillar -->
+      <div class="pillar auto-reveal-visible">
+          <div class="pillar-icon">
+              <i class="fas fa-handshake"></i> <!-- Trust Icon (Handshake) -->
+          </div>
+          <h3>Trust</h3>
+          <p>Trust is essential for leaders because it builds strong and reliable relationships. When leaders are trustworthy, they inspire loyalty and cooperation within a team.</p>
+      </div>
+      
+      <!-- Hope Pillar -->
+      <div class="pillar auto-reveal-visible">
+          <div class="pillar-icon">
+              <i class="fas fa-lightbulb"></i> <!-- Hope Icon (Light Bulb) -->
+          </div>
+          <h3>Hope</h3>
+          <p>Hope in leadership is about inspiring others to believe in a better future and to go beyond their limits. A leader motivates their team to work even in difficult times.</p>
+      </div>
+      
+      <!-- Stability Pillar -->
+      <div class="pillar auto-reveal-visible">
+          <div class="pillar-icon">
+              <i class="fas fa-cogs"></i> <!-- Stability Icon (Gears) -->
+          </div>
+          <h3>Stability</h3>
+          <p>Stability means to be reliable and calm, even when things are tough. A leader helps their team feel secure and safe at all times, knowing they can count on them to make decisions.</p>
+      </div>
+      
+      <!-- Compassion Pillar -->
+      <div class="pillar auto-reveal-visible">
+          <div class="pillar-icon">
+              <i class="fas fa-heart"></i> <!-- Compassion Icon (Heart) -->
+          </div>
+          <h3>Compassion</h3>
+          <p>Compassion means caring about others' feelings and well-being. A compassionate leader listens, understands, and supports their team in a positive and caring environment.</p>
+      </div>
+  </div>
+</section>
+
+
+
+<script>
+  
+// Function to check if the element is in the viewport
+function isElementInView(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight && rect.bottom >= 0; // Element in view
+}
+
+// Function to trigger the reveal effect
+function revealElements() {
+    const elements = document.querySelectorAll('.pillar'); // Select pillars to reveal
+    elements.forEach(el => {
+        if (isElementInView(el)) {
+            el.classList.add('reveal'); // Add 'reveal' class when element is in view
+        }
+    });
+}
+
+// Trigger the reveal effect on scroll and on load
+window.addEventListener('scroll', revealElements);
+window.addEventListener('load', revealElements);
+
+
+</script>
+
+
+
+<style>
+/* The initial state of the pillars (invisible and slightly shifted) */
+.pillar {
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateY(50px); /* Start slightly lower */
+    transition: opacity 1.5s ease, transform 1.5s ease; /* Make the transition slow */
+}
+
+/* Reveal the pillar when it comes into view */
+.pillar.reveal {
+    opacity: 1; /* Make the pillar fully visible */
+    transform: translateY(0); /* Move the pillar to its original position */
+}
+
+/* Stagger the animations for each pillar using transition-delay */
+.pillar:nth-child(1) {
+    transition-delay: 0.2s; /* 0.2s delay for the first pillar */
+}
+
+.pillar:nth-child(2) {
+    transition-delay: 0.4s; /* 0.4s delay for the second pillar */
+}
+
+.pillar:nth-child(3) {
+    transition-delay: 0.6s; /* 0.6s delay for the third pillar */
+}
+
+.pillar:nth-child(4) {
+    transition-delay: 0.8s; /* 0.8s delay for the fourth pillar */
+}
+
+/* Header fade-in animation */
+.section-title {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0s; /* Instant animation for header */
+}
+
+/* FadeIn animation for the section title */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Header styling for the section */
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.7rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* Container for the four pillars section */
+.leadership-pillars {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f9c5d1, #ffb6d1);
+}
+
+/* Container for the pillars */
+.pillars-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #faf9df;
-    padding: 0.1rem 0.1rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+/* Each individual pillar */
+.pillar {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Increase the width to make the pillar wider */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the pillars */
+.pillar:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Icons styling for each pillar */
+.pillar-icon {
+    font-size: 3rem;
+    color: #f06cc8; /* Light pink color for icons */
+    margin-bottom: 20px;
+}
+
+/* Headings for each pillar */
+.pillar h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Paragraph text for each pillar */
+.pillar p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Make the layout responsive for smaller screens */
+@media screen and (max-width: 768px) {
+    .pillars-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pillar {
+        width: 80%;
+        margin-bottom: 30px;
+    }
+}
+
+
+</style>
+<section class="image-gallery">
+  <h2 class="gallery-title">Explore the Leadership Journey</h2>
   
-  .nav-left {
+  <!-- Image carousel container -->
+  <div class="carousel-container">
+    <div class="carousel-images">
+      <div class="carousel-item">
+          <img src="20241030_110303.jpg" alt="Leadership Event 1">
+      </div>
+      <div class="carousel-item">
+          <img src="20241030_084444.jpg" alt="Leadership Event 2">
+      </div>
+      <div class="carousel-item">
+          <img src="20241030_132028.jpg" alt="Leadership Event 3">
+      </div>
+      <div class="carousel-item">
+          <img src="20241030_091105.jpg" alt="Leadership Event 4">
+      </div>
+      <div class="carousel-item">
+        <img src="20241030_091124.jpg" alt="Leadership Event 3">
+    </div>
+    <div class="carousel-item">
+        <img src="20241030_091115 (1).jpg" alt="Leadership Event 4">
+    </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="prev-btn">&#10094;</button>
+    <button class="next-btn">&#10095;</button>
+  </div>
+</section>
+
+
+
+<style>
+/* Styling the Gallery Section */
+.image-gallery {
+    padding: 50px 10%;
+    text-align: center;
+}
+
+/* Gallery title */
+.gallery-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.gallery-title::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 4px;
+    background-color: #fc47fc; /* A cool accent color */
+    bottom: -10px;
+    left: 25%;
+}
+
+/* Carousel container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hides images that are outside of the visible area */
+}
+
+/* Container for carousel images */
+.carousel-images {
     display: flex;
-    align-items: center;
-  }
-  
-  .nav-left .logo {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
-  
-  .nav-center {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Each image item in the carousel */
+.carousel-item {
+    min-width: 50%; /* Display 2 images at a time */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Styling images to make them the same size */
+.carousel-item img {
+    width: 100%;
+    height: 500px;  /* Fixed height to make all images the same size */
+    object-fit: cover; /* Ensures images fill the space without distorting */
+    border-radius: 8px;
+}
+
+/* Navigation arrows */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Hover effect for navigation buttons */
+.prev-btn:hover, .next-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+</style>
+<script>
+  // Select the carousel images and buttons
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const carouselImages = document.querySelector('.carousel-images');
+
+// Get the total number of images and calculate the width of the carousel container
+let currentIndex = 0;
+const totalItems = document.querySelectorAll('.carousel-item').length;
+const itemWidth = document.querySelector('.carousel-item').clientWidth;
+
+// Function to show the previous set of images
+prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = totalItems / 2 - 1;
+    }
+    updateCarouselPosition();
+});
+
+// Function to show the next set of images
+nextBtn.addEventListener('click', () => {
+    if (currentIndex < totalItems / 2 - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
+    updateCarouselPosition();
+});
+
+// Function to update the carousel position
+function updateCarouselPosition() {
+    const newPosition = -currentIndex * itemWidth * 2; // Move by 2 items at a time
+    carouselImages.style.transform = `translateX(${newPosition}px)`;
+}
+
+</script>
+
+</body>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+<div id="chatbotButton" class="chatbot-button">
+  <i class="fas fa-comment-dots"></i> <!-- Font Awesome chat icon -->
+</div>
+
+<div id="chatbotContainer" class="chatbot-container">
+  <iframe
+    src="https://www.chatbase.co/chatbot-iframe/d3r3C9H4kvPe2op5b5e56"
+    width="100%"
+    style="height: 100%"
+    frameborder="0"
+  ></iframe>
+  <button id="closeChatbot" class="close-chatbot">X</button>
+</div>
+
+<style>
+
+  .chatbot-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;  
+    background-color: #007bff;
+    color: white;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.3s ease; 
   }
-  
-  .nav-center li {
-    display: inline;
-    list-style-type: none;
+
+  .chatbot-button:hover {
+    background-color: #0056b3;
   }
-  
-  .nav-left a {
-    text-decoration: none;
-    color: white;
-    font-size: 0.8rem;
-    font-weight: 500;
-    position: relative;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-left a:hover {
-    color: #791299;
-  }
-  
-  .nav-left a:hover::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #34495e;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    animation: growUnderline 0.3s forwards;
-  }
-  
-  @keyframes growUnderline {
-    100% {
-      transform: scaleX(1);
-    }
-  }
-  
-  .nav-center a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    font-weight: 500;
-    position: relative;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-center a:hover {
-    color: #34495e;
-  }
-  
-  .nav-center a:hover::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #34495e;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    animation: growUnderline 0.3s forwards;
-  }
-  
-  @keyframes growUnderline {
-    100% {
-      transform: scaleX(1);
-    }
-  }
-  
-  .nav-right {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 10px 25px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: white;
-    background-color: #192836;
-    border-radius: 30px;
-    text-decoration: none;
+
+ 
+  .chatbot-container {
+    display: none; 
+    position: fixed;
+    bottom: 20px;  
+    right: 30px;
+    width: 350px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 8px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 9998;
     transition: all 0.3s ease;
-    position: relative;
   }
-  
-  .btn:hover {
-    background-color: #34495e;
-    color: white;
-  }
-  
-  .btn:hover::after {
-    content: "";
+
+ 
+  .close-chatbot {
     position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #34495e;
-    bottom: -5px;
-    left: 0;
-    transform: scaleX(0);
+    top: 10px;
+    right: 10px;
+    background-color: #ff4136;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
   }
-      </style>
-    <nav>
-      <div class="nav-left">
-        <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
-        <a href="index.html"
-          ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
-        >
-      </div>
 
-      <ul class="nav-center">
-        <li><a href="about-us.html" style="color:#000000">About Us</a></li>
-        <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
-        <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
-        <li>
-          <a href="#" id="eventsLink"
-          style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
-          >
-          <div class="dropdown-content" id="dropdownMenu">
-            <a href="flc.html" style="color:#000000">Fall Conference</a>
-            <a href="slc.html" style="color:#000000">State Conference</a>
-            <a href="nlc.html" style="color:#000000">National Conference</a>
-          </div>
-        </li>
-        <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
-      </ul>
-      <div class="nav-right">
-        <a href="login.html" class="btn" ><p style="color:#ffffff">Login</p></a>
-        <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
-      </div>
-    </nav>
-    <style>
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        z-index: 1;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        padding: 8px 16px;
-        border-radius: 4px;
-      }
+  .close-chatbot:hover {
+    background-color: #e60000;
+  }
+</style>
+</main>
 
-      .dropdown-content a {
-        text-decoration: none;
-        color: black;
-        display: block;
-        padding: 8px 0;
-        font-size: 1rem;
-      }
+<script>
+  const chatbotButton = document.getElementById("chatbotButton");
+  const chatbotContainer = document.getElementById("chatbotContainer");
+  const closeButton = document.getElementById("closeChatbot");
 
-      .dropdown-content a:hover {
-        background-color: #ddd;
-      }
-    </style>
-    <script>
-      const eventsLink = document.getElementById("eventsLink");
-      const dropdownMenu = document.getElementById("dropdownMenu");
-
-      eventsLink.addEventListener("click", function (event) {
-        event.stopPropagation();
-        dropdownMenu.style.display =
-          dropdownMenu.style.display === "block" ? "none" : "block";
-      });
-
-      document.addEventListener("click", function (event) {
-        if (!eventsLink.contains(event.target)) {
-          dropdownMenu.style.display = "none";
-        }
-      });
-
-      dropdownMenu.addEventListener("click", function (event) {
-        event.stopPropagation();
-      });
-    </script>
-      <body>
-        <header>
-          <div class="container">
-            <img />
-          </div>
-        </header>
-        <main style="text-align: center">
-          <section id="what-is-bpa">
-            <div class="container">
-              <br />
-              <br />
-              <h1 class="scroll-reveal">Fall Leadership Conference</h1>            
-              <style> h1:hover {
-                text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); 
-                transform: scale(1.1); 
-              }
-              </style>
-                <br />
-           
-              <img src="20241030_084629 (2).jpg" alt="FLC Image" class="smaller-image">
-
-              <style>
-                 h1, h3 {
-            color: #333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            animation: fadeIn 2s ease-in-out;
-        }
-                .smaller-image {
-                  transform: scale(0.7); 
-                  display: block; 
-                  margin-left: -2.4in; 
-                  margin-top: -0.5in;
-                }
-              </style>
-              <div class="little-note">
-                <p>
-                  Cab Calloway School of the Arts<br>
-                  Middle Level Officers<br>
-                  at the<br>
-                  <strong>2024 Fall Leadership Conference</strong>
-                </p>
-              </div>
-<style>
-  .little-note {
-  width: 300px;
-  padding: 20px;
-  background: #f7ede1;
-  color: #8c7253;
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  border: 1px solid #d9c4a4;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-  transform: rotate(-2deg);
-  position: relative;
-  margin: 20px auto;
-  text-align: center;
-  border-radius: 8px;
-  align-items: right; 
-    margin-left:6.8in; 
-    margin-top:-3.5in; 
-}
-
-.little-note p {
-  margin: 0;
-}
-
-.little-note strong {
-  font-size: 18px;
-  color: #705842;
-}
-
-.little-note::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 15px;
-  height: 15px;
-  background: #d8345f;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-</style>              
-    <div class="flc-container">
-     
-      <div class="flc-box">
-        <p>
-          This year, our team had an amazing experience at the Fall Leadership Conference. They became friends with 
-          new officers from different schools such as AGW and P.S DuPont. They learned the four pillars of leadership: <strong>hope, 
-          trust, stability, and compassion. </strong> The engaging and fun sessions taught our officers many new skills.
-        </p>
-        <style>
-          .flc-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin: 20px auto;
-            width: 700px;
-          }
-    
-          
-          .flc-box {
-            flex: 1;
-            padding: 20px 25px;
-            background: #f8f4ec;
-            border: 1px solid #a89f91;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            font-family: 'Lora', serif;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #4b4b3a;
-            margin-top:1.2in; 
-          }
-          
-          .flc-box p {
-            margin: 0;
-          }
-          
-        </style>
-      </div>
-      <br>
-      <br>
-
-    </div>
-    <br>
-    <br>
-    <p style="font-family: 'Dancing Script', cursive;
-    "><u>The four pillars of leadership:</u></p>
-   
-    <div class="pillar-stuff">
-      <div class="pillar-container">
-        <div class="pillar">
-          <div class="text-vertical">Hope</div>
-        </div>
-        <p class="pillar-description">
-         Students explored hope with a fun balloon activity, but there was a twist: every round they could
-         only use either their hands, legs, or head. Students learned that even in difficult situations, they 
-         should still be determined.
-        </p><br><br><br><br><br><br>
-    
-   
-        <div class="pillar">
-          <div class="text-vertical">Trust</div>
-        </div>
-        <p class="pillar-description">
-         In the trust session, one person in the group had to be blindfolded and the other people guided them through an obstacle
-         course with verbal directions. Members reflected on the importance of trust and teamwork.
-        </p><br><br><br><br><br><br>
-    
-       
-        <div class="pillar">
-          <div class="text-vertical">Stability</div>
-        </div>
-        <p class="pillar-description">
-       Using limited materials, participants worked with new partners to build a phone holder. This 
-       activity emphasized on creating strong foundations and the cruciality of teamwork skills that they
-       might need in real-world scenarios.
-        </p><br><br><br><br><br><br>
-    
-     
-        <div class="pillar">
-          <div class="text-vertical">Compassion</div>
-        </div>
-        <p class="pillar-description">
-        Members wrote things they were grateful for on slips of paper, and then the instructors made a chain, showing students how many things they were lucky to have. The instructors told the students thoughtful ways to show gratitude.    </p>
-      </div>
-    </div>
-    
-<style>
-
-.pillar-stuff {
-  display: flex;
-  flex-direction: row;
-  gap: 90px; 
-  margin: 50px;
-}
+  chatbotButton.addEventListener("click", function () {
+    chatbotButton.style.display = "none"; // Hide the chatbot button
+    chatbotContainer.style.display = "block"; // Show the chatbot container
+  });
 
 
-.pillar-section {
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start; 
-  gap: 20px; 
-  height: auto; 
-}
+  closeButton.addEventListener("click", function () {
+    chatbotButton.style.display = "flex"; // Show the chatbot button again
+    chatbotContainer.style.display = "none"; // Hide the chatbot container
+  });
+</script>
 
-
-.pillar {
-  width: 40px;
-  height: 200px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  position: relative;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-.text-vertical {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-}
-
-
-.pillar::before {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background-color: #dcdcdc;
-  border-radius: 0 0 8px 8px;
-}
-
-
-.pillar::after {
-  content: '';
-  position: absolute;
-  top: -15px;
-  left: 10px;
-  width: 20px;
-  height: 15px;
-  background-color: #b0b0b0;
-  border-radius: 50%;
-}
-
-
-.pillar-description {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  line-height: 1.8;
-  width: 600px; 
-  margin-top: -180px; 
-  margin-left: 80px; 
-  padding: 15px 20px; 
-  background-color: rgba(240, 248, 255, 0.9); 
-  border: 1px solid #dcdcdc; 
-  border-radius: 8px; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  transition: transform 0.3s ease, box-shadow 0.3s ease; 
-}
-
-
-
-
-.pillar-description span.highlight {
-  color: #1e90ff; 
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-
-
-
-
-</style>      
-            </div> 
-          </section>
-            
-
-            </body>
-           
-         
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>      
+        
+        
+               
           <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
             <style>
               a {
-                  text-decoration: none;
-                  color: black;
+                  text-decoration: none; 
+                  color: black; 
               }
-
+      
               a:visited {
                   color: black;
               }
-
+      
               a:hover {
                   color: navy;
               }
           </style>
-             <h4 style="text-align: center;">Resources</h4>
-             <br>
-             <br>
-             <title>Footer </title>
-   <style>
-     .footer {
-       display: flex;
-       justify-content: space-between;
-       padding: 20px;
-       text-align: left;
-     }
-     .footer-column {
-       display: flex;
-       flex-direction: column;
-       gap: 10px;
-     }
-     .footer-column a {
-       text-decoration: none;
-       color: #333;
-       font-size: 16px;
-     }
-     .footer-column a:hover {
-       color: #007BFF;
-       text-decoration: underline;
-     }
-     @media (max-width: 768px) {
-       .footer {
-         flex-direction: column;
-         align-items: center;
-       }
-       .footer-column {
-         align-items: center;
-       }
-     }
-   </style>
- </head>
- <body>
-<div class="footer">
+            <h4 style="text-align: center;">Resources</h4>
+            <br>
+            <br>
+            <title>Footer </title>
+  <style>
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      text-align: left;
+    }
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-column a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+    .footer-column a:hover {
+      color: #007BFF;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-column {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="footer">
         <div class="footer-column">
           <a href="https://www.instagram.com/ccsa_bpa/" target="_blank">Instagram</a>
           <a href="https://www.tiktok.com/@ccsabpa" target="_blank">TikTok</a>
@@ -566,7 +1006,7 @@
         <div class="footer-column">
            <a href="signup.html">Signup</a>
            <a href="login.html">Login</a>
-           <a href="learn-more.html">Get Involved</a>
+           <a href="index.html">Home</a>
    
         </div>
         <div class="footer-column">
@@ -582,11 +1022,13 @@
           <a href="nlc.html">NLC</a>
         </div>
       </div>
- <br>
- <br>
-           </div>
-         </footer>
-       </body>
-     </main>
-   </body>
- </html>
+<br>
+<br>
+    </div>
+      
+   
+        </footer>
+    
+    </main>
+  </body>
+</html>
