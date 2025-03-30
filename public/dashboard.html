@@ -29,519 +29,7 @@ body {
   overflow-y: auto !important;
 }
 
-#no-items {
-  text-align: center;
-  font-size: 0.8rem;
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem;
-  color: rgba(0, 0, 0, 0.7);
-}
-#no-items button {
-  margin-top: 10px;
-  background-color: #DF652B;
-  color: white;
-  border-radius: 5px;
-  border: none;
-  height: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-#no-items button:hover {
-  background-color: #a34b21;
-}
 
-header.top-nav {
-  width: 100%;
-  max-height: 75px;
-  min-height: 65px;
-  background-color: #242f38;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid #eff1f6;
-  flex: 1 1 auto;
-}
-header.top-nav .nav-wrapper {
-  flex-wrap: wrap;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1280px;
-  width: 100%;
-  background-color: #242f38;
-  height: 100%;
-  padding: 0 2rem;
-  color: #ffffff !important;
-}
-header.top-nav .nav-wrapper img {
-  width: 225px;
-  height: auto;
-  cursor: pointer;
-}
-header.top-nav .nav-wrapper .right-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-header.top-nav .nav-wrapper .right-nav .cart {
-  position: relative;
-  background-color: none;
-  cursor: pointer;
-  padding: 0.4rem 0.5rem;
-}
-header.top-nav .nav-wrapper .right-nav .cart .fullHeight {
-  height: 400px !important;
-}
-header.top-nav .nav-wrapper .right-nav .cart:hover {
-  background-color: #fef6ec;
-  border-radius: 5px;
-}
-header.top-nav .nav-wrapper .right-nav .cart i {
-  padding: 0.4rem;
-  font-size: 1.1rem;
-  transition: all 0.3s;
-  color: #ffffff;
-}
-header.top-nav .nav-wrapper .right-nav .cart .amt {
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: #DF652B;
-  border-radius: 50px;
-  min-width: 15px;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0 0.3rem;
-  height: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 600;
-}
-header.top-nav .nav-wrapper .right-nav .cart:hover {
-  background-color: #293740;
-}
-header.top-nav .nav-wrapper .user-detail {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 15px;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 7px;
-  transition: all 0.2s ease;
-  position: relative;
-}
-header.top-nav .nav-wrapper .user-detail .logout {
-  background-color: white;
-  position: absolute;
-  top: 42px;
-  border-radius: 7px;
-  padding: 0.7rem 0;
-  width: 100%;
-  text-align: center;
-  z-index: 100000;
-  opacity: 0;
-  color: #282a32 !important;
-  pointer-events: none;
-  border: 2px solid #fef6ec;
-}
-header.top-nav .nav-wrapper .user-detail .logout i {
-  color: #DF652B;
-  margin-right: 10px;
-}
-header.top-nav .nav-wrapper .user-detail .logout:hover {
-  background: #fef6ec;
-  color: #DF652B !important;
-}
-header.top-nav .nav-wrapper .user-detail:hover {
-  background: #293740;
-}
-header.top-nav .nav-wrapper .user-detail:hover .logout {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.tabSelect {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-}
-
-main.main {
-  overflow-x: hidden !important;
-  flex: 1 1 auto;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  position: relative;
-  align-items: center;
-  background-color: #fdfcfa;
-}
-main.main .main-nav {
-  max-width: 1280px;
-  position: relative;
-  width: 100%;
-  margin-top: 3rem;
-  padding: 0 2.5rem;
-}
-main.main .main-nav .mnp1 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-main.main .main-nav .mnp1 h1 {
-  font-weight: 600;
-  font-size: 1.5rem;
-}
-main.main .main-nav .mnp1 div {
-  position: relative;
-}
-main.main .main-nav .mnp1 div:hover i, main.main .main-nav .mnp1 div:focus i {
-  color: #DF652B;
-}
-main.main .main-nav .mnp1 div input {
-  padding: 0.4rem 2.4rem;
-  max-width: 300px;
-  width: 300px;
-  border-radius: 6px;
-  border: 2px solid #eff1f6;
-  transition: all 0.4s ease;
-  font-size: 0.95rem;
-}
-main.main .main-nav .mnp1 div input:focus, main.main .main-nav .mnp1 div input:hover {
-  outline: none;
-  border: 2px solid #DF652B;
-}
-main.main .main-nav .mnp1 div i {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1rem;
-}
-main.main .main-nav .mnp2 {
-  border-bottom: 1px solid #eff1f6;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 1.5rem 0 0 0;
-  gap: 15px;
-  position: relative;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-main.main .main-nav .mnp2 p {
-  position: relative;
-  cursor: pointer;
-  padding: 1rem 0;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-main.main .main-nav .mnp2 p::before {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 100%;
-  height: 6.5px;
-  background-color: #DF652B;
-  opacity: 0;
-  transition: all 0.2s ease;
-}
-main.main .main-nav .mnp2 p:hover::before {
-  opacity: 1;
-}
-main.main .main-nav .mnp2 p:hover {
-  color: #DF652B;
-}
-main.main .main-nav .mnp2 .active-mnp2 {
-  color: #DF652B;
-}
-main.main .main-nav .mnp2 .active-mnp2::before {
-  opacity: 1;
-}
-main.main section.main-content {
-  width: 100%;
-  max-width: 1280px;
-  padding: 1rem 2.5rem;
-}
-main.main section.main-content .tab {
-  display: none;
-}
-main.main section.main-content .shown {
-  display: block;
-}
-main.main section.main-content .desc {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 1.8rem 0;
-  color: #282a32;
-  flex-wrap: wrap;
-  border-bottom: 1px solid #eff1f6;
-}
-main.main section.main-content .desc h1 {
-  font-weight: 600;
-  font-size: 1.35rem;
-}
-main.main section.main-content .desc p {
-  font-size: 0.9rem;
-  margin-top: 0.3rem;
-  color: #6a6887;
-  margin-bottom: 2rem;
-}
-main.main section.main-content .desc button {
-  margin-bottom: 2rem;
-  width: 170px;
-  height: 36px;
-  border-radius: 5px;
-  border: 2px solid #eff1f6;
-  background-color: #ffffff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: #33312f;
-}
-main.main section.main-content .desc button:hover {
-  border: 2px solid #DF652B;
-  color: #DF652B;
-}
-main.main section.main-content .content {
-  display: flex;
-}
-main.main section.main-content .content .filters {
-  display: flex;
-  flex-direction: column;
-  row-gap: 7px;
-}
-main.main section.main-content .content .filters button {
-  text-align: left;
-  padding: 0.6rem 0.9rem;
-  width: 200px;
-  cursor: pointer;
-  background: none;
-  border-radius: 7px;
-  border: none;
-  font-size: 0.96rem;
-  font-weight: 500;
-  color: rgb(43, 42, 41);
-  transition: all 0.3s ease;
-}
-main.main section.main-content .content .filters button:hover {
-  background-color: #fef6ec;
-  color: #DF652B;
-}
-main.main section.main-content .content .filters button.filter-active {
-  background-color: #fef6ec;
-  color: #DF652B;
-}
-main.main section.main-content .content .billing-res {
-  flex-direction: row !important;
-  display: flex !important;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-main.main section.main-content .content #notifs-res {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-main.main section.main-content .content #notifs-res .ns {
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: 2px solid #DF652B;
-  border-radius: 5px;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  row-gap: 3px;
-}
-main.main section.main-content .content #notifs-res .ns i {
-  font-size: 1.3rem;
-}
-main.main section.main-content .content #notifs-res .ns #p1 {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-main.main section.main-content .content #notifs-res .ns p {
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-main.main section.main-content .content #notifs-res .ns p span {
-  font-weight: 600;
-}
-main.main section.main-content .content #notifs-res .ns:hover {
-  background-color: #DF652B;
-  color: #ffffff;
-}
-main.main section.main-content .content #isr {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 30px;
-}
-main.main section.main-content .content .results {
-  color: rgb(80, 75, 72);
-  flex: 1 1 auto;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding: 0.5rem 0rem 0 3rem;
-  display: flex;
-  flex-direction: column;
-  row-gap: 15px;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-main.main section.main-content .content .results a {
-  text-decoration: none;
-  color: #DF652B;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-main.main section.main-content .content .results a:hover {
-  text-decoration: underline;
-}
-main.main section.main-content .content .results input {
-  max-width: 200px;
-  width: 100%;
-  min-width: 5px;
-  overflow-y: hidden;
-  overflow-x: auto;
-  padding: 0.3rem 0.6rem;
-  border-radius: 3px;
-  border: none;
-}
-main.main section.main-content .content .results input:disabled {
-  cursor: pointer;
-  border: 1px solid rgb(180, 180, 180);
-}
-main.main section.main-content .content .results .billing-card {
-  transition: all 0.2s ease;
-  padding: 1rem;
-  flex-grow: 1;
-  border-radius: 5px;
-  border: 2px solid #DF652B;
-  position: relative;
-  text-align: center;
-  cursor: pointer;
-}
-main.main section.main-content .content .results .billing-card h1 {
-  margin: 0.5rem 0;
-}
-main.main section.main-content .content .results .billing-card p {
-  margin: 0.3rem 0;
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-}
-main.main section.main-content .content .results .billing-card .bill-type {
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0.5rem 0;
-}
-main.main section.main-content .content .results .billing-card:hover {
-  background-color: #DF652B;
-  color: #ffffff;
-}
-
-.mnp2::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
-}
-
-@media (max-width: 500px) {
-  main.main .main-nav {
-    margin-top: 1rem !important;
-  }
-  main.main .main-nav .mnp1 {
-    flex-direction: column;
-    row-gap: 20px;
-  }
-  main.main .main-nav .mnp2 {
-    justify-content: space-between !important;
-    gap: 10px !important;
-  }
-}
-@media (max-width: 432px) {
-  main.main .main-nav {
-    padding: 0 0.5rem !important;
-  }
-  .nav-wrapper {
-    padding: 0 0.5rem !important;
-  }
-  .content {
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    row-gap: 20px;
-  }
-  .results {
-    text-align: center !important;
-  }
-  .results a {
-    width: 100% !important;
-  }
-}
-@media (max-width: 465px) {
-  .desc {
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center;
-  }
-}
-@media (max-width: 700px) {
-  #logo {
-    margin-top: 10px;
-  }
-  .nav-wrapper {
-    justify-content: center !important;
-  }
-}
-@media (max-width: 310px) {
-  .mnp1 div input {
-    width: 100% !important;
-  }
-}
-@media (max-width: 846px) {
-  .content #billing-res {
-    flex-direction: column !important;
-  }
-}
-@media (max-width: 463px) {
-  .right-nav {
-    flex-wrap: wrap;
-    gap: 0 !important;
-    z-index: 5000;
-  }
-}
-@media (max-width: 600px) {
-  .right-nav {
-    display: none !important;
-  }
-}
     </style>
     <style>
       .scroll-reveal {
@@ -798,293 +286,211 @@ main.main section.main-content .content .results .billing-card:hover {
 </head>
 <body>
 
-    <style>
-
-  
-
-
-        .mySlides img {
-          width: 100%;  
-          height: auto; 
-          display: block; 
-        }
-        
-         /* Small navigation bar */
-         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
-            color: white;
-            text-align: center;
-            z-index: 10;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            margin: 0 15px;
-        }
-
-        .navbar a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Parallax container */
-        .parallax-container {
-            position: relative;
-            height: 80vh; /* Set the height to 50% of the viewport height */
-            overflow: hidden;
-        }
-
-        /* The fixed background image */
-        .parallax-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('cab6.jpg'); /* Your background image */
-            background-size: cover; /* Ensures the image covers the area */
-            background-position: center;
-            background-attachment: fixed; /* Creates the parallax effect */
-            z-index: -1; /* Keeps the image behind the text */
-        }
-
-        /* Text on top of the image */
-        .parallax-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 4rem; /* Larger font size for better visibility */
-    font-weight: bolder; /* Make the text bolder */
-    text-align: center;
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Strong shadow for better contrast */
-    letter-spacing: 2px; /* Increase letter spacing for better readability */
-    font-family: 'Helvetica', 'Arial', sans-serif; /* Using Helvetica and Arial, widely supported fonts */
+  <style>          
+    nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #ffffff;
+padding: 0.1rem 0.1rem;
+position: sticky;
+top: 0;
+z-index: 10;
 }
 
+.nav-left {
+display: flex;
+align-items: center;
+}
 
+.nav-left .logo {
+width: 50px;
+height: 50px;
+margin-right: 10px;
+}
 
-        /* Extra content to demonstrate scrolling */
-        .content {
-            padding: 20px;
-            font-size: 1.2rem;
-        }
-    </style>
-</head>
-<body>
+.nav-center {
+display: flex;
+justify-content: center;
+gap: 20px;
+}
 
-  <style>          
-            nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #ffffff;
-        padding: 0.1rem 0.1rem;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-      }
-      
-      .nav-left {
-        display: flex;
-        align-items: center;
-      }
-      
-      .nav-left .logo {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-      }
-      
-      .nav-center {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
-      
-      .nav-center li {
-        display: inline;
-        list-style-type: none;
-      }
-      
-      .nav-left a {
-        text-decoration: none;
-        color: white;
-        font-size: 0.8rem;
-        font-weight: 500;
-        position: relative;
-        padding-bottom: 5px;
-        transition: color 0.3s ease;
-      }
-      
-      .nav-left a:hover {
-        color: #791299;
-      }
-      
-      .nav-left a:hover::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: #34495e;
-        bottom: 0;
-        left: 0;
-        transform: scaleX(0);
-        animation: growUnderline 0.3s forwards;
-      }
-      
-      @keyframes growUnderline {
-        100% {
-          transform: scaleX(1);
-        }
-      }
-      
-      .nav-center a {
-        text-decoration: none;
-        color: white;
-        font-size: 1rem;
-        font-weight: 500;
-        position: relative;
-        padding-bottom: 5px;
-        transition: color 0.3s ease;
-      }
-      
-      .nav-center a:hover {
-        color: #34495e;
-      }
-      
-      .nav-center a:hover::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: #34495e;
-        bottom: 0;
-        left: 0;
-        transform: scaleX(0);
-        animation: growUnderline 0.3s forwards;
-      }
-      
-      @keyframes growUnderline {
-        100% {
-          transform: scaleX(1);
-        }
-      }
-      
-      .nav-right {
-        display: flex;
-        gap: 20px;
-      }
-      
-      .btn {
-        display: inline-block;
-        padding: 10px 25px;
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: white;
-        background-color: #192836;
-        border-radius: 30px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-      
-      .btn:hover {
-        background-color: #34495e;
-        color: white;
-      }
-      
-      .btn:hover::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: #34495e;
-        bottom: -5px;
-        left: 0;
-        transform: scaleX(0);
-      }
-          </style>
-        <nav>
-          <div class="nav-left">
-            <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
-            <a href="home.html"
-              ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
-            >
-          </div>
-    
-          <ul class="nav-center">
-            <li><a href="about.html" style="color:#000000">About Us</a></li>
-            <li><a href="gallery.html" style="color:#000000">Gallery</a></li>
-            <li><a href="ccsa-leadership.html" style="color:#000000">Leadership</a></li>
-            <li>
-              <a href="#" id="eventsLink"
-              style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
-              >
-              <div class="dropdown-content" id="dropdownMenu">
-                <a href="fall.html" style="color:#000000">Fall Conference</a>
-                <a href="state.html" style="color:#000000">State Conference</a>
-                <a href="national.html" style="color:#000000">National Conference</a>
-              </div>
-            </li>
-            <li><a href="torchawards.html" style="color:#000000">Torch Awards</a></li>
-          </ul>
-          <div class="nav-right">
-            <a href="index.html" class="btn" ><p style="color:#ffffff">Log Out</p></a>
-            <a href="dashboard.html" class="btn"><p style="color:#ffffff">Dashboard</p></a>
-          </div>
-        </nav>
-        <style>
-          .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            z-index: 1;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            padding: 8px 16px;
-            border-radius: 4px;
-          }
-    
-          .dropdown-content a {
-            text-decoration: none;
-            color: black;
-            display: block;
-            padding: 8px 0;
-            font-size: 1rem;
-          }
-    
-          .dropdown-content a:hover {
-            background-color: #ddd;
-          }
-        </style>
-        <script>
-          const eventsLink = document.getElementById("eventsLink");
-          const dropdownMenu = document.getElementById("dropdownMenu");
-    
-          eventsLink.addEventListener("click", function (event) {
-            event.stopPropagation();
-            dropdownMenu.style.display =
-              dropdownMenu.style.display === "block" ? "none" : "block";
-          });
-    
-          document.addEventListener("click", function (event) {
-            if (!eventsLink.contains(event.target)) {
-              dropdownMenu.style.display = "none";
-            }
-          });
-    
-          dropdownMenu.addEventListener("click", function (event) {
-            event.stopPropagation();
-          });
-        </script>
+.nav-center li {
+display: inline;
+list-style-type: none;
+}
+
+.nav-left a {
+text-decoration: none;
+color: white;
+font-size: 0.8rem;
+font-weight: 500;
+position: relative;
+padding-bottom: 5px;
+transition: color 0.3s ease;
+}
+
+.nav-left a:hover {
+color: #791299;
+}
+
+.nav-left a:hover::after {
+content: "";
+position: absolute;
+width: 100%;
+height: 2px;
+background-color: #34495e;
+bottom: 0;
+left: 0;
+transform: scaleX(0);
+animation: growUnderline 0.3s forwards;
+}
+
+@keyframes growUnderline {
+100% {
+  transform: scaleX(1);
+}
+}
+
+.nav-center a {
+text-decoration: none;
+color: white;
+font-size: 1rem;
+font-weight: 500;
+position: relative;
+padding-bottom: 5px;
+transition: color 0.3s ease;
+}
+
+.nav-center a:hover {
+color: #34495e;
+}
+
+.nav-center a:hover::after {
+content: "";
+position: absolute;
+width: 100%;
+height: 2px;
+background-color: #34495e;
+bottom: 0;
+left: 0;
+transform: scaleX(0);
+animation: growUnderline 0.3s forwards;
+}
+
+@keyframes growUnderline {
+100% {
+  transform: scaleX(1);
+}
+}
+
+.nav-right {
+display: flex;
+gap: 20px;
+}
+
+.btn {
+display: inline-block;
+padding: 10px 25px;
+font-size: 1.1rem;
+font-weight: 500;
+color: white;
+background-color: #192836;
+border-radius: 30px;
+text-decoration: none;
+transition: all 0.3s ease;
+position: relative;
+}
+
+.btn:hover {
+background-color: #34495e;
+color: white;
+}
+
+.btn:hover::after {
+content: "";
+position: absolute;
+width: 100%;
+height: 2px;
+background-color: #34495e;
+bottom: -5px;
+left: 0;
+transform: scaleX(0);
+}
+  </style>
+<nav>
+  <div class="nav-left">
+    <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+    <a href="index.html"
+      ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+    >
+  </div>
+
+  <ul class="nav-center">
+    <li><a href="about-us.html" style="color:#000000">About Us</a></li>
+    <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
+    <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
+    <li>
+      <a href="#" id="eventsLink"
+      style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+      >
+      <div class="dropdown-content" id="dropdownMenu">
+        <a href="flc.html" style="color:#000000">Fall Conference</a>
+        <a href="slc.html" style="color:#000000">State Conference</a>
+        <a href="nlc.html" style="color:#000000">National Conference</a>
+      </div>
+    </li>
+    <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="login.html" class="btn" ><p style="color:#ffffff">Login</p></a>
+    <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
+  </div>
+</nav>
+<style>
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+
+  .dropdown-content a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 8px 0;
+    font-size: 1rem;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+</style>
+<script>
+  const eventsLink = document.getElementById("eventsLink");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  eventsLink.addEventListener("click", function (event) {
+    event.stopPropagation();
+    dropdownMenu.style.display =
+      dropdownMenu.style.display === "block" ? "none" : "block";
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!eventsLink.contains(event.target)) {
+      dropdownMenu.style.display = "none";
+    }
+  });
+
+  dropdownMenu.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+</script>
 <header>
     <img />
   
