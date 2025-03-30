@@ -326,12 +326,20 @@
         </div>
   
       <!-- Sliding Image Gallery (Right Side) -->
-      <div class="slider-container">
-          <div class="slider">
-              <img src="20241030_084444.jpg" alt="Image 1">
-              <img src="20241030_091115 (1).jpg" alt="Image 2">
-              <img src="IMG-2335.jpg" alt="Image 3">
-              <img src="IMG-7996.jpg" alt="Image 4">
+      <div>
+          <div>
+             
+            <img class="custom-image reveal" src="IMG-7996.jpg" alt="Image 4">
+<style>
+  .custom-image {
+    width: 500px;
+    height: 500px;
+    margin-left: -20%; /* Move image closer to the left */
+    border-radius: 20px; /* Apply rounded corners */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+  </style>
           </div>
   
           <!-- Navigation arrows -->
@@ -379,8 +387,8 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
 }
 
 .slider img {
-    width: 100%;
-    height: 250px;
+    width: 140%;
+    height: 450px;
     border-radius: 25px; /* Subtle rounded corners */
 }
 
