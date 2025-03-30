@@ -1,995 +1,1183 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Torch Awards</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCSA BPA | Torch Awards</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for the body */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Small navigation bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+            color: white;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 15px;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Parallax container */
+        .parallax-container {
+            position: relative;
+            height: 80vh; /* Set the height to 50% of the viewport height */
+            overflow: hidden;
+        }
+
+        /* The fixed background image */
+        .parallax-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('cab6.jpg'); /* Your background image */
+            background-size: cover; /* Ensures the image covers the area */
+            background-position: center;
+            background-attachment: fixed; /* Creates the parallax effect */
+            z-index: -1; /* Keeps the image behind the text */
+        }
+
+        /* Text on top of the image */
+        .parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem; /* Larger font size for better visibility */
+    font-weight: bolder; /* Make the text bolder */
+    text-align: center;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Strong shadow for better contrast */
+    letter-spacing: 2px; /* Increase letter spacing for better readability */
+    font-family: 'Helvetica', 'Arial', sans-serif; /* Using Helvetica and Arial, widely supported fonts */
+}
+
+
+
+        /* Extra content to demonstrate scrolling */
+        .content {
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
-    <main>
-      <style>
-        h1 {
-  font-size: 3.2rem;
-}
 
- header {
-            background-color: transparent;
-     }
+  <style>          
+            nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 0.1rem 0.1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      
+      .nav-left {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-left .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+      
+      .nav-center {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .nav-center li {
+        display: inline;
+        list-style-type: none;
+      }
+      
+      .nav-left a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-left a:hover {
+        color: #791299;
+      }
+      
+      .nav-left a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-center a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-center a:hover {
+        color: #34495e;
+      }
+      
+      .nav-center a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-right {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .btn {
+        display: inline-block;
+        padding: 10px 25px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: white;
+        background-color: #192836;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .btn:hover {
+        background-color: #34495e;
+        color: white;
+      }
+      
+      .btn:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: -5px;
+        left: 0;
+        transform: scaleX(0);
+      }
+          </style>
+        <nav>
+          <div class="nav-left">
+            <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+            <a href="home.html"
+              ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+            >
+          </div>
+    
+          <ul class="nav-center">
+            <li><a href="about.html" style="color:#000000">About Us</a></li>
+            <li><a href="gallery.html" style="color:#000000">Gallery</a></li>
+            <li><a href="ccsa-leadership.html" style="color:#000000">Leadership</a></li>
+            <li>
+              <a href="#" id="eventsLink"
+              style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+              >
+              <div class="dropdown-content" id="dropdownMenu">
+                <a href="fall.html" style="color:#000000">Fall Conference</a>
+                <a href="state.html" style="color:#000000">State Conference</a>
+                <a href="national.html" style="color:#000000">National Conference</a>
+              </div>
+            </li>
+            <li><a href="torchawards.html" style="color:#000000">Torch Awards</a></li>
+          </ul>
+          <div class="nav-right">
+            <a href="index.html" class="btn" ><p style="color:#ffffff">Log Out</p></a>
+            <a href="dashboard.html" class="btn"><p style="color:#ffffff">Dashboard</p></a>
+          </div>
+        </nav>
+        <style>
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 4px;
+          }
+    
+          .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 8px 0;
+            font-size: 1rem;
+          }
+    
+          .dropdown-content a:hover {
+            background-color: #ddd;
+          }
+        </style>
+        <script>
+          const eventsLink = document.getElementById("eventsLink");
+          const dropdownMenu = document.getElementById("dropdownMenu");
+    
+          eventsLink.addEventListener("click", function (event) {
+            event.stopPropagation();
+            dropdownMenu.style.display =
+              dropdownMenu.style.display === "block" ? "none" : "block";
+          });
+    
+          document.addEventListener("click", function (event) {
+            if (!eventsLink.contains(event.target)) {
+              dropdownMenu.style.display = "none";
+            }
+          });
+    
+          dropdownMenu.addEventListener("click", function (event) {
+            event.stopPropagation();
+          });
+        </script>
 
-nav {
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: #faf9df;
-padding: 0.1rem 0.1rem;
-position: sticky;
-top: 0;
-z-index: 10;
-}
-
-.nav-left {
-display: flex;
-align-items: center;
-}
-
-.nav-left .logo {
-width: 50px;
-height: 50px;
-margin-right: 10px;
-}
-
-.nav-center {
-display: flex;
-justify-content: center;
-gap: 20px;
-}
-
-.nav-center li {
-display: inline;
-list-style-type: none;
-}
-
-.nav-left a {
-text-decoration: none;
-color: white;
-font-size: 0.8rem;
-font-weight: 500;
-position: relative;
-padding-bottom: 5px;
-transition: color 0.3s ease;
-}
-
-.nav-left a:hover {
-color: #791299;
-}
-
-.nav-left a:hover::after {
-content: "";
-position: absolute;
-width: 100%;
-height: 2px;
-background-color: #34495e;
-bottom: 0;
-left: 0;
-transform: scaleX(0);
-animation: growUnderline 0.3s forwards;
-}
-
-@keyframes growUnderline {
-100% {
-transform: scaleX(1);
-}
-}
-
-.nav-center a {
-text-decoration: none;
-color: white;
-font-size: 1rem;
-font-weight: 500;
-position: relative;
-padding-bottom: 5px;
-transition: color 0.3s ease;
-}
-
-.nav-center a:hover {
-color: #34495e;
-}
-
-.nav-center a:hover::after {
-content: "";
-position: absolute;
-width: 100%;
-height: 2px;
-background-color: #34495e;
-bottom: 0;
-left: 0;
-transform: scaleX(0);
-animation: growUnderline 0.3s forwards;
-}
-
-@keyframes growUnderline {
-100% {
-transform: scaleX(1);
-}
-}
-
-.nav-right {
-display: flex;
-gap: 20px;
-}
-
-.btn {
-display: inline-block;
-padding: 10px 25px;
-font-size: 1.1rem;
-font-weight: 500;
-color: white;
-background-color: #192836;
-border-radius: 30px;
-text-decoration: none;
-transition: all 0.3s ease;
-position: relative;
-}
-
-.btn:hover {
-background-color: #34495e;
-color: white;
-}
-
-.btn:hover::after {
-content: "";
-position: absolute;
-width: 100%;
-height: 2px;
-background-color: #34495e;
-bottom: -5px;
-left: 0;
-transform: scaleX(0);
-}
-</style>
-<nav>
-<div class="nav-left">
-<img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
-<a href="home.html"
-  ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
->
-</div>
-
-<ul class="nav-center">
-<li><a href="about.html" style="color:#000000">About Us</a></li>
-<li><a href="pic-gallery.html" style="color:#000000">Gallery</a></li>
-<li><a href="ccsa-leadership.html" style="color:#000000">Leadership</a></li>
-<li>
-  <a href="#" id="eventsLink"
-  style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
-  >
-  <div class="dropdown-content" id="dropdownMenu">
-    <a href="fall.html" style="color:#000000">Fall Conference</a>
-    <a href="state.html" style="color:#000000">State Conference</a>
-    <a href="national.html" style="color:#000000">National Conference</a>
-  </div>
-</li>
-<li><a href="torchawards.html" style="color:#000000">Torch Awards</a></li>
-</ul>
-<div class="nav-right">
-<a href="dashboard.html" class="btn" ><p style="color:#ffffff">Dashboard</p></a>
-<a href="index.html" class="btn"><p style="color:#ffffff">Log Out</p></a>
-</div>
-</nav>
+<div class="torch-awards-header">
+  <div class="torch-awards-left">
+    <head>
+      <!-- Google Fonts: Poppins for a cleaner, modern look -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    </head>
+    
+    <h2 class="torch-awards-heading auto-reveal" style="font-size: 4.5rem; font-family: 'Calibri', sans-serif; text-align: center;">Torch Awards & Recognition</h2>
 <style>
-.dropdown-content {
-display: none;
-position: absolute;
-background-color: #f9f9f9;
-min-width: 160px;
-z-index: 1;
-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-padding: 8px 16px;
-border-radius: 4px;
+  /* Initially, hide the element and position it below */
+.auto-reveal {
+  opacity: 0; /* Make the element invisible */
+  transform: translateY(50px); /* Move it below its original position */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Add smooth transition */
 }
 
-.dropdown-content a {
-text-decoration: none;
-color: black;
-display: block;
-padding: 8px 0;
-font-size: 1rem;
+/* When the element comes into view, make it visible */
+.auto-reveal.auto-reveal-visible {
+  opacity: 1; /* Make it visible */
+  transform: translateY(0); /* Move it back to its original position */
 }
 
-.dropdown-content a:hover {
-background-color: #ddd;
-}
 </style>
 <script>
-const eventsLink = document.getElementById("eventsLink");
-const dropdownMenu = document.getElementById("dropdownMenu");
+  // Automatically reveal the element after a delay
+window.addEventListener("DOMContentLoaded", function() {
+  var element = document.querySelector(".auto-reveal"); // Select the element with class 'auto-reveal'
 
-eventsLink.addEventListener("click", function (event) {
-event.stopPropagation();
-dropdownMenu.style.display =
-  dropdownMenu.style.display === "block" ? "none" : "block";
+  // Add the 'auto-reveal-visible' class to trigger the reveal effect
+  setTimeout(function() {
+    element.classList.add("auto-reveal-visible");
+  }, 100);  // Delay of 500 milliseconds before revealing
 });
 
-document.addEventListener("click", function (event) {
-if (!eventsLink.contains(event.target)) {
-  dropdownMenu.style.display = "none";
-}
-});
-
-dropdownMenu.addEventListener("click", function (event) {
-event.stopPropagation();
-});
 </script>
-      <body>
-        <header>
-          <div class="container">
-            <img />
-          </div>
-        </header>
-        <main style="text-align: center">
-          <section id="torch-awards">
-            <div class="container">
-              <br />
-              <br />
-              <h1 class="scroll-reveal underline-grow">Torch Awards</h1>            
-              <style>
-.underline-grow {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #333;
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-}
+<style>
+        .torch-awards-heading {
+            font-family: 'Poppins', sans-serif; /* Using Poppins for a modern, bold font */
+            font-size: 6rem; /* Increase font size */
+            font-weight: 700; /* Bold font */
+            color: #ffffff; /* White text color */
+            margin-bottom: 20px; /* Space below the heading */
+            letter-spacing: 2px; /* Slight letter spacing for clarity */
+        }
+    </style>
+          <p style="text-align: center;">The BPA Torch Awards Program recognizes members who have demonstrated excellence in different BPA categories. This prestigious honor celebrates leadership, personal growth, and community involvement.</p>
+  </div>
+  <div class="torch-awards-right">
+      <img src="torchawards.png"  alt="Torch Awards Logo">
+  </div>
+</div>
 
-.underline-grow::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;  
-  left: 0;
-  width: 0;
-  height: 3.5px;  
-  background-color: #ff6f61;  
-  transition: width 0.4s ease;  
-}
-
-
-.underline-grow:hover::after {
-  width: 100%;  
-}
-
-
-
-                </style>
-                <br />
-            
-              <div>
-                <div class="torch-awards-box">
-                    <p>
-                        The Business Professionals of America <strong>Torch Awards</strong> program helps people become great leaders and develop important skills. Students
-                        can participate in different categories such as leadership, service, cooperation, knowledge, friendship, love, hope, and faith, and citizenship.
-                        Each activity is 5, 10, 15, or 20 points. Members should log their activities on the online Torch Resume. 
-                    </p>
-                    <br>
-                    <p style="font-size:0.7em;">(Business Professionals of America. “Torch Awards - Business Professionals of America.” Business Professionals of America, https://bpa.org/torch-awards/. Accessed 23 December 2024.)</p>
-                </div>
-                
-                
-            </div>
-        </section>
-        <style>
-.torch-awards-box {
-    background-color: #f7f4e6;
-    padding: 30px;
-    
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    max-width: 825px;
-    margin: 40px auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUp 1.5s ease-out;
-    border-left: 10px solid #ff6f61;
-    margin-bottom: -100px;
-
-}
-
-.torch-awards-box p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #555;
-    font-weight: 400;
-    text-align: center;
-    margin: 0;
-}
-
-.torch-awards-box strong {
-    color: #800080;
-    font-weight: 600;
-}
-
-
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
+<style>
+   .torch-awards-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #8b9196;  /* Grayish Navy background */
+        color: white;
+        padding: 130px 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        font-family: 'Poppins', sans-serif; /* Use Poppins font */
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+
+  .torch-awards-left {
+      width: 60%;  /* Left side takes up 60% of the space */
+  }
+
+  .torch-awards-left h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+  }
+
+  .torch-awards-left p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #e0e0e0;
+  }
+
+  .torch-awards-right {
+      width: 30%;  /* Right side takes up 30% of the space */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .torch-awards-right img {
+    max-width: 150%;  /* Increase the width for a larger image */
+    max-height: 300px;  /* Increase the height limit */
+    object-fit: contain;  /* Ensures the image scales without distortion */
 }
 
+  /* Responsive styling for smaller screens */
+  @media (max-width: 768px) {
+      .torch-awards-header {
+          flex-direction: column;
+          text-align: center;
+      }
 
-           h2, p {
-    text-align: center;
-    color: #333;
+      .torch-awards-left {
+          width: 100%;
+          margin-bottom: 20px;
+      }
+
+      .torch-awards-right {
+          width: 100%;
+      }
+
+      .torch-awards-right img {
+          max-height: 150px;  /* Reduce the logo size on small screens */
+      }
   }
+</style>
+<br>
+<br>
+<div class="torch-awards-info">
+  <h2 style="text-align: center;" class="reveal">What are Torch Awards?</h2>
+  <p style="text-align: center;">Students can complete activities in the seven torch categories and each activity is worth 5, 10, 15, or 20 points. Once a student has completed a certain amount of activities, they can log it in the online resume, in which then the advisor can submit it. Below are activities that can be completed in the seven categories:</p>
+</div>
+<style>
+  .torch-awards-info {
+  padding: 20px; /* Padding for spacing inside the div */
+  text-align: center; /* Center the text inside the div */
 
-  .award-levels {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: center;
-    justify-items: center;
-  }
+}
 
-  .award-level {
-    background: linear-gradient(135deg, #d7a6b2, #f8c9b6);
-    color: white;
-    padding: 0px;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-left: 100px;
-    margin-right: 100px;
-  }
+.torch-awards-info h2 {
+  font-size: 2.6rem; /* Slightly larger font for the heading */
+  color: #333; /* Darker text color for the heading */
+  margin-bottom: 10px; /* Space below the heading */
+}
 
-  .award-level:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
+.torch-awards-info p {
+  font-size: 1.5rem; /* Default font size for the paragraph */
+  width: 70%; /* Adjust width to make the paragraph narrower */
+  color: #555; /* Slightly lighter color for the paragraph text */
+  line-height: 2; /* Line height for better readability */
+  margin: 0 auto; /* Center the paragraph within its container */
+  text-align: center; /* Center the text within the paragraph */
+}
 
-  .award-level h2 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
+</style>
+<script>
+  // When the user scrolls, execute the function
+  window.addEventListener("scroll", function() {
+    var elements = document.querySelectorAll(".reveal");  // Select all elements with class 'reveal'
+    elements.forEach(function(element) {
+      var position = element.getBoundingClientRect().top;  // Get the position of the element relative to the viewport
+      var windowHeight = window.innerHeight;  // Get the height of the viewport
 
-  .award-level p {
-    font-size: 1.1em;
-    margin: 0px 0;
-    line-height: 1.6;
-  }
+      // If the element is within the viewport
+      if (position < windowHeight) {
+        element.classList.add("reveal-visible");  // Add the 'reveal-visible' class to make it visible
+      }
+    });
+  });
+</script>
+<style>
+/* Initially, hide the element and position it below */
+.reveal {
+opacity: 0; /* Make the element invisible */
+transform: translateY(50px); /* Move it below its original position */
+transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Add smooth transition */
+}
 
-  .award-level .definition {
-    font-style: italic;
-    color: #f4f4f4;
-  }
-          </style>
-          <br>
-          <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        
-           <p>Below are some activites in each category. For more activites check out BPA's <a style="color:blue;" href="https://bpa.org/torch-awards/#content-start">Torch Awards page.</a>
-           </p>
-       <div class="category-dropdown">
-            <div class="category" onclick="toggleCategoryDropdown('leadership')">
-              <span>Leadership</span>
-              <span class="arrow">&darr;</span>
-            </div>
-            <div id="leadership" class="category-details">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Activity</th>
-                    <th>Code</th>
-                    <th>Points</th>
-                    <th>Use</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Serve as a local officer and name the office</td>
-                    <td>105</td>
-                    <td>5</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Serve as a BPA State officer and name the office</td>
-                    <td>109</td>
-                    <td>10</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Serve as a BPA NLC Intern and name the conference, city, and year
-                    </td>
-                    <td>132</td>
-                    <td>15</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Participate in the BPA National Leadership Academy at the NLC and
-                      name the conference, city, and year
-                    </td>
-                    <td>131</td>
-                    <td>20</td>
-                    <td>1</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          
-            <div class="category" onclick="toggleCategoryDropdown('service')">
-              <span>Service</span>
-              <span class="arrow">&darr;</span>
-            </div>
-            <div id="service" class="category-details">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Activity</th>
-                    <th>Code</th>
-                    <th>Points</th>
-                    <th>Use</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Volunteer and/or donate blood at a blood drive</td>
-                    <td>203</td>
-                    <td>5</td>
-                    <td>2</td>
-                  </tr>
-          
-                  <tr>
-                    <td>Organize and plan a blood drive and name the involvement</td>
-                    <td>202</td>
-                    <td>10</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Serve as a coach for a special olympics team and name the team
-                    </td>
-                    <td>201</td>
-                    <td>15</td>
-                    <td>2</td>
-                  </tr>
-          
-                  <tr>
-                    <td>
-                      Volunteer/participate in a BPA state or national level service
-                      project
-                    </td>
-                    <td>219</td>
-                    <td>10</td>
-                    <td>1</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          
-            <div class="category" onclick="toggleCategoryDropdown('cooperation')">
-              <span>Cooperation</span>
-              <span class="arrow">&darr;</span>
-            </div>
-            <div id="cooperation" class="category-details">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Activity</th>
-                    <th>Code</th>
-                    <th>Points</th>
-                    <th>Use</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      Participate in a local BPA fundrasing project and name the
-                      involvement and project
-                    </td>
-                    <td>304</td>
-                    <td>5</td>
-                    <td>3</td>
-                  </tr>
-          
-                  <tr>
-                    <td>Serve as a BPA committee member and name the committee</td>
-                    <td>320</td>
-                    <td>5</td>
-                    <td>3</td>
-                  </tr>
-          
-                  <tr>
-                    <td>
-                      Organize a fundraiser for your BPA chapter or another organization
-                      and name the involvment and organization
-                    </td>
-                    <td>321</td>
-                    <td>10</td>
-                    <td>2</td>
-                  </tr>
-          
-                  <tr>
-                    <td>
-                      Communicate with a BPA national officer about a BPA related topic
-                      and name the person contacted, the topic, and method of
-                      communication
-                    </td>
-                    <td>339</td>
-                    <td>10</td>
-                    <td>2</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          
-            <div class="category" onclick="toggleCategoryDropdown('knowledge')">
-              <span>Knowledge</span>
-              <span class="arrow">&darr;</span>
-            </div>
-            <div id="knowledge" class="category-details">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Activity</th>
-                    <th>Code</th>
-                    <th>Points</th>
-                    <th>Use</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      Take a BPA State Merit Scholar Test and name the state conference
-                    </td>
-                    <td>423</td>
-                    <td>5</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Earn a BPA State Merit Scholar Award and name the state conference
-                    </td>
-                    <td>424</td>
-                    <td>10</td>
-                    <td>1</td>
-                  </tr>
-          
-                  <tr>
-                    <td>
-                      Take the BPA Merit Scholar Test at the NLC and name the national
-                      conference
-                    </td>
-                    <td>425</td>
-                    <td>10</td>
-                    <td>1</td>
-                  </tr>
-          
-                  <tr>
-                    <td>
-                      Earn a BPA Merit Scholar Award at the NLC and name the national
-                      conference
-                    </td>
-                    <td>426</td>
-                    <td>15</td>
-                    <td>1</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          
-            <div class="category" onclick="toggleCategoryDropdown('friendship')">
-              <span>Friendship</span>
-              <span class="arrow">&darr;</span>
-            </div>
-            <div id="friendship" class="category-details">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Activity</th>
-                    <th>Code</th>
-                    <th>Points</th>
-                    <th>Use</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Recruit 5 new BPA chapter members and name the new members</td>
-                    <td>521</td>
-                    <td>5</td>
-                    <td>1</td>
-                  </tr>
-          
-                  <tr>
-                    <td>Attend a social event with another BPA Chapter</td>
-                    <td>519</td>
-                    <td>10</td>
-                    <td>2</td>
-                  </tr>
-          
-                  <tr>
-                    <td>Attend a BPA Fall Leadership Conference</td>
-                    <td>520</td>
-                    <td>10</td>
-                    <td>2</td>
-                  </tr>
-          
-                  <tr>
-                    <td>
-                      Attend a BPA National Leadership Conference and name the conference
-                    </td>
-                    <td>506</td>
-                    <td>10</td>
-                    <td>3</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-           
+/* When the element comes into view, make it visible */
+.reveal.reveal-visible {
+opacity: 1; /* Make it visible */
+transform: translateY(0); /* Move it back to its original position */
+}
 
-            <div class="category" onclick="toggleCategoryDropdown('lovehopefaith')">
-              <span>Love, Hope, and Faith</span>
-              <span class="arrow">&darr;</span>
-            </div>
-            <div id="lovehopefaith" class="category-details">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Activity</th>
-                    <th>Code</th>
-                    <th>Points</th>
-                    <th>Use</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      Attend a religious function of any faith and name the place of
-                      worship/event
-                    </td>
-                    <td>612</td>
-                    <td>5</td>
-                    <td>2</td>
-                  </tr>
-          
-                  <tr>
-                    <td>Visit a nursing home and interact with the residents</td>
-                    <td>613</td>
-                    <td>10</td>
-                    <td>2</td>
-                  </tr>
-          
-                  <tr>
-                    <td>
-                      Participate in an acitvity that honors local teachers in district
-                    </td>
-                    <td>615</td>
-                    <td>10</td>
-                    <td>2</td>
-                  </tr>
-          
-                  <tr>
-                    <td>Participate in the NLC walk for Special Olympics</td>
-                    <td>610</td>
-                    <td>10</td>
-                    <td>2</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          
-            <div class="category" onclick="toggleCategoryDropdown('citizenship')">
-              <span>Citizenship</span>
-              <span class="arrow">&darr;</span>
-            </div>
-            <div id="citizenship" class="category-details">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Activity</th>
-                    <th>Code</th>
-                    <th>Points</th>
-                    <th>Use</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Attend a ethnic festival and name the involvement/activity</td>
-                    <td>717</td>
-                    <td>5</td>
-                    <td>1</td>
-                  </tr>
-                  <tr>
-                    <td>Participate in a local festival parade</td>
-                    <td>723</td>
-                    <td>5</td>
-                    <td>2</td>
-                  </tr>
-          
-                  <tr>
-                    <td>
-                      Speak at a public patriotic event and name the event, involvement,
-                      and topic
-                    </td>
-                    <td>713</td>
-                    <td>10</td>
-                    <td>1</td>
-                  </tr>
-          
-                  <tr>
-                    <td>Attend a city council meeting</td>
-                    <td>707</td>
-                    <td>10</td>
-                    <td>1</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p style="font-size:0.7em;">(Business Professionals of America. “Torch Awards - Business Professionals of America.” Business Professionals of America, https://bpa.org/torch-awards/. Accessed 23 December 2024.)</p>
+</style>  
 
-            <style>
+<!-- Categories Section -->
+<div class="category-dropdown" style="margin-left: -20%;">
+
+  <!-- Leadership Category -->
+  <div class="category" onclick="toggleCategoryDropdown('leadership')">
+    <span>Leadership</span>
+    <span class="arrow">&darr;</span>
+  </div>
+  <div id="leadership" class="category-details">
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Code</th>
+          <th>Points</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Serve as a local officer and name the office</td>
+          <td>105</td>
+          <td>5</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Serve as a BPA State officer and name the office</td>
+          <td>109</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Serve as a BPA NLC Intern and name the conference, city, and year</td>
+          <td>132</td>
+          <td>15</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Participate in the BPA National Leadership Academy at the NLC and name the conference, city, and year</td>
+          <td>131</td>
+          <td>20</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Service Category -->
+  <div class="category" onclick="toggleCategoryDropdown('service')">
+    <span>Service</span>
+    <span class="arrow">&darr;</span>
+  </div>
+  <div id="service" class="category-details">
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Code</th>
+          <th>Points</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Volunteer and/or donate blood at a blood drive</td>
+          <td>203</td>
+          <td>5</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Organize and plan a blood drive and name the involvement</td>
+          <td>202</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Serve as a coach for a Special Olympics team and name the team</td>
+          <td>201</td>
+          <td>15</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Volunteer/participate in a BPA state or national level service project</td>
+          <td>219</td>
+          <td>10</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Cooperation Category -->
+  <div class="category" onclick="toggleCategoryDropdown('cooperation')">
+    <span>Cooperation</span>
+    <span class="arrow">&darr;</span>
+  </div>
+  <div id="cooperation" class="category-details">
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Code</th>
+          <th>Points</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Participate in a local BPA fundraising project and name the involvement and project</td>
+          <td>304</td>
+          <td>5</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Serve as a BPA committee member and name the committee</td>
+          <td>320</td>
+          <td>5</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Organize a fundraiser for your BPA chapter or another organization and name the involvement and organization</td>
+          <td>321</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Communicate with a BPA national officer about a BPA-related topic and name the person contacted, the topic, and method of communication</td>
+          <td>339</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Knowledge Category -->
+  <div class="category" onclick="toggleCategoryDropdown('knowledge')">
+    <span>Knowledge</span>
+    <span class="arrow">&darr;</span>
+  </div>
+  <div id="knowledge" class="category-details">
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Code</th>
+          <th>Points</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Take a BPA State Merit Scholar Test and name the state conference</td>
+          <td>423</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Earn a BPA State Merit Scholar Award and name the state conference</td>
+          <td>424</td>
+          <td>10</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Take the BPA Merit Scholar Test at the NLC and name the national conference</td>
+          <td>425</td>
+          <td>10</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Earn a BPA Merit Scholar Award at the NLC and name the national conference</td>
+          <td>426</td>
+          <td>15</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Friendship Category -->
+  <div class="category" onclick="toggleCategoryDropdown('friendship')">
+    <span>Friendship</span>
+    <span class="arrow">&darr;</span>
+  </div>
+  <div id="friendship" class="category-details">
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Code</th>
+          <th>Points</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Recruit 5 new BPA chapter members and name the new members</td>
+          <td>521</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Attend a social event with another BPA Chapter</td>
+          <td>519</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Attend a BPA Fall Leadership Conference</td>
+          <td>520</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Attend a BPA National Leadership Conference and name the conference</td>
+          <td>506</td>
+          <td>10</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Love, Hope, and Faith Category -->
+  <div class="category" onclick="toggleCategoryDropdown('lovehopefaith')">
+    <span>Love, Hope, and Faith</span>
+    <span class="arrow">&darr;</span>
+  </div>
+  <div id="lovehopefaith" class="category-details">
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Code</th>
+          <th>Points</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Attend a religious function of any faith and name the place of worship/event</td>
+          <td>612</td>
+          <td>5</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Visit a nursing home and interact with the residents</td>
+          <td>613</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Participate in an activity that honors local teachers in the district</td>
+          <td>615</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Participate in the NLC walk for Special Olympics</td>
+          <td>610</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Citizenship Category -->
+  <div class="category" onclick="toggleCategoryDropdown('citizenship')">
+    <span>Citizenship</span>
+    <span class="arrow">&darr;</span>
+  </div>
+  <div id="citizenship" class="category-details">
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Code</th>
+          <th>Points</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Attend an ethnic festival and name the involvement/activity</td>
+          <td>717</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Participate in a local festival parade</td>
+          <td>723</td>
+          <td>5</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Speak at a public patriotic event and name the event, involvement, and topic</td>
+          <td>713</td>
+          <td>10</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Attend a city council meeting</td>
+          <td>707</td>
+          <td>10</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<style>
+/* Ensures the container takes full width */
 .category-dropdown {
-    max-width: 100%;
-    margin: 40px auto;
-    display: grid;
-    gap: 20px;
+  width: 100%;
+  padding: 20px;
+  margin-left: 10%;
+}
+
+/* Style for each category */
+.category {
+  cursor: pointer;
+  padding: 1px;
+  background-color: #f1f1f1;
+  margin-left: 30%;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  width: 50%;
+  text-align: left; /* Ensures text is aligned to the left */
+  display: block; /* Makes category take full width */
+}
+
+/* Arrow for dropdown */
+.arrow {
+  font-size: 1.2rem;
+  margin-left: 10px;
+  float: right; /* Arrow stays on the right */
+}
+
+/* Style when hovering over a category */
+.category:hover {
+  background-color: #ddd;
+}
+
+/* Category details (the dropdown content) */
+.category-details {
+  display: none;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 20px; /* Margin to the left for spacing */
+}
+
+/* Styling for tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Hover effect on table rows */
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+</style>
+
+<script>
+  function toggleCategoryDropdown(category) {
+  var categoryDetails = document.getElementById(category);
+
+  // Toggle the display of the category details
+  if (categoryDetails.style.display === "none" || categoryDetails.style.display === "") {
+    categoryDetails.style.display = "block";
+  } else {
+    categoryDetails.style.display = "none";
+  }
+}
+
+</script>
+
+<style>
+.category-dropdown {
+max-width: 100%;
+margin: 40px auto;
+display: grid;
+gap: 20px;
 }
 
 @media (max-width: 1200px) {
-  .category-dropdown {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.category-dropdown {
+grid-template-columns: repeat(3, 1fr);
+}
 }
 
 @media (max-width: 900px) {
-  .category-dropdown {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.category-dropdown {
+grid-template-columns: repeat(2, 1fr);
+}
 }
 
 @media (max-width: 600px) {
-  .category-dropdown {
-    grid-template-columns: 1fr;
-  }
+.category-dropdown {
+grid-template-columns: 1fr;
+}
 }
 
 .category {
-    margin-top: -100px;
-    background-color: #f7f4e6;
-    border-radius: 12px;
-    padding: 15px;
-    margin: 10px auto; 
-    border: 4px solid #e0d1a3;
-    width:60%;
-    height:70px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-    font-family: 'Royal', sans-serif;
-    text-align: center;
+margin-top: -100px;
+background-color: #f7f4e6;
+border-radius: 12px;
+padding: 10px;
+margin: -2px auto; 
+border: 4px solid #e0d1a3;
+width:60%;
+height:70px;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+transition: background-color 0.3s ease;
+font-family: 'Royal', sans-serif;
+text-align: center;
 }
 
 .category-details.visible {
-    display: block;
+display: block;
 }
 
 .category-dropdown-content {
-    display: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width:60%;
+display: none;
+padding-top: 10px;
+padding-bottom: 10px;
+width:60%;
 }
 .arrow {
-            font-size: 12px;
-            margin-left: 5px;
-            vertical-align: middle;
-        }
+font-size: 12px;
+margin-left: 5px;
+vertical-align: middle;
+}
 .category:hover .dropdown-content {
-    display: block;
+display: block;
 }
 
 .category:hover {
-    background-color: #e2d7c1;
+background-color: #e2d7c1;
 }
 
 .arrow {
-    font-size: 18px;
-    transition: transform 0.3s ease;
+font-size: 18px;
+transition: transform 0.3s ease;
 }
 
 .category-details {
-    display: none;
-    background-color: #f9f9f9;
-    margin-top: 10px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 60%;
-    margin: 0 auto; 
+display: none;
+background-color: #f9f9f9;
+margin-top: 10px;
+padding: 20px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+width: 60%;
+margin: 0 auto; 
 
 }
 
 
 
 .category-details table {
-    width: 100%;
-    border-collapse: collapse;
+width: 100%;
+border-collapse: collapse;
 }
 
 .category-details th,
 .category-details td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+padding: 10px;
+text-align: left;
+border-bottom: 1px solid #ddd;
 }
 
 .category-details th {
-    background-color: #ffe6cc;
+background-color: #ffe6cc;
 }
 
 .category-details tr:hover {
-    background-color: #f2f2f2;
+background-color: #f2f2f2;
 }
 
 @media (max-width: 768px) {
-    .category {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .category-details {
-        padding: 15px;
-    }
-
-    .category-details table {
-        font-size: 0.9em;
-    }
+.category {
+flex-direction: column;
+align-items: flex-start;
 }
 
-            </style>
-            <script>
-             function toggleCategoryDropdown(categoryId) {
-    var categoryDetails = document.getElementById(categoryId);
-    var arrow = categoryDetails.previousElementSibling.querySelector(".arrow");
-
-    
-    if (categoryDetails.classList.contains('visible')) {
-        categoryDetails.classList.remove('visible');
-        arrow.style.transform = "rotate(0deg)";
-    } else {
-  
-        var allDetails = document.querySelectorAll('.category-details');
-        allDetails.forEach(function (details) {
-            details.classList.remove('visible');
-            details.previousElementSibling.querySelector(".arrow").style.transform = "rotate(0deg)";
-        });
-
-       
-        categoryDetails.classList.add('visible');
-        arrow.style.transform = "rotate(180deg)";
-    }
+.category-details {
+padding: 15px;
 }
 
-            </script>
-          </div>
-          <br>
-          <br>
-          <h2 style="font-size: 2.8rem;">Recognition</h2>
-        <div class="award-levels">
-            <div class="award-level">
-                <h2>Executive Torch Award</h2>
-                <p>
-                    This award is given in your local chapter and requires 10 points in each of the 7 categories. The awards given are a pin and a certificate.
-                </p>
-            </div>
-        
-            <div class="award-level">
-                <h2>Diplomat Torch Award</h2>
-                <p>
-                    This award could be given at the local, regional, or state level and requires 30 points in each category. The awards given are a pin and a certificate.
-                </p>
-            </div>
-        
-            <div class="award-level">
-                <h2>Statesman Torch Award</h2>
-                <p>
-                    This award is given at the state level and requires 50 points in each category. The awards given are a pin and certificate.
-                </p>
-            </div>
-        
-            <div class="award-level">
-                <h2>Ambassador Torch Award</h2>
-                <p>
-                    This award is given at the national level and requires 70 points in each category. The awards given are a pin, certificate, and going to the NLC.
-                </p>
-            </div>
-        </div>
-        <br>
-        <br>
-        <p style="font-size:0.7em;">(Business Professionals of America. “Torch Awards - Business Professionals of America.” Business Professionals of America, https://bpa.org/torch-awards/. Accessed 23 December 2024.)</p>
+.category-details table {
+font-size: 0.9em;
+}
+}
 
-        
-        
-            </body>
-           
-        
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>      
-          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
-            <style>
-              a {
-                  text-decoration: none;
-                  color: black;
-              }
+</style>
+<script>
+ function toggleCategoryDropdown(categoryId) {
+var categoryDetails = document.getElementById(categoryId);
+var arrow = categoryDetails.previousElementSibling.querySelector(".arrow");
 
-              a:visited {
-                  color: black;
-              }
 
-              a:hover {
-                  color: navy;
-              }
-          </style>
-                 <h4 style="text-align: center;">Resources</h4>
-                 <br>
-                 <br>
-                 <title>Footer </title>
-       <style>
-         .footer {
-           display: flex;
-           justify-content: space-between;
-           padding: 20px;
-           text-align: left;
-         }
-         .footer-column {
-           display: flex;
-           flex-direction: column;
-           gap: 10px;
-         }
-         .footer-column a {
-           text-decoration: none;
-           color: #333;
-           font-size: 16px;
-         }
-         .footer-column a:hover {
-           color: #007BFF;
-           text-decoration: underline;
-         }
-         @media (max-width: 768px) {
-           .footer {
-             flex-direction: column;
-             align-items: center;
-           }
-           .footer-column {
-             align-items: center;
-           }
-         }
-       </style>
-     </head>
-              
+if (categoryDetails.classList.contains('visible')) {
+categoryDetails.classList.remove('visible');
+arrow.style.transform = "rotate(0deg)";
+} else {
+
+var allDetails = document.querySelectorAll('.category-details');
+allDetails.forEach(function (details) {
+details.classList.remove('visible');
+details.previousElementSibling.querySelector(".arrow").style.transform = "rotate(0deg)";
+});
+
+
+categoryDetails.classList.add('visible');
+arrow.style.transform = "rotate(180deg)";
+}
+}
+
+</script>
+<div class="img-container">
+  <img src="torchlogo_enhanced.jpg" class="reveal" alt="Leadership Image" >
+</div>
+<style>
+  .img-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create two columns */
+  gap: 10px; /* Adjust the gap between images */
+}
+
+.img-container img {
+  width: 100%; /* Make images responsive */
+  max-width: 400px; /* Limits the max width of images */
+  height: auto; /* Maintains the aspect ratio */
+  object-fit: contain; /* Ensures the image fits within the container */
+  border-radius: 10px; /* Optional: rounded corners for images */
+}
+
+</style>
+</div>
+<style>
+ /* Container for images */
+.img-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for images */
+  gap: -20px; /* Remove any gap between images */
+  justify-items: center; /* Ensure images stay in place */
+  align-items: flex-start; /* Align images to the top */
+  margin-left: 70%; /* Move the images closer to the right */
+  margin-top: -40%; /* Adjust the top margin to position images correctly */
+}
+
+/* Styling for individual images */
+.img-container img {
+  width: 180%; /* Make images responsive */
+  max-width: 460px; /* Limit the maximum width of images */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: contain; /* Ensure the image fits within its container */
+  border-radius: 10px; /* Rounded corners for images */
+}
+
+/* Optional: Make the images stick to one row for large screens */
+.img-container img:nth-child(1), 
+.img-container img:nth-child(2) {
+  margin-right: 5px; /* Optional: small space between first two images */
+}
+
+.img-container img:nth-child(3),
+.img-container img:nth-child(4) {
+  margin-left: 5px; /* Optional: small space between last two images */
+}
+
+/* Responsive styling */
+@media (max-width: 1200px) {
+  .category-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjust to 3 columns on medium screens */
+    gap: 5px;
+  }
+}
+
+@media (max-width: 900px) {
+  .category-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns on smaller screens */
+    gap: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .category-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack images in a single column on very small screens */
+    gap: 5px;
+  }
+}
+
+  </style>
+   <br>
+
+   <br>
+   <br><br>
+   <br>
+   <br>
+
+      <br>
+   <br>
+   <br><br>
+   <br>
+
+  <div class="recognition-container">
+    <div class="recognition-text">
+      <h2 class="reveal">Recognition</h2>
+      <br>
+      <p>After a student reaches a specific number of points, they can get recognition. Executive requires 10 points in each category, Diplomat requires 30 points in each category, Statesman requires 50 points in each category, and Ambassador requires 70 points in each category.</p>
+    </div>
+    <div class="recognition-image">
+      <img src="capturebpa.jpg"  class="reveal" alt="Recognition Image">
+    </div>
+  </div>
+<style>
+  .recognition-container {
+      margin-top: 25px;
+  display: flex; /* Aligns text and image side by side */
+  justify-content: space-between; /* Creates space between the text and image */
+  padding: 20px; /* Adds padding around the container */
+  align-items: center; /* Aligns both the text and image vertically */
+}
+
+.recognition-text {
+  width: 60%; /* Adjusts the width of the text section */
+}
+
+.recognition-text h2 {
+  font-size: 2.6rem; /* Larger font for the header */
+  color: #333; /* Darker text color for the header */
+  margin-bottom: 10px; /* Adds space between the header and paragraph */
+}
+
+.recognition-text p {
+  font-size: 1.5rem; /* Font size for the paragraph */
+  color: #555; /* Slightly lighter color for the paragraph */
+  line-height: 1.6; /* Adds space between lines for better readability */
+}
+
+.recognition-image img {
+  width: 100%; /* Makes the image responsive */
+  max-width: 300px; /* Limits the maximum width of the image */
+  height: auto; /* Maintains the aspect ratio of the image */
+}
+
+/* Responsive handling for smaller screens */
+@media (max-width: 768px) {
+  .recognition-container {
+    flex-direction: column; /* Stacks the text and image vertically on smaller screens */
+    align-items: center; /* Centers the items */
+  }
+
+  .recognition-text {
+    width: 80%; /* Adjusts the text width on smaller screens */
+  }
+
+  .recognition-image img {
+    max-width: 250px; /* Limits the image width on smaller screens */
+  }
+}
+
+</style>  
+
+</div>
+
+</body>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 
@@ -1065,6 +1253,7 @@ event.stopPropagation();
     background-color: #e60000;
   }
 </style>
+</main>
 
 <script>
   const chatbotButton = document.getElementById("chatbotButton");
@@ -1082,37 +1271,94 @@ event.stopPropagation();
     chatbotContainer.style.display = "none"; // Hide the chatbot container
   });
 </script>
-     <body>
-        <div class="footer">
-            <div class="footer-column">
-              <a href="https://www.instagram.com/ccsa_bpa/">Instagram</a>
-              <a href="https://www.tiktok.com/@ccsabpa">TikTok</a>
-              <a href="about-us.html">About Us</a>
-            </div>
-            <div class="footer-column">
-               <a href="calendar.html">Calendar</a>
-               <a href="leadership.html">Leadership</a>
-               <a href="learn-more.html">Get Involved</a>
-       
-            </div>
-            <div class="footer-column">
-              <a href="membership.html">Membership Spotlight</a>
-              <a href="picture-gallery.html">Picture Gallery</a>
-              <a href="torch-awards.html">Torch Awards</a>
-       
-            </div>
-            <div class="footer-column">
+
+        
+        
                
-              <a href="flc.html">FLC</a>
-              <a href="slc.html">SLC</a>
-              <a href="nlc.html">NLC</a>
-            </div>
-          </div>
-     <br>
-     <br>
-               </div>
-             </footer>
-           </body>
-         </main>
-       </body>
-     </html>
+          <footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
+            <style>
+              a {
+                  text-decoration: none; 
+                  color: black; 
+              }
+      
+              a:visited {
+                  color: black;
+              }
+      
+              a:hover {
+                  color: navy;
+              }
+          </style>
+            <h4 style="text-align: center;">Resources</h4>
+            <br>
+            <br>
+            <title>Footer </title>
+  <style>
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      text-align: left;
+    }
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-column a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+    .footer-column a:hover {
+      color: #007BFF;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-column {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="footer">
+        <div class="footer-column">
+          <a href="https://www.instagram.com/ccsa_bpa/" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@ccsabpa" target="_blank">TikTok</a>
+          <a href="about.html">About Us</a>
+        </div>
+        <div class="footer-column">
+           <a href="signup.html">Signup</a>
+           <a href="login.html">Login</a>
+           <a href="index.html">Home</a>
+   
+        </div>
+        <div class="footer-column">
+          <a href="ccsa-leadership.html">Leadership</a>
+          <a href="gallery.html">Picture Gallery</a>
+          <a href="torchawards.html">Torch Awards</a>
+   
+        </div>
+        <div class="footer-column">
+           
+          <a href="fall.html">FLC</a>
+          <a href="state.html">SLC</a>
+          <a href="national.html">NLC</a>
+        </div>
+      </div>
+<br>
+<br>
+    </div>
+      
+   
+        </footer>
+    
+    </main>
+  </body>
+</html>
