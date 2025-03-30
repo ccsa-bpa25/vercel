@@ -421,17 +421,25 @@ width: 100%;
       }
 
      
-      .abt-container {
-          text-align: center;
-          width: 90%;
-          max-width: 800px;
-          padding: 50px;
-          background: #f3f2f2;
-          border-radius: 25px;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-          text-align: center;
-          animation: fadeInUp 2s ease-out;
-      }
+    /* Wrapper to center the content */
+body, html {
+    height: 100%; /* Make sure the body and html take up the full height */
+    margin: 0; /* Remove default margins */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+}
+
+.abt-container {
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    padding: 50px;
+    background: #f3f2f2;
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 2s ease-out;
+}
 
      
       .intro-section {
