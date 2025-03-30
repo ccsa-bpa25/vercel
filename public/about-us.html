@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>About Us</title>
+    <title>CCSA BPA | About Us</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,210 +11,211 @@
                    background-color: transparent;
             }
        
-              nav {
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-           background-color: #faf9df;
-           padding: 0.1rem 0.1rem;
-           position: sticky;
-           top: 0;
-           z-index: 10;
-         }
-         
-         .nav-left {
-           display: flex;
-           align-items: center;
-         }
-         
-         .nav-left .logo {
-           width: 50px;
-           height: 50px;
-           margin-right: 10px;
-         }
-         
-         .nav-center {
-           display: flex;
-           justify-content: center;
-           gap: 20px;
-         }
-         
-         .nav-center li {
-           display: inline;
-           list-style-type: none;
-         }
-         
-         .nav-left a {
-           text-decoration: none;
-           color: white;
-           font-size: 0.8rem;
-           font-weight: 500;
-           position: relative;
-           padding-bottom: 5px;
-           transition: color 0.3s ease;
-         }
-         
-         .nav-left a:hover {
-           color: #791299;
-         }
-         
-         .nav-left a:hover::after {
-           content: "";
-           position: absolute;
-           width: 100%;
-           height: 2px;
-           background-color: #34495e;
-           bottom: 0;
-           left: 0;
-           transform: scaleX(0);
-           animation: growUnderline 0.3s forwards;
-         }
-         
-         @keyframes growUnderline {
-           100% {
-             transform: scaleX(1);
-           }
-         }
-         
-         .nav-center a {
-           text-decoration: none;
-           color: white;
-           font-size: 1rem;
-           font-weight: 500;
-           position: relative;
-           padding-bottom: 5px;
-           transition: color 0.3s ease;
-         }
-         
-         .nav-center a:hover {
-           color: #34495e;
-         }
-         
-         .nav-center a:hover::after {
-           content: "";
-           position: absolute;
-           width: 100%;
-           height: 2px;
-           background-color: #34495e;
-           bottom: 0;
-           left: 0;
-           transform: scaleX(0);
-           animation: growUnderline 0.3s forwards;
-         }
-         
-         @keyframes growUnderline {
-           100% {
-             transform: scaleX(1);
-           }
-         }
-         
-         .nav-right {
-           display: flex;
-           gap: 20px;
-         }
-         
-         .btn {
-           display: inline-block;
-           padding: 10px 25px;
-           font-size: 1.1rem;
-           font-weight: 500;
-           color: white;
-           background-color: #192836;
-           border-radius: 30px;
-           text-decoration: none;
-           transition: all 0.3s ease;
-           position: relative;
-         }
-         
-         .btn:hover {
-           background-color: #34495e;
-           color: white;
-         }
-         
-         .btn:hover::after {
-           content: "";
-           position: absolute;
-           width: 100%;
-           height: 2px;
-           background-color: #34495e;
-           bottom: -5px;
-           left: 0;
-           transform: scaleX(0);
-         }
-             </style>
-           <nav>
-             <div class="nav-left">
-               <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
-               <a href="index.html"
-                 ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
-               >
-             </div>
-       
-             <ul class="nav-center">
-               <li><a href="about-us.html" style="color:#000000">About Us</a></li>
-               <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
-               <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
-               <li>
-                 <a href="#" id="eventsLink"
-                 style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
-                 >
-                 <div class="dropdown-content" id="dropdownMenu">
-                   <a href="flc.html" style="color:#000000">Fall Conference</a>
-                   <a href="slc.html" style="color:#000000">State Conference</a>
-                   <a href="nlc.html" style="color:#000000">National Conference</a>
-                 </div>
-               </li>
-               <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
-             </ul>
-             <div class="nav-right">
-               <a href="login.html" class="btn" ><p style="color:#ffffff">Login</p></a>
-               <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
-             </div>
-           </nav>
-           <style>
-             .dropdown-content {
-               display: none;
-               position: absolute;
-               background-color: #f9f9f9;
-               min-width: 160px;
-               z-index: 1;
-               box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-               padding: 8px 16px;
-               border-radius: 4px;
-             }
-       
-             .dropdown-content a {
-               text-decoration: none;
-               color: black;
-               display: block;
-               padding: 8px 0;
-               font-size: 1rem;
-             }
-       
-             .dropdown-content a:hover {
-               background-color: #ddd;
-             }
-           </style>
-           <script>
-             const eventsLink = document.getElementById("eventsLink");
-             const dropdownMenu = document.getElementById("dropdownMenu");
-       
-             eventsLink.addEventListener("click", function (event) {
-               event.stopPropagation();
-               dropdownMenu.style.display =
-                 dropdownMenu.style.display === "block" ? "none" : "block";
-             });
-       
-             document.addEventListener("click", function (event) {
-               if (!eventsLink.contains(event.target)) {
-                 dropdownMenu.style.display = "none";
-               }
-             });
-       
-             dropdownMenu.addEventListener("click", function (event) {
-               event.stopPropagation();
-             });
-           </script>
+                
+            nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 0.1rem 0.1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      
+      .nav-left {
+        display: flex;
+        align-items: center;
+      }
+      
+      .nav-left .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+      
+      .nav-center {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .nav-center li {
+        display: inline;
+        list-style-type: none;
+      }
+      
+      .nav-left a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-left a:hover {
+        color: #791299;
+      }
+      
+      .nav-left a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-center a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-center a:hover {
+        color: #34495e;
+      }
+      
+      .nav-center a:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        animation: growUnderline 0.3s forwards;
+      }
+      
+      @keyframes growUnderline {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      
+      .nav-right {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .btn {
+        display: inline-block;
+        padding: 10px 25px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: white;
+        background-color: #192836;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .btn:hover {
+        background-color: #34495e;
+        color: white;
+      }
+      
+      .btn:hover::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #34495e;
+        bottom: -5px;
+        left: 0;
+        transform: scaleX(0);
+      }
+          </style>
+        <nav>
+          <div class="nav-left">
+            <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
+            <a href="index.html"
+              ><span class="bpa-text" style="font-size: 1.5rem" style="color:#000000"><p style="color:#000000">CCSA BPA</p></span></a
+            >
+          </div>
+    
+          <ul class="nav-center">
+            <li><a href="about-us.html" style="color:#000000">About Us</a></li>
+            <li><a href="picture-gallery.html" style="color:#000000">Gallery</a></li>
+            <li><a href="leadership.html" style="color:#000000">Leadership</a></li>
+            <li>
+              <a href="#" id="eventsLink"
+              style="color:#000000">Conferences <span class="arrow">&#9660;</span></a
+              >
+              <div class="dropdown-content" id="dropdownMenu">
+                <a href="flc.html" style="color:#000000">Fall Conference</a>
+                <a href="slc.html" style="color:#000000">State Conference</a>
+                <a href="nlc.html" style="color:#000000">National Conference</a>
+              </div>
+            </li>
+            <li><a href="torch-awards.html" style="color:#000000">Torch Awards</a></li>
+          </ul>
+          <div class="nav-right">
+            <a href="login.html" class="btn" ><p style="color:#ffffff">Login</p></a>
+            <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
+          </div>
+        </nav>
+        <style>
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 8px 16px;
+            border-radius: 4px;
+          }
+    
+          .dropdown-content a {
+            text-decoration: none;
+            color: black;
+            display: block;
+            padding: 8px 0;
+            font-size: 1rem;
+          }
+    
+          .dropdown-content a:hover {
+            background-color: #ddd;
+          }
+        </style>
+        <script>
+          const eventsLink = document.getElementById("eventsLink");
+          const dropdownMenu = document.getElementById("dropdownMenu");
+    
+          eventsLink.addEventListener("click", function (event) {
+            event.stopPropagation();
+            dropdownMenu.style.display =
+              dropdownMenu.style.display === "block" ? "none" : "block";
+          });
+    
+          document.addEventListener("click", function (event) {
+            if (!eventsLink.contains(event.target)) {
+              dropdownMenu.style.display = "none";
+            }
+          });
+    
+          dropdownMenu.addEventListener("click", function (event) {
+            event.stopPropagation();
+          });
+        </script>
        
       <body>
         <header>
@@ -286,7 +287,8 @@
               <h3>Ishan Punnaivanam</h3>
               <h3>00190094</h3>
               <br>
-              <p><strong>Team Captain</strong></p>
+              <p><strong>Developer</strong></p>
+              <p><strong>(Team Captain)</strong></p>
           </div>
 
 
@@ -563,13 +565,13 @@
        <a href="about-us.html">About Us</a>
      </div>
      <div class="footer-column">
-        <a href="calendar.html">Calendar</a>
-        <a href="leadership.html">Leadership</a>
-        <a href="learn-more.html">Get Involved</a>
+        <a href="signup.html">Signup</a>
+        <a href="login.html">Login</a>
+        <a href="index.html">Home</a>
 
      </div>
      <div class="footer-column">
-       <a href="membership.html">Membership Spotlight</a>
+       <a href="leadership.html">Leadership</a>
        <a href="picture-gallery.html">Picture Gallery</a>
        <a href="torch-awards.html">Torch Awards</a>
 
