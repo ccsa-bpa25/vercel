@@ -91,7 +91,8 @@ getRows();
 
                 const hasEvent = events.some(event => {
     const eventDate = new Date(event.date).toISOString().split('T')[0]; // Format the date to 'YYYY-MM-DD'
-    return eventDate === exactDate;
+    console.log(eventDate,eventDate);
+                    return eventDate === exactDate;
                     
                     
 });
