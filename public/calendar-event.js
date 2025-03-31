@@ -31,6 +31,28 @@ async function getRows() {
 
 // Call the function
 getRows()*/
+    
+    // Initialize the Supabase client
+const supabaseUrl = 'postgresql://postgres:Bpa@Hockessin123@db.bolarxblzgmnwsxirgta.supabase.co:5432/postgres';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvbGFyeGJsemdtbndzeGlyZ3RhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1MzMwMTMsImV4cCI6MjA1NjEwOTAxM30.io1oJ9utYZn37JcwvKhJBJZdqAs-n6_07k9faKV5DsE';
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+// Query rows from a table
+async function getRows() {
+  const { data, error } = await supabase
+    .from('events') // Replace with your table name
+    .select('*'); // Adjust columns to query if needed
+
+  if (error) {
+    console.error('Error:', error);
+  } else {
+    console.log('Rows:', data);
+  }
+}
+
+// Call the function
+getRows();
+
     console.log("In Function");
   
     const specialDays = [
