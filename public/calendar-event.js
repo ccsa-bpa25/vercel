@@ -2,7 +2,17 @@
 
 function calenderEvents(year, month) {
     
-
+const firstDay = new Date(year, month, 1);
+    
+    const lastDay = new Date(year, month + 1, 0);
+    //const efirstDayT = new Date(eyear, emonth, 1);
+    const isoString1 = firstDay.toISOString(); // Converts to ISO string
+    const efirstDay = isoString1.split('T')[0];
+   
+    
+    //const elastDayT = new Date(eyear, emonth + 1, 0);
+    const isoString2 = lastDay.toISOString(); // Converts to ISO string
+    const elastDay = isoString2.split('T')[0];
     
     // Initialize the Supabase client
 const supabaseUrl = 'https://bolarxblzgmnwsxirgta.supabase.co';
@@ -16,7 +26,8 @@ async function getRows() {
   const { data, error } = await supabase
     .from('events') // Replace with your table name
     .select('*'); // Adjust columns to query if needed
-
+    .gte('eventdate',efirstday)
+    .lte('eventdate',elastday);
   if (error) {
     console.error('Error:', error);
   } else {
