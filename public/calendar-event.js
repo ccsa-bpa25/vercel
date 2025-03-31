@@ -5,6 +5,7 @@ function calenderEvents(year, month) {
 let events =[];
     const dataArray=[];
     const specialDays=[];
+    const exactDate="";
     const firstDay = new Date(year, month, 1);
     
     const lastDay = new Date(year, month + 1, 0);
@@ -86,7 +87,7 @@ getRows();
        //---- 
      
                 //const hasEvent = events.some(event => new Date(event.date).getDate() === dayNumber);
-                const exactDate = syear+"-"+smonth+"-"+sday;
+                let exactDate = syear+"-"+smonth+"-"+sday;
                 const stexactDate=exactDate.toString();
                 console.log(exactDate);
 
