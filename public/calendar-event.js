@@ -51,20 +51,11 @@ async function getRows() {
       
       console.log('events:',events);
           console.log('specialdays',specialDays);
-  }
-}
-
-// Call the function
-getRows();
-
-    console.log("In Function");
-  
-
-
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
+      
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
     const date = new Date(year, month, 1);
   
-    console.log("In Function2");
+  
   
     for (let day = 1; day <= daysInMonth; day++) {
       const currentDay = new Date(date.getFullYear(), date.getMonth(), day);
@@ -106,6 +97,15 @@ getRows();
 const exists = specialDays.includes(exactDate);
 console.log(`Does ${exactDate} exist?`, exists); // Output: true
 
+  }
+}
+
+// Call the function
+getRows();
+
+    
+
+    
                 //const eventClass = hasEvent ? 'event-day' : '';
                 //console.log('event-day');
                 //calendarHTML += `<td class="${eventClass}" onclick="openEventModal(${dayNumber},'${stexactDate}')">${dayNumber}</td>`;
