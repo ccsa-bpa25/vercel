@@ -1,0 +1,101 @@
+.gallery {
+    margin: auto;
+}
+    
+.gallery {
+    --s: 280px; /* control the size */
+    --g: 10px;  /* control the gap */
+    display: grid;
+    margin: calc(var(--s) + var(--g));
+    
+  }
+  
+  .gallery > img {
+    grid-area: 1/1;
+    width: var(--s);
+    aspect-ratio: 1.15;
+    object-fit: cover;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%,75% 100%,25% 100%,0 50%);
+    transform: translate(var(--_x,0),var(--_y,0)) scale(var(--_t,1));
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .2s linear;
+  }
+  .gallery > img:hover {
+    filter: grayscale(0);
+    z-index: 1;
+    --_t: 1.2;
+  }
+  
+  .gallery > img:nth-child(1) {--_y: calc(-100% - var(--g))}
+  .gallery > img:nth-child(3){--_y: calc(100% + var(--g))}
+  .gallery > img:nth-child(4) {--_y: calc(-200% - 2*var(--g))}
+  .gallery > img:nth-child(5){--_y: calc(200% + 2*var(--g))}
+--.gallery > img:nth-child(7),
+  .gallery > img:nth-child(6) {--_x: calc( 75% + 1*var(--g))}
+  .gallery > img:nth-child(6){--_y: calc( -50% - 0.5*var(--g))}
+    
+  .gallery > img:nth-child(7) {--_x: calc( 75% + 1*var(--g))}
+  .gallery > img:nth-child(7){--_y: calc( -150% - 1.5*var(--g))}
+    
+  .gallery > img:nth-child(8) {--_x: calc( 75% + 1*var(--g))}
+  .gallery > img:nth-child(8){--_y: calc( 50% + 0.5*var(--g))}
+    
+  .gallery > img:nth-child(9) {--_x: calc( 75% + 1*var(--g))}
+  .gallery > img:nth-child(9){--_y: calc( 150% + 1.5*var(--g))}
+    
+  .gallery > img:nth-child(10) {--_x: calc( -75% - 1*var(--g))}
+  .gallery > img:nth-child(10){--_y: calc( -50% - 0.5*var(--g))}
+    
+  .gallery > img:nth-child(11) {--_x: calc( -75% - 1*var(--g))}
+  .gallery > img:nth-child(11){--_y: calc( -150% - 1.5*var(--g))}
+    
+  .gallery > img:nth-child(12) {--_x: calc( -75% - var(--g))}
+  .gallery > img:nth-child(12) {--_y: calc( 50% + 0.5*var(--g))}
+    
+  .gallery > img:nth-child(13) {--_x: calc( -75% - var(--g))}
+  .gallery > img:nth-child(13){--_y: calc( 150% + 1.5*var(--g))}
+    
+  .gallery > img:nth-child(14) {--_x: calc( 150% + 2*var(--g))}
+  .gallery > img:nth-child(14){--_y: calc( -100% - var(--g))}
+    
+  .gallery > img:nth-child(15) {--_x: calc( 150% + 2*var(--g))}
+  .gallery > img:nth-child(15){--_y: calc( 0% + 0*var(--g))}
+    
+  .gallery > img:nth-child(16) {--_x: calc( 150% + 2*var(--g))}
+  .gallery > img:nth-child(16){--_y: calc( 100% + var(--g))}
+    
+  .gallery > img:nth-child(17) {--_x: calc( -150% - 2*var(--g))}
+  .gallery > img:nth-child(17){--_y: calc( -100% - var(--g))}
+    
+  .gallery > img:nth-child(18) {--_x: calc( -150% - 2*var(--g))}
+  .gallery > img:nth-child(18){--_y: calc( 0% + 0*var(--g))}
+    
+  .gallery > img:nth-child(19) {--_x: calc( -150% - 2*var(--g))}
+  .gallery > img:nth-child(19){--_y: calc( 100% + var(--g))}
+    
+  .gallery > img:nth-child(20) {--_x: calc( -225% - 3*var(--g))}
+  .gallery > img:nth-child(20){--_y: calc( -50% - 0.5*var(--g))}
+    
+  .gallery > img:nth-child(21) {--_x: calc( -225% - 3*var(--g))}
+  .gallery > img:nth-child(21) {--_y: calc( 50% + 0.5*var(--g))}
+    
+  .gallery > img:nth-child(22) {--_x: calc( 225% + 3*var(--g))}
+  .gallery > img:nth-child(22){--_y: calc( -50% - 0.5*var(--g))}
+    
+  .gallery > img:nth-child(23) {--_x: calc( 225% + 3*var(--g))}
+  .gallery > img:nth-child(23) {--_y: calc( 50% + 0.5*var(--g))}
+    
+
+
+  
+
+  
+  
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background: #ffffff;
+  }
