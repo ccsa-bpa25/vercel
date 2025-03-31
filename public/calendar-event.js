@@ -73,7 +73,7 @@ getRows();
         let dayNumber = currentDay.getDate();
         
         let syear =dayYear.toString();
-        let smonth = (currentDate.getMonth() + 1).toString(); 
+        let smonth = (currentDay.getMonth() + 1).toString(); 
         //let smonth=month.toString();
     smonth = smonth.padStart(2, '0');
         
