@@ -83,7 +83,14 @@ async function getRows() {
                 console.log(exactDate);
         
         
-       
+
+  const Ndate = new Date(exactDate); // Convert string to Date object
+
+  // Get the month name, day, and year
+  const options = { month: 'short', day: 'numeric', year: 'numeric' };
+  const NdateString = Ndate.toLocaleDateString('en-US', options);
+
+console.log(NdateString);
 
 
 
