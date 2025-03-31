@@ -5,7 +5,7 @@ function calenderEvents(year, month) {
 
     
     // Initialize the Supabase client
-const supabaseUrl = 'postgresql://postgres:Bpa@Hockessin123@db.bolarxblzgmnwsxirgta.supabase.co:5432/postgres';
+const supabaseUrl = 'https://bolarxblzgmnwsxirgta.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvbGFyeGJsemdtbndzeGlyZ3RhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1MzMwMTMsImV4cCI6MjA1NjEwOTAxM30.io1oJ9utYZn37JcwvKhJBJZdqAs-n6_07k9faKV5DsE';
     
   
