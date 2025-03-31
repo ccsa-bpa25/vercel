@@ -114,7 +114,7 @@ if (foundEvent) {
 
   // Get the month name, day, and year
   const options = { month: 'short', day: 'numeric', year: 'numeric' };
-  const NdateString = Ndate.toLocaleDateString('en-US', options);
+  const NdateString = NDate.toLocaleDateString('en-US', options);
 
 console.log(NdateString);
     
