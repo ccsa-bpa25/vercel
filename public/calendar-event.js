@@ -96,7 +96,7 @@ getRows();
                     
 });
                 
-                console.log('eventdate',hasEvent);
+                console.log('eventdate',hasEvent.toString());
                 //const eventClass = hasEvent ? 'event-day' : '';
                 //console.log('event-day');
                 //calendarHTML += `<td class="${eventClass}" onclick="openEventModal(${dayNumber},'${stexactDate}')">${dayNumber}</td>`;
