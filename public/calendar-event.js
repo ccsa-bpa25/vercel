@@ -113,7 +113,7 @@ if (foundEvent) {
         const dayId = dayNumber.toString() + dayMonth.toString() + dayYear.toString();
         console.log("ElementId :" + dayId);
         const dayDiv = document.getElementById(dayId);
-        dayDiv.title = "${exactDate}: {foundEvent.title}";
+        dayDiv.title = foundEvent.title;
         dayDiv.className = "special-day";
         dayDiv.addEventListener("click", function () {
           showModal(
