@@ -4,6 +4,7 @@ function calenderEvents(year, month) {
     
 let events =[];
     const dataArray=[];
+    const specialDays=[];
     const firstDay = new Date(year, month, 1);
     
     const lastDay = new Date(year, month + 1, 0);
@@ -45,7 +46,7 @@ async function getRows() {
     };
 });
       
-      const specialDays = data.map(item => item.eventdate);
+      let specialDays = data.map(item => item.eventdate);
       
       console.log('events:',events);
           console.log('specialdays',specialDays);
