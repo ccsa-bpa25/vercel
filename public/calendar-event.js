@@ -25,7 +25,7 @@ const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
 async function getRows() {
   const { data, error } = await supabase
     .from('events') // Replace with your table name
-    .select('*'); // Adjust columns to query if needed
+    .select('*') // Adjust columns to query if needed
     .gte('eventdate',efirstday)
     .lte('eventdate',elastday);
   if (error) {
