@@ -53,7 +53,7 @@ getRows();
 
     console.log("In Function");
   
-    const specialDays = dataArray.map(subArray => subArray[1]);
+    const specialDays = events.map(subArray => subArray[1]);
           
           /*[
       "2024-09-26",
