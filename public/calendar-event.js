@@ -57,33 +57,7 @@ getRows();
 
     console.log("In Function");
   
-    //const specialDays = events.map(subArray => subArray[1]);
-          
-          /*[
-      "2024-09-26",
-      "2024-09-27",
-      "2024-09-28",
-      "2024-09-29",
-      "2024-10-30",
-      "2025-01-03",
-      "2025-01-10",
-      "2025-01-15",
-      "2025-02-06",
-      "2025-02-05",
-      "2025-02-28",
-      "2025-03-07",
-      "2025-03-14",
-      "2025-03-28",
-      "2025-04-01",
-      "2025-04-18",
-      "2025-04-24",
-      "2025-05-07",
-      "2025-05-08",
-      "2025-05-09",
-      "2025-05-10",
-      "2025-05-11",
-      "2025-12-01",
-    ];*/
+
 
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const date = new Date();
@@ -92,7 +66,7 @@ getRows();
   
     for (let day = 1; day <= daysInMonth; day++) {
       const currentDay = new Date(date.getFullYear(), date.getMonth(), day);
-  
+  console.log('currentDay',currentDay);
       console.log(
         "In Function in For before If",
         currentDay.getFullYear(),
