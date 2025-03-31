@@ -81,7 +81,9 @@ async function getRows() {
                 const exactDate = syear+"-"+smonth+"-"+sday;
                 const stexactDate=exactDate.toString();
                 console.log(exactDate);
-
+        
+         let event=events.find(event => event.date === stexactDate);
+console.log(event.title);
                /* const hasEvent = events.some(event => {
     const eventDate = new Date(event.date).toISOString().split('T')[0]; // Format the date to 'YYYY-MM-DD'
     console.log(eventDate,eventDate);
@@ -103,7 +105,7 @@ console.log(`Does ${exactDate} exist?`, exists); // Output: true
         const dayId = dayNumber.toString() + dayMonth.toString() + dayYear.toString();
         console.log("ElementId :" + dayId);
         const dayDiv = document.getElementById(dayId);
-        dayDiv.title = "Special Day: Sept 26, 2024";
+        dayDiv.title = "${exactDate}: Sept 26, 2024";
         dayDiv.className = "special-day";
         dayDiv.addEventListener("click", function () {
           showModal(
