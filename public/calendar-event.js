@@ -3,6 +3,7 @@
 function calenderEvents(year, month) {
     
 let events =[];
+    const dataArray=[];
     const firstDay = new Date(year, month, 1);
     
     const lastDay = new Date(year, month + 1, 0);
@@ -33,16 +34,16 @@ async function getRows() {
     console.error('Error:', error);
   } else {
     console.log('Rows:', data);
-      const dataArray = data;
-      console.log('dataArray:',dataArray);
-      events = data.message.map(item => {
+       dataArray = data;
+     // console.log('dataArray:',dataArray);
+      /*events = data.message.map(item => {
     return {
         title: item.name, // Rename 'name' to 'fullName'
         date: item.eventdate,      // Rename 'age' to 'years'
         details: item.description,
         id:item.id
     };
-});
+});*/
       console.log('events:',events);
   }
 }
@@ -52,7 +53,9 @@ getRows();
 
     console.log("In Function");
   
-    const specialDays = [
+    const specialDays = dataArray.map(subArray => subArray[1]);
+          
+          /*[
       "2024-09-26",
       "2024-09-27",
       "2024-09-28",
@@ -76,7 +79,8 @@ getRows();
       "2025-05-10",
       "2025-05-11",
       "2025-12-01",
-    ];
+    ];*/
+    console.log('specialdays',specialDays);
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const date = new Date();
   
