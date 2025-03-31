@@ -34,16 +34,16 @@ async function getRows() {
     console.error('Error:', error);
   } else {
     console.log('Rows:', data);
-       dataArray = data;
+       //dataArray = data.map
      // console.log('dataArray:',dataArray);
-      /*events = data.message.map(item => {
+      events = data.map(item => {
     return {
         title: item.name, // Rename 'name' to 'fullName'
         date: item.eventdate,      // Rename 'age' to 'years'
         details: item.description,
         id:item.id
     };
-});*/
+});
       console.log('events:',events);
   }
 }
