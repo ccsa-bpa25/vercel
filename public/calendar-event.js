@@ -69,11 +69,11 @@ getRows();
   //console.log('currentDay',currentDay);
      
         let dayYear = currentDay.getFullYear();
-        let dayMonth = currentDay.getMonth()+1;
+       // let dayMonth = (currentDate.getMonth() + 1).toString(); 
         let dayNumber = currentDay.getDate();
         
         let syear =dayYear.toString();
-        let smonth = dayMonth.toString(); 
+        let smonth = (currentDate.getMonth() + 1).toString(); 
         //let smonth=month.toString();
     smonth = smonth.padStart(2, '0');
         
