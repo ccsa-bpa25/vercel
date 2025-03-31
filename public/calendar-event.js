@@ -745,5 +745,5 @@ getRows();
       //dayDiv.textContent = day;
       //daysDiv.appendChild(dayDiv);
     }
-  }
+  //}
   
