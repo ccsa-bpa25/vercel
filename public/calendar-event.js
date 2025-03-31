@@ -2,7 +2,8 @@
 
 function calenderEvents(year, month) {
     
-const firstDay = new Date(year, month, 1);
+let events =[];
+    const firstDay = new Date(year, month, 1);
     
     const lastDay = new Date(year, month + 1, 0);
     //const efirstDayT = new Date(eyear, emonth, 1);
@@ -32,6 +33,17 @@ async function getRows() {
     console.error('Error:', error);
   } else {
     console.log('Rows:', data);
+      const dataArray = data;
+      console.log('dataArray:',dataArray);
+      events = data.message.map(item => {
+    return {
+        title: item.name, // Rename 'name' to 'fullName'
+        date: item.eventdate,      // Rename 'age' to 'years'
+        details: item.description,
+        id:item.id
+    };
+});
+      console.log('events:',events);
   }
 }
 
