@@ -84,13 +84,7 @@ async function getRows() {
         
         
 
-  const Ndate = new Date(exactDate); // Convert string to Date object
 
-  // Get the month name, day, and year
-  const options = { month: 'short', day: 'numeric', year: 'numeric' };
-  const NdateString = Ndate.toLocaleDateString('en-US', options);
-
-console.log(NdateString);
 
 
 
@@ -111,6 +105,15 @@ console.log(NdateString);
 const foundEvent = events.find(eevent => eevent.date === stexactDate);
 
 if (foundEvent) {
+    
+      const Ndate = new Date(exactDate); // Convert string to Date object
+
+  // Get the month name, day, and year
+  const options = { month: 'short', day: 'numeric', year: 'numeric' };
+  const NdateString = Ndate.toLocaleDateString('en-US', options);
+
+console.log(NdateString);
+    
   console.log('Found Item:', foundEvent); // Output: { id: 2, name: 'Bob', age: 30 }
   console.log('Name:', foundEvent.date); // Output: Bob
   console.log('Age:', foundEvent.details);  // Output: 30
@@ -124,7 +127,7 @@ if (foundEvent) {
         dayDiv.className = "special-day";
         dayDiv.addEventListener("click", function () {
           showModal(
-              foundEvent.date+"<br>"+foundEvent.details
+              NdateString+"<br>---------------<br>"+foundEvent.details
           );
         });
 } else {
