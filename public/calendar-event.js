@@ -87,7 +87,7 @@ getRows();
        //---- 
      
                 //const hasEvent = events.some(event => new Date(event.date).getDate() === dayNumber);
-                let exactDate = syear+"-"+smonth+"-"+sday;
+                const exactDate = syear+"-"+smonth+"-"+sday;
                 const stexactDate=exactDate.toString();
                 console.log(exactDate);
 
