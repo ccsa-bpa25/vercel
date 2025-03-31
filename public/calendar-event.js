@@ -45,14 +45,8 @@ async function getRows() {
     };
 });
       
-      const specialDays = data.map(item => {
-    return {
-     //title: item.name, // Rename 'name' to 'fullName'
-        date: item.eventdate,      // Rename 'age' to 'years'
-       // details: item.description,
-      //  id:item.id
-    };
-});
+      const specialDays = data.map(item => item.eventdate);
+      
       console.log('events:',events);
           console.log('specialdays',specialDays);
   }
