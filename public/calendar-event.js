@@ -66,13 +66,44 @@ getRows();
   
     for (let day = 1; day <= daysInMonth; day++) {
       const currentDay = new Date(date.getFullYear(), date.getMonth(), day);
-  console.log('currentDay',currentDay);
-      console.log(
-        "In Function in For before If",
-        currentDay.getFullYear(),
-        currentDay.getMonth(),
-        currentDay.getDate()
-      );
+  //console.log('currentDay',currentDay);
+     
+        let dayYear = currentDay.getFullYear(),
+        let dayMonth = currentDay.getMonth()+1,
+        let dayNumber = currentDay.getDate()
+        
+        let syear =dayYear.toString();
+        let smonth = dayMonth.toString(); 
+        //let smonth=month.toString();
+    smonth = smonth.padStart(2, '0');
+        
+        let sday = dayNumber.toString(); 
+        //let smonth=month.toString();
+    sday = sday.padStart(2, '0');
+    
+        
+       //---- 
+     
+                //const hasEvent = events.some(event => new Date(event.date).getDate() === dayNumber);
+                const exactDate = syear+"-"+smonth+"-"+sdayNumber;
+                const stexactDate=exactDate.toString();
+                console.log(exactDate);
+
+                const hasEvent = events.some(event => {
+    const eventDate = new Date(event.date).toISOString().split('T')[0]; // Format the date to 'YYYY-MM-DD'
+    return eventDate === exactDate;
+                    
+                    
+});
+                
+                
+                //const eventClass = hasEvent ? 'event-day' : '';
+                //console.log('event-day');
+                //calendarHTML += `<td class="${eventClass}" onclick="openEventModal(${dayNumber},'${stexactDate}')">${dayNumber}</td>`;
+            }
+      //-----------  
+        
+        
       //const dayDiv = document.createElement("div");
       // dayDiv.className = "day";
       // Sept 12, 2024
