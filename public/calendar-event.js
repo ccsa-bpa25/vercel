@@ -117,7 +117,7 @@ if (foundEvent) {
         dayDiv.className = "special-day";
         dayDiv.addEventListener("click", function () {
           showModal(
-            foundEvent.details
+              foundEvent.date+"<br>"+foundEvent.details
           );
         });
 } else {
