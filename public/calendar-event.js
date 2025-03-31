@@ -44,7 +44,17 @@ async function getRows() {
         id:item.id
     };
 });
+      
+      const specialDays = data.map(item => {
+    return {
+     //title: item.name, // Rename 'name' to 'fullName'
+        date: item.eventdate,      // Rename 'age' to 'years'
+       // details: item.description,
+      //  id:item.id
+    };
+});
       console.log('events:',events);
+          console.log('specialdays',specialDays);
   }
 }
 
@@ -53,7 +63,7 @@ getRows();
 
     console.log("In Function");
   
-    const specialDays = events.map(subArray => subArray[1]);
+    //const specialDays = events.map(subArray => subArray[1]);
           
           /*[
       "2024-09-26",
@@ -80,7 +90,7 @@ getRows();
       "2025-05-11",
       "2025-12-01",
     ];*/
-    console.log('specialdays',specialDays);
+
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const date = new Date();
   
