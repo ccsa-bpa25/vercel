@@ -62,7 +62,7 @@ async function getRows() {
   //console.log('currentDay',currentDay);
      
         let dayYear = currentDay.getFullYear();
-       // let dayMonth = (currentDate.getMonth() + 1).toString(); 
+        let dayMonth = currentDate.getMonth(); 
         let dayNumber = currentDay.getDate();
         
         let syear =dayYear.toString();
@@ -96,6 +96,22 @@ async function getRows() {
 
 const exists = specialDays.includes(exactDate);
 console.log(`Does ${exactDate} exist?`, exists); // Output: true
+        
+              if (exists) {
+        console.log("In Function3");
+        const calendardays = document.getElementById("calendar-days");
+        const dayId = dayNumber.toString() + dayMonth.toString() + dayYear.toString();
+        console.log("ElementId :" + dayId);
+        const dayDiv = document.getElementById(dayId);
+        dayDiv.title = "Special Day: Sept 26, 2024";
+        dayDiv.className = "special-day";
+        dayDiv.addEventListener("click", function () {
+          showModal(
+            "September 12, 2024<br><br>First Middle Level BPA Meeting of the 2024 - 2025 school year<br><br>Where: CCSA<br><br>Room: 105 (Ms. Mercer)<br><br>Time: 2:30 PM - 4:30 PM"
+          );
+        });
+      }
+  
 
   }
 }
@@ -118,21 +134,7 @@ console.log(`Does ${exactDate} exist?`, exists); // Output: true
       //const dayDiv = document.createElement("div");
       // dayDiv.className = "day";
       // Sept 12, 2024
-      /*if (year === 2024 && month === 8 && day === 12) {
-        console.log("In Function3");
-        const calendardays = document.getElementById("calendar-days");
-        const dayId = day.toString() + month.toString() + year.toString();
-        console.log("ElementId :" + dayId);
-        const dayDiv = document.getElementById(dayId);
-        dayDiv.title = "Special Day: Sept 26, 2024";
-        dayDiv.className = "special-day";
-        dayDiv.addEventListener("click", function () {
-          showModal(
-            "September 12, 2024<br><br>First Middle Level BPA Meeting of the 2024 - 2025 school year<br><br>Where: CCSA<br><br>Room: 105 (Ms. Mercer)<br><br>Time: 2:30 PM - 4:30 PM"
-          );
-        });
-      }*/
-  
+
      
       /*
    
