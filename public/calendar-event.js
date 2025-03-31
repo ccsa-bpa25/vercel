@@ -83,7 +83,7 @@ async function getRows() {
                 console.log(exactDate);
         
          let event=events.find(event => event.date === stexactDate);
-console.log(event.title);
+console.log(event.title.toString());
                /* const hasEvent = events.some(event => {
     const eventDate = new Date(event.date).toISOString().split('T')[0]; // Format the date to 'YYYY-MM-DD'
     console.log(eventDate,eventDate);
