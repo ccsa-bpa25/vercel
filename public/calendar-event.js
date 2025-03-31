@@ -62,7 +62,7 @@ async function getRows() {
   //console.log('currentDay',currentDay);
      
         let dayYear = currentDay.getFullYear();
-        let dayMonth = currentDate.getMonth(); 
+        let dayMonth = currentDay.getMonth(); 
         let dayNumber = currentDay.getDate();
         
         let syear =dayYear.toString();
