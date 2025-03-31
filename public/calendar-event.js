@@ -2,7 +2,7 @@
 
 function calenderEvents(year, month) {
     
-    import { createClient } from '@supabase/supabase-js'
+    /*import { createClient } from '@supabase/supabase-js'
 
 const bcryptjs = require('bcryptjs');
 
@@ -30,7 +30,7 @@ async function getRows() {
 }
 
 // Call the function
-getRows()
+getRows()*/
     console.log("In Function");
   
     const specialDays = [
