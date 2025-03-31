@@ -5,7 +5,7 @@ function calenderEvents(year, month) {
 let events =[];
     const dataArray=[];
     const specialDays=[];
-    const exactDate="";
+    const exactDate='';
     const firstDay = new Date(year, month, 1);
     
     const lastDay = new Date(year, month + 1, 0);
