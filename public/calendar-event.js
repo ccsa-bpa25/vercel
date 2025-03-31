@@ -106,7 +106,11 @@ const foundEvent = events.find(eevent => eevent.date === stexactDate);
 
 if (foundEvent) {
     
-      const Ndate = new Date(exactDate); // Convert string to Date object
+    const [xyear, xmonth, xday] = stexactDate.split('-');
+    
+    const NDate = new Date(year, month - 1, day); // Note: month is 0-based in JS  
+    
+    //const Ndate = new Date(exactDate); // Convert string to Date object
 
   // Get the month name, day, and year
   const options = { month: 'short', day: 'numeric', year: 'numeric' };
