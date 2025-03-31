@@ -1,3 +1,33 @@
+import { createClient } from '@supabase/supabase-js'
+
+const bcryptjs = require('bcryptjs');
+
+// Initialize Supabase client with environment variables
+const supabase = createClient(
+  process.env.SUPABASE_URL, 
+  process.env.SUPABASE_KEY
+);
+// Initialize the Supabase client
+//const supabaseUrl = process.env.SUPABASE_URL
+//const supabaseKey = process.env.SUPABASE_KEY
+//const supabase = createClient(supabaseUrl, supabaseKey)
+
+// Query rows from a table
+async function getRows() {
+  const { data, error } = await supabase
+    .from('events') // Replace with your table name
+    .select('*') // Adjust columns to query if needed
+
+  if (error) {
+    console.error('Error:', error)
+  } else {
+    console.log('Rows:', data)
+  }
+}
+
+// Call the function
+getRows()
+
 function calenderEvents(year, month) {
     console.log("In Function");
   
