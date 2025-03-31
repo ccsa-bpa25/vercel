@@ -60,7 +60,7 @@ getRows();
 
 
     const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const date = new Date();
+    const date = new Date(year, month, 1);
   
     console.log("In Function2");
   
