@@ -86,15 +86,6 @@ async function getRows() {
        
 
 
-const foundEvent = events.find(eevent => eevent.date === stexactDate);
-
-if (foundEvent) {
-  console.log('Found Item:', foundEvent); // Output: { id: 2, name: 'Bob', age: 30 }
-  console.log('Name:', foundEvent.date); // Output: Bob
-  console.log('Age:', foundEvent.details);  // Output: 30
-} else {
-  console.log('Event not found');
-}
 
         
         // let event=events.find(event => event.date === stexactDate);
@@ -110,26 +101,31 @@ if (foundEvent) {
                 
                 console.log('eventdate',hasEvent.toString());*/
         
-    
+const foundEvent = events.find(eevent => eevent.date === stexactDate);
 
-const exists = specialDays.includes(exactDate);
-console.log(`Does ${exactDate} exist?`, exists); // Output: true
-        
-              if (exists) {
-        console.log("In Function3");
+if (foundEvent) {
+  console.log('Found Item:', foundEvent); // Output: { id: 2, name: 'Bob', age: 30 }
+  console.log('Name:', foundEvent.date); // Output: Bob
+  console.log('Age:', foundEvent.details);  // Output: 30
+    
+            console.log("In Function3");
         const calendardays = document.getElementById("calendar-days");
         const dayId = dayNumber.toString() + dayMonth.toString() + dayYear.toString();
         console.log("ElementId :" + dayId);
         const dayDiv = document.getElementById(dayId);
-        dayDiv.title = "${exactDate}: Sept 26, 2024";
+        dayDiv.title = "${exactDate}: {foundEvent.title}";
         dayDiv.className = "special-day";
         dayDiv.addEventListener("click", function () {
           showModal(
-            "September 12, 2024<br><br>First Middle Level BPA Meeting of the 2024 - 2025 school year<br><br>Where: CCSA<br><br>Room: 105 (Ms. Mercer)<br><br>Time: 2:30 PM - 4:30 PM"
+            foundEvent.details
           );
         });
-      }
-  
+} else {
+  console.log('Event not found');
+}
+   
+
+    
 
   }
 }
