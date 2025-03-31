@@ -26,8 +26,8 @@ async function getRows() {
   const { data, error } = await supabase
     .from('events') // Replace with your table name
     .select('*') // Adjust columns to query if needed
-    .gte('eventdate',efirstday)
-    .lte('eventdate',elastday);
+    .gte('eventdate',efirstDay)
+    .lte('eventdate',elastDay);
   if (error) {
     console.error('Error:', error);
   } else {
