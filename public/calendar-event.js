@@ -89,7 +89,7 @@ getRows();
                 const stexactDate=exactDate.toString();
                 console.log(exactDate);
 
-                const hasEvent = events.some(event => {
+               /* const hasEvent = events.some(event => {
     const eventDate = new Date(event.date).toISOString().split('T')[0]; // Format the date to 'YYYY-MM-DD'
     console.log(eventDate,eventDate);
                     return eventDate === exactDate;
@@ -97,7 +97,13 @@ getRows();
                     
 });
                 
-                console.log('eventdate',hasEvent.toString());
+                console.log('eventdate',hasEvent.toString());*/
+        
+    
+
+const exists = specialDays.includes(exactDate);
+console.log(`Does ${exactDate} exist?`, exists); // Output: true
+
                 //const eventClass = hasEvent ? 'event-day' : '';
                 //console.log('event-day');
                 //calendarHTML += `<td class="${eventClass}" onclick="openEventModal(${dayNumber},'${stexactDate}')">${dayNumber}</td>`;
