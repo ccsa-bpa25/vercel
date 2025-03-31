@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    
     <style>
        nav {
     display: flex;
@@ -141,6 +142,8 @@
     transform: scaleX(0);
   }
       </style>
+
+      
     <nav>
       <div class="nav-left">
         <img src="bpa--logoimg-removebg-preview.png" alt="BPA Logo" class="logo" />
@@ -170,6 +173,7 @@
         <a href="signup.html" class="btn"><p style="color:#ffffff">Sign Up</p></a>
       </div>
     </nav>
+
     <style>
       .dropdown-content {
         display: none;
@@ -214,11 +218,10 @@
         event.stopPropagation();
       });
     </script>
-   <main style="text-align: center">
+   <main style="text-align: center"> 
     <section id="what-is-bpa">
       <div class="container">
-        <br />
-        <br />
+
 <style>
    .ripple {
       position: fixed; 
@@ -246,9 +249,94 @@
     }
  
 </style>
-        <br>
-        <br>
-<h1 class="scroll-reveal" style="font-size:3.2rem">Picture Gallery</h1>
+
+
+
+<section class="flc-info">
+  <div class="flc-text">
+      <h2 class="auto-reveal"> <strong>Photo Gallery</strong></h2>
+  </div>
+</section>
+
+<style>
+.flc-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+
+.flc-text {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.flc-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.flc-text p {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Styling for the image part */
+.flc-image {
+    width: 50%;
+}
+
+.flc-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Make the layout responsive for smaller screens */
+@media screen and (max-width: 768px) {
+    .flc-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .flc-text,
+    .flc-image {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    .flc-text h2 {
+        font-size: 2rem;
+    }
+
+    .flc-text p {
+        font-size: 1rem;
+    }
+}
+
+</style>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 <style>
 h1:hover {
   text-shadow: 2px 2px 0px #007bff, -2px -2px 0px #007bff, 2px -2px 0px #007bff, -2px 2px 0px #007bff; 
@@ -260,27 +348,7 @@ h1 {
 </style>
 
 </h1>    
-<style>
-.scroll-reveal {
-opacity: 0;
-transform: translateY(50px);
-animation: scrollReveal 1.5s forwards;
-}
-
-@keyframes scrollReveal {
-0% {
-opacity: 0;
-transform: translateY(50px);
-}
-100% {
-opacity: 1;
-transform: translateY(0);
-}
-}
-
-
-
-</style>        
+    
   <br />
 <div class="ripple"></div>
 <script>
@@ -294,105 +362,31 @@ transform: translateY(0);
  
 
 </script>
-<style>
-  
-   .tabs {
-margin-bottom: 20px;
-}
-
-.tab-btn {
-font-size: 18px;
-padding: 10px 20px;
-background-color: #f1f1f1;
-color: #333;
-border: 1px solid #ddd;
-cursor: pointer;
-transition: background-color 0.3s ease;
-margin: 0 10px;
-border-radius: 5px;
-}
-
-.tab-btn.active {
-background-color: #4CAF50;
-color: white;
-border: 1px solid #4CAF50;
-}
-
-.tab-btn:hover {
-background-color: #45a049;
-}
-
-.gallery {
-display: flex;
-justify-content: center;
-grid-template-columns: repeat(2, 1fr); 
-flex-wrap: wrap;
-gap: 15px;
-}
-
-.gallery-image {
-max-width: 500px;
-max-height: 500px;
-border-radius: 10px;
-object-fit: cover;
-transition: transform 0.3s ease;
-}
-
-.gallery-image:hover {
-transform: scale(1.05);
-}
-
-.tab-content {
-display: none;
-}
-
-#tab1 {
-display: block;
-}
-</style>
-
-<div class="gallery-container">
-
-<div class="tabs">
-<button class="tab-btn active" onclick="showTab('tab1')">SLC</button>
-<button class="tab-btn" onclick="showTab('tab2')">FLC</button>
-<button class="tab-btn" onclick="showTab('tab3')">CCSA BPA</button>
-</div>
 
 <div class="gallery">
-<div id="tab1" class="tab-content">
-<div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-<img src="20250205_202304(1).jpg" alt="SLC1" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-<img src="IMG_0251.jpg" alt="SLC2" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-</div>
-<div style="display: flex; justify-content: center; gap: 15px;">
-<img src="IMG_0256.jpg" alt="SLC3" style="width: 600px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-<img src="IMG_0311.jpg" alt="SLC4" style="width: 600px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-</div>
-
-
-</div>
-<div id="tab2" class="tab-content">
-<div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-<img src="20241030_084444.jpg" alt="SLC1" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-<img src="20241030_110303.jpg" alt="SLC2" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-</div>
-<div style="display: flex; justify-content: center; gap: 15px;">
-<img src="20241030_091115 (1).jpg" alt="SLC3" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-<img src="20241030_084629.jpg" alt="SLC4" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-</div>
-</div>
-<div id="tab3" class="tab-content">
-<div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-<img src="imgchaitra.jpg" alt="SLC1" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-<img src="IMG-7996.jpg" alt="SLC2" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-</div>
-<div style="display: flex; justify-content: center; gap: 15px;">
-<img src="IMG-2326.jpg" alt="SLC3" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-<img src="IMG-2335.jpg" alt="SLC4" style="width: 500px; height: 350px; border-radius: 10px; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-</div>
-</div>
-</div>
+  <img src="IMG_8129.jpeg" alt="a house on a mountain">
+  <img src="20241030_084625.jpg" alt="sime pink flowers">
+  <img src="IMG_8128.jpg" alt="big rocks with some trees">
+  <img src="20241030_084629.jpg" alt="a waterfall, a lot of tree and a great view from the sky">
+  <img src="20241030_091105.jpg" alt="a cool landscape">
+  <img src="20241030_091115 (1).jpg" alt="inside a town between two big buildings">
+  <img src="20241030_091124.jpg" alt="a great view of the sea above the mountain">
+  <img src="20241030_110303.jpg" alt="inside a town between two big buildings">
+  <img src="20241030_132028.jpg" alt="a great view of the sea above the mountain">
+  <img src="20250205_202304(1).jpg" alt="inside a town between two big buildings">
+  <img src="20250318_125556.jpg" alt="a great view of the sea above the mountain">
+  <img src="ballys.jpg" alt="inside a town between two big buildings">
+  <img src="IMG_0178.jpeg" alt="a great view of the sea above the mountain">
+  <img src="IMG_0251.jpg" alt="a great view of the sea above the mountain">
+  <img src="IMG_0256.jpg" alt="inside a town between two big buildings">
+  <img src="IMG_0311.jpg" alt="a great view of the sea above the mountain">
+  <img src="IMG_0679.jpg" alt="inside a town between two big buildings">
+  <img src="IMG_0867.jpg" alt="a great view of the sea above the mountain">
+  <img src="IMG_2319.jpeg" alt="inside a town between two big buildings">
+  <img src="IMG_2551.jpeg" alt="a great view of the sea above the mountain">
+  <img src="IMG_2565.jpg" alt="a great view of the sea above the mountain">
+  <img src="IMG_4438.jpg" alt="inside a town between two big buildings">
+  <img src="IMG_4450.jpeg" alt="a great view of the sea above the mountain">
 </div>
 
 <script>
@@ -416,7 +410,7 @@ selectedTab.style.display = 'block';
 
 const selectedButton = document.querySelector(`button[onclick="showTab('${tabName}')"]`);
 selectedButton.classList.add('active');
-}
+} 
 </script>
 
 </section>
@@ -519,59 +513,13 @@ chatbotContainer.style.display = "none"; // Hide the chatbot container
 <br> 
 <br>
 <br>
-
-<footer style="background-color: #f7f5ef; color: black; padding: 20px;"> <div class="container">
-<style>
-a {
-    text-decoration: none;
-    color: black;
-}
-
-a:visited {
-    color: black;
-}
-
-a:hover {
-    color: navy;
-}
-</style>
-<h4 style="text-align: center;">Resources</h4>
 <br>
 <br>
-<title>Footer </title>
-<style>
-.footer {
-display: flex;
-justify-content: space-between;
-padding: 20px;
-text-align: left;
-}
-.footer-column {
-display: flex;
-flex-direction: column;
-gap: 10px;
-}
-.footer-column a {
-text-decoration: none;
-color: #333;
-font-size: 16px;
-}
-.footer-column a:hover {
-color: #007BFF;
-text-decoration: underline;
-}
-@media (max-width: 768px) {
-.footer {
-flex-direction: column;
-align-items: center;
-}
-.footer-column {
-align-items: center;
-}
-}
-</style>
-</head>
-<body>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="footer">
         <div class="footer-column">
           <a href="https://www.instagram.com/ccsa_bpa/" target="_blank">Instagram</a>
