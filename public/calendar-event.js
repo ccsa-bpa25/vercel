@@ -96,9 +96,9 @@ getRows();
                     
 });
                 
-                
-                const eventClass = hasEvent ? 'event-day' : '';
-                console.log('event-day');
+                console.log('eventdate',hasEvent);
+                //const eventClass = hasEvent ? 'event-day' : '';
+                //console.log('event-day');
                 //calendarHTML += `<td class="${eventClass}" onclick="openEventModal(${dayNumber},'${stexactDate}')">${dayNumber}</td>`;
             }
       //-----------  
