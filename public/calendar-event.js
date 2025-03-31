@@ -101,7 +101,7 @@ console.log(`Does ${exactDate} exist?`, exists); // Output: true
 }
 
 // Call the function
-getRows();
+
 
     
 
@@ -110,6 +110,8 @@ getRows();
                 //console.log('event-day');
                 //calendarHTML += `<td class="${eventClass}" onclick="openEventModal(${dayNumber},'${stexactDate}')">${dayNumber}</td>`;
             }
+    
+    getRows();
       //-----------  
         
         
@@ -135,7 +137,7 @@ getRows();
       /*
    
     
-      }
+      //}
           */
   
       //dayDiv.textContent = day;
