@@ -68,9 +68,9 @@ getRows();
       const currentDay = new Date(date.getFullYear(), date.getMonth(), day);
   //console.log('currentDay',currentDay);
      
-        let dayYear = currentDay.getFullYear(),
-        let dayMonth = currentDay.getMonth()+1,
-        let dayNumber = currentDay.getDate()
+        let dayYear = currentDay.getFullYear();
+        let dayMonth = currentDay.getMonth()+1;
+        let dayNumber = currentDay.getDate();
         
         let syear =dayYear.toString();
         let smonth = dayMonth.toString(); 
