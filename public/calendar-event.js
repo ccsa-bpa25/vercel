@@ -82,8 +82,24 @@ async function getRows() {
                 const stexactDate=exactDate.toString();
                 console.log(exactDate);
         
-         let event=events.find(event => event.date === stexactDate);
-console.log(event.title.toString());
+        
+       
+
+
+const foundEvent = events.find(eevent => eevent.date === stexactDate);
+
+if (foundEvent) {
+  console.log('Found Item:', foundEvent); // Output: { id: 2, name: 'Bob', age: 30 }
+  console.log('Name:', foundEvent.date); // Output: Bob
+  console.log('Age:', foundEvent.details);  // Output: 30
+} else {
+  console.log('Event not found');
+}
+
+        
+        // let event=events.find(event => event.date === stexactDate);
+//console.log(event.title.toString());
+//console.log(event.title.toString());
                /* const hasEvent = events.some(event => {
     const eventDate = new Date(event.date).toISOString().split('T')[0]; // Format the date to 'YYYY-MM-DD'
     console.log(eventDate,eventDate);
